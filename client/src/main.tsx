@@ -8,11 +8,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 // Import the main app component
 import App from "./App";
 import DayByDay from "./pages/DayByDay";
-import GeolocaliseMe from "./pages/GeolocaliseMe";
-import MeteoInfo from "./pages/MeteoInfo";
 import MyCities from "./pages/MyCities";
 import PreferenciesWear from "./pages/PreferenciesWear";
+import Today from "./pages/Today";
 import WeatherNews from "./pages/WeatherNews";
+
 
 // Import additional components for new routes
 // Try creating these components in the "pages" folder
@@ -30,11 +30,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MeteoInfo />,
-      },
-      {
-        path: "/geolocation",
-        element: <GeolocaliseMe />,
+        element: <Today />,
       },
       {
         path: "/myCities",
