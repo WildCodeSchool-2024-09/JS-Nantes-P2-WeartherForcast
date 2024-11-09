@@ -1,16 +1,21 @@
 header {
+  width: 100vw;
   height: 80px;
-  box-shadow: 0 4px 4px var(--shadowColor);
+  box-shadow: 0 4px 4px var(--shadowColor); 
+  padding-left: 18px;
+  padding-right: 18px;
+  display: flex;
+}
+
+.navBar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 18px;
-  padding-right: 18px;
+
 }
 
 .logo {
   width: 225px;
   height: 36px;
 }
-
-
