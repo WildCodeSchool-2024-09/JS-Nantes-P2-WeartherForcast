@@ -1,10 +1,11 @@
 header {
   width: 100vw;
   height: 80px;
-  box-shadow: 0 4px 4px var(--shadowColor); 
+  box-shadow: 0 4px 4px var(--shadowColor);
   padding-left: 18px;
   padding-right: 18px;
   display: flex;
+  position: relative;
 }
 
 .navBar {
@@ -12,10 +13,19 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .logo {
   width: 225px;
   height: 36px;
+}
+
+.menuHeaderModal {
+  position: absolute;
+  background: var(--mainColor);
+}
+
+.menuHeaderModal nav {
+  display: flex;
+  flex-direction: column;
 }
