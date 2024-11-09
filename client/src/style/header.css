@@ -1,4 +1,16 @@
 header {
   height: 80px;
   box-shadow: 0 4px 4px var(--shadowColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 18px;
+  padding-right: 18px;
 }
+
+.logo {
+  width: 225px;
+  height: 36px;
+}
+
+
