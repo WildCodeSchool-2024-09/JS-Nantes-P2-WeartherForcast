@@ -1,5 +1,5 @@
 /*FONT IMPORT*/
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /*VARIABLES*/
 :root {
@@ -7,11 +7,11 @@
   --mainColor: #ffffff;
   --black: #303030;
   --shadowColor: rgb(0 0 0 / 25%);
-  --SecondaryColor: #61AEFF;
-  --blueGradient: #6BB3D6;
+  --SecondaryColor: #61aeff;
+  --blueGradient: #6bb3d6;
   --yellowGradient: #98dccb;
-  --orangeGradient: #E67226;
-  --purpleGradient: #572A6D;
+  --orangeGradient: #e67226;
+  --purpleGradient: #572a6d;
   /*TEXT CONFIGURATION*/
   --general-font: "Inter", sans-serif;
   --body-font-size: 12px;
@@ -33,6 +33,12 @@ main {
   margin-right: auto;
   margin-left: auto;
   flex-shrink: 1 0 auto;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 4px;
 }
 
 footer {
