@@ -1,3 +1,25 @@
+/*FONT IMPORT*/
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*VARIABLES*/
+:root {
+  /*COLOR*/
+  --mainColor: #ffffff;
+  --black: #303030;
+  --shadowColor: rgb(0 0 0 / 25%);
+  --SecondaryColor: #61AEFF;
+  --blueGradient: #6BB3D6;
+  --yellowGradient: #98dccb;
+  --orangeGradient: #E67226;
+  --purpleGradient: #572A6D;
+  /*TEXT CONFIGURATION*/
+  --general-font: "Inter", sans-serif;
+  --body-font-size: 12px;
+  --body-font-bold: 400;
+  --title-font-size: 16px;
+  --title-font-bold: 400;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -5,7 +27,7 @@
 
 main {
   /* margin: 8px; */
-  border: solid 2px red;
+  /* border: solid 2px red; */
   height: 80vh;
   width: 100vw;
   margin-right: auto;
