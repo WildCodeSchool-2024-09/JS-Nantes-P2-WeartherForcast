@@ -1,16 +1,21 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MenuHeader from "./components/MenuHeader";
 import PageContent from "./components/PageContent";
 import SearchBar from "./components/SearchBar";
+import { geolocaliseMe } from "./utilitiesFunctions/geolocation";
 
 export default function App() {
   //MODAL MENU OPEN STATE
   const [isMenuOpen, setMenuOpen] = useState(false);
   //GENERAL CITY STATE
   const [city, setCity] = useState("Paris");
+  //GEOLOCATION ON LOAD
+  useEffect(() => {
+    geolocaliseMe();
+  }, []);
 
   return (
     <>
