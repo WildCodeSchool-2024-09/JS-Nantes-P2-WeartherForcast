@@ -26,6 +26,26 @@
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  border: solid 1px #bdbdbd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--general-font);
+  font-size: var(--body-font-size);
+  color: var(--black);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
 main {
   /* margin: 8px; */
   /* border: solid 2px red; */
@@ -34,12 +54,6 @@ main {
   margin-right: auto;
   margin-left: auto;
   flex-shrink: 1 0 auto;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
 }
 
 footer {

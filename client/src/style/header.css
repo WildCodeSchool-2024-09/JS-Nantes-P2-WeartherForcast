@@ -37,17 +37,7 @@ header {
 .menuDropdown nav a {
   width: 168px;
   height: 40px;
-  border: solid 1px #bdbdbd;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-family: var(--general-font);
-  font-size: var(--body-font-size);
-  color: var(--black);
   border-radius: 4px;
-  cursor: pointer;
-  transition: all 100ms ease-in;
 }
 
 .menuDropdown nav a:hover {
