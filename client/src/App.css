@@ -64,7 +64,11 @@ main {
   width: 100vw;
   margin-right: auto;
   margin-left: auto;
-  min-height: calc(100vh - 80px - 80px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => view port total hight - header height - footer height*/
+  min-height: calc(100vh - 80px - 80px - 72px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => view port total hight - header height - footer height - (form height + margin-bottom header *2)*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*FONCTIONNAL CLASSES*/

@@ -1,5 +1,5 @@
 footer {
-  border: solid 1px #bdbdbd;
+  border-top: solid 1px #bdbdbd;
   height: 80px;
   display: flex;
   flex-direction: column;

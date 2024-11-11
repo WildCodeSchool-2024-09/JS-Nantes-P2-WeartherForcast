@@ -16,14 +16,14 @@ export default function App() {
   return (
     <>
       <Header setMenuOpen={setMenuOpen} isMenuOpen={isMenuOpen} />
+      <CityContext.Provider value={city}>
+        <SearchBar setCity={setCity} />
+        <main>
+          {isMenuOpen ? <MenuHeader /> : null}
 
-      <main>
-        {isMenuOpen ? <MenuHeader /> : null}
-        <CityContext.Provider value={city}>
-          <SearchBar setCity={setCity} />
           <PageContent />
-        </CityContext.Provider>
-      </main>
+        </main>
+      </CityContext.Provider>
       <Footer />
     </>
   );

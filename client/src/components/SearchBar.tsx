@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import searchIcon from "/src/assets/icons/searchIcon.png";
+import "/src/style/SearchBar.css";
 
 interface SearchBarProps {
   setCity: (value: { cityUser: string }) => void;
@@ -19,10 +21,15 @@ export default function SearchBar({ setCity }: SearchBarProps) {
         }
       }}
     >
-      <label htmlFor="city-input">Enter a city</label>
-
-      <input ref={inputRef} type="text" id="city-input" />
-      <button type="submit">Chercher</button>
+      <input
+        ref={inputRef}
+        type="text"
+        id="city-input"
+        placeholder="Search a city ..."
+      />
+      <button className="buttonSearch" type="submit">
+        <img className="searchIcon" src={searchIcon} alt="" />
+      </button>
     </form>
   );
 }
