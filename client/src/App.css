@@ -73,6 +73,34 @@ main {
   position: relative;
 }
 
+.backgroundClear {
+  background-image: url("/src/assets/images/clear.jpg");
+}
+
+.backgroundClouds {
+  background-image: url("/src/assets/images/clouds.jpg");
+}
+
+.backgroundRain {
+  background-image: url("/src/assets/images/rain.jpg");
+}
+
+.backgroundAtmosphere {
+  background-image: url("/src/assets/images/atmosphere.jpg");
+}
+
+.backgroundDrizzle {
+  background-image: url("/src/assets/images/drizzle.jpg");
+}
+
+.backgroundSnow {
+  background-image: url("/src/assets/images/snow.jpg");
+}
+
+.backgroundThunderstorm {
+  background-image: url("/src/assets/images/thunderstorm.jpg");
+}
+
 .pageContentSection {
   position: absolute;
   top: 40%;

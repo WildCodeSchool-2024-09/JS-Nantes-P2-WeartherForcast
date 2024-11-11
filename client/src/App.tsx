@@ -12,15 +12,18 @@ export default function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   //GENERAL CITY STATE
   const [city, setCity] = useState("");
+  //BACKGROUND STATE FOR GEOLOC
+  const [background, setBackground] = useState("");
+
   //GEOLOCATION ON LOAD
   useEffect(() => {
-    geolocaliseMe(setCity);
+    geolocaliseMe(setCity, setBackground);
   }, []);
 
   return (
     <>
       <Header setMenuOpen={setMenuOpen} isMenuOpen={isMenuOpen} />
-      <main>
+      <main className={`background${background}`}>
         {isMenuOpen ? <MenuHeader /> : null}
         <SearchBar setCity={setCity} />
         <section className="pageContentSection">
