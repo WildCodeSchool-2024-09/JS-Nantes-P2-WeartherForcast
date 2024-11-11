@@ -64,7 +64,6 @@ main {
   margin-right: auto;
   margin-left: auto;
   min-height: calc(100vh - 80px - 80px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => (view port total height - header height - footer height))*/
-  background-image: url("/src/assets/images/clouds.jpg");
   display: flex;
   flex-direction: column;
   display: flex;

@@ -23,7 +23,11 @@ export default function App() {
   return (
     <>
       <Header setMenuOpen={setMenuOpen} isMenuOpen={isMenuOpen} />
-      <main className={`background${background}`}>
+      <main
+        style={{
+          backgroundImage: `url(${background})`,
+        }}
+      >
         {isMenuOpen ? <MenuHeader /> : null}
         <SearchBar setCity={setCity} />
         <section className="pageContentSection">
