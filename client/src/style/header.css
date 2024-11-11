@@ -23,6 +23,7 @@ header {
 
 .menuDropdown {
   position: absolute;
+  left: 0;
   background: var(--mainColor);
   padding: 32px;
   box-shadow: 0 2px 6px var(--shadowColor);
