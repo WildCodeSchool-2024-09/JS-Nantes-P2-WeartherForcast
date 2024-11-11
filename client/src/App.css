@@ -51,19 +51,10 @@ h1 {
 }
 
 main {
-  /* margin: 8px; */
-  /* border: solid 2px red; */
-  height: 80vh;
   width: 100vw;
   margin-right: auto;
   margin-left: auto;
-  flex-shrink: 1 0 auto;
-}
-
-footer {
-  border: solid 3px;
-  height: 75px;
-  flex-shrink: 0;
+  min-height: calc(100vh - 80px - 80px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => view port total hight - header height - footer height*/
 }
 
 /*FONCTIONNEL CLASSES*/

@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "/src/style/footer.css";
 
 export default function Footer() {
   return (
     <footer>
-      <Link to="/">Today</Link>
-      <Link to="/dayByDay">Day By Day</Link>
-      <Link to="/WeatherNews">Weather News</Link>
+      <NavLink to="/">Today</NavLink>
+      <NavLink to="/dayByDay">Day By Day</NavLink>
+      <NavLink to="/WeatherNews">Weather News</NavLink>
     </footer>
   );
 }
