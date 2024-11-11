@@ -14,7 +14,7 @@ export default function App() {
   const [city, setCity] = useState("Paris");
   //GEOLOCATION ON LOAD
   useEffect(() => {
-    geolocaliseMe();
+    geolocaliseMe(setCity);
   }, []);
 
   return (
