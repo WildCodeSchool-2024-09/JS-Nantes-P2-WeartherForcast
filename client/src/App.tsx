@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MenuHeader from "./components/MenuHeader";
 import PageContent from "./components/PageContent";
+import SearchBar from "./components/SearchBar";
 
 export default function App() {
   //MODAL MENU OPEN STATE
@@ -14,6 +15,7 @@ export default function App() {
       <Header setMenuOpen={setMenuOpen} isMenuOpen={isMenuOpen} />
       <main>
         {isMenuOpen ? <MenuHeader /> : null}
+        <SearchBar />
         <PageContent />
       </main>
       <Footer />
