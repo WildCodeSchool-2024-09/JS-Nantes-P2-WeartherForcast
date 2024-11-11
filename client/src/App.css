@@ -8,14 +8,15 @@
   --black: #303030;
   --shadowColor: rgb(0 0 0 / 25%);
   --secondaryColor: #c7dff9;
+  --font-highlight-color: #61aeff;
   --blueGradient: #6bb3d6;
   --yellowGradient: #98dccb;
   --orangeGradient: #e67226;
   --purpleGradient: #572a6d;
   /*TEXT CONFIGURATION*/
   --general-font: "Inter", sans-serif;
-  --body-font-size: 12px; /*Un peur petit -> 16px, donc 1rem plutot ?*/
-  --body-font-bold: 400;
+  --body-font-size: 1rem; /*12px initialement Un peu petit -> 16px, donc 1rem plutot ?*/
+  --body-font-bold: 600;
   --title-font-size: 16px; /*Un peu petit -> 20px peut etre ? a mettre en rem*/
   --title-font-bold: 400;
 }
@@ -26,6 +27,7 @@
   box-sizing: border-box;
 }
 
+/*GENERAL STYLE*/
 button {
   border: none;
   background: none;
@@ -33,6 +35,7 @@ button {
 }
 
 a {
+  height: 40px;
   border: solid 1px #bdbdbd;
   display: flex;
   justify-content: center;
@@ -40,10 +43,17 @@ a {
   text-decoration: none;
   font-family: var(--general-font);
   font-size: var(--body-font-size);
-  color: var(--black);
+  font-weight: var(--body-font-bold);
+  color: var(--font-highlight-color);
   border-radius: 4px;
   cursor: pointer;
   transition: all 100ms ease-in;
+}
+
+a:hover {
+  background: var(--secondaryColor);
+  font-weight: 400;
+  border: solid 1px #61aeff;
 }
 
 h1 {
@@ -57,7 +67,7 @@ main {
   min-height: calc(100vh - 80px - 80px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => view port total hight - header height - footer height*/
 }
 
-/*FONCTIONNEL CLASSES*/
+/*FONCTIONNAL CLASSES*/
 .active {
   background: var(--secondaryColor);
   border: solid 1px #61aeff;
