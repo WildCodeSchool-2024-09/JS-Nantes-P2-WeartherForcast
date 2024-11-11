@@ -7,16 +7,16 @@
   --mainColor: #ffffff;
   --black: #303030;
   --shadowColor: rgb(0 0 0 / 25%);
-  --SecondaryColor: #61aeff;
+  --secondaryColor: #c7dff9;
   --blueGradient: #6bb3d6;
   --yellowGradient: #98dccb;
   --orangeGradient: #e67226;
   --purpleGradient: #572a6d;
   /*TEXT CONFIGURATION*/
   --general-font: "Inter", sans-serif;
-  --body-font-size: 12px;
+  --body-font-size: 12px; /*Un peur petit -> 16px, donc 1rem plutot ?*/
   --body-font-bold: 400;
-  --title-font-size: 16px;
+  --title-font-size: 16px; /*Un peu petit -> 20px peut etre ? a mettre en rem*/
   --title-font-bold: 400;
 }
 

@@ -20,12 +20,38 @@ header {
   height: 36px;
 }
 
-.menuHeaderModal {
+.menuDropdown {
   position: absolute;
   background: var(--mainColor);
+  padding: 32px;
+  box-shadow: 0 4px 4px var(--shadowColor);
+  border-bottom-right-radius: 8px;
 }
 
-.menuHeaderModal nav {
+.menuDropdown nav {
   display: flex;
   flex-direction: column;
+  gap: 32px;
+}
+
+.menuDropdown nav a {
+  width: 168px;
+  height: 40px;
+  border: solid 1px #bdbdbd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--general-font);
+  font-size: var(--body-font-size);
+  color: var(--black);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.menuDropdown nav a:hover {
+  background: var(--secondaryColor);
+  font-weight: 400;
+  border: solid 1px #61aeff;
 }

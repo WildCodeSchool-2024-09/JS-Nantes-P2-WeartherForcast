@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 export default function MenuHeader() {
   return (
-    <section className="menuHeaderModal">
+    <section className="menuDropdown">
       <nav>
         <Link to="/">Geolocalise me</Link>
         <Link to="/myCities">My cities</Link>
