@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import CityContext from "../context/CityContext";
-import { useContext } from "react";
 
 export default function PageContent() {
   const city = useContext(CityContext);
