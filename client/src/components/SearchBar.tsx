@@ -3,11 +3,12 @@ import searchIcon from "/src/assets/icons/searchIcon.png";
 import "/src/style/SearchBar.css";
 
 interface SearchBarProps {
-  setCity: (value: { cityUser: string }) => void;
+  setCity: (value: string) => void;
 }
 
 export default function SearchBar({ setCity }: SearchBarProps) {
   const inputRef = useRef<null | HTMLInputElement>(null);
+  /* 💡 useRef() hook instead of querySelector. 📖 DOC => https://react.dev/reference/react/useRef */
 
   return (
     <form
@@ -16,7 +17,8 @@ export default function SearchBar({ setCity }: SearchBarProps) {
         if (inputRef?.current) {
           const value = inputRef.current.value;
           if (value && value.trim().length > 2) {
-            setCity({ cityUser: value });
+            setCity(value);
+            inputRef.current.value = "";
           }
         }
       }}

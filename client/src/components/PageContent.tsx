@@ -1,14 +1,15 @@
-import { useContext } from "react";
 import { Outlet } from "react-router-dom";
-import CityContext from "../context/CityContext";
 
-export default function PageContent() {
-  const city = useContext(CityContext);
+interface PageContentProps {
+  outletContext: { city: string; setCity: (value: string) => void };
+}
+
+export default function PageContent({ outletContext }: PageContentProps) {
   return (
     <section>
-      <h1>{city.cityUser}</h1>
+      <h1>{outletContext.city}</h1>
       <p>test</p>
-      <Outlet />
+      <Outlet context={outletContext} />
     </section>
   );
 }
