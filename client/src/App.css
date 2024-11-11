@@ -46,6 +46,10 @@ a {
   transition: all 100ms ease-in;
 }
 
+h1 {
+  font-size: 24px;
+}
+
 main {
   /* margin: 8px; */
   /* border: solid 2px red; */
@@ -62,6 +66,8 @@ footer {
   flex-shrink: 0;
 }
 
-h1 {
-  font-size: 24px;
+/*FONCTIONNEL CLASSES*/
+.active {
+  background: var(--secondaryColor);
+  border: solid 1px #61aeff;
 }
