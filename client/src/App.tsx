@@ -1,12 +1,15 @@
 import "./App.css";
-import WhatToWear from "./components/WhatToWear";
-function App() {
+
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import PageContent from "./components/PageContent";
+
+export default function App() {
   return (
     <>
-      <main>
-        <WhatToWear />
-      </main>
+      <Header />
+      <PageContent />
+      <Footer />
     </>
   );
 }
-export default App;
