@@ -70,6 +70,7 @@ main {
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-position: bottom;
 }
 
 .page-content-section {

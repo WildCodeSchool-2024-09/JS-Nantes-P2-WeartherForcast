@@ -5,7 +5,7 @@ export const getBackground = (
   callback: (value: string) => void,
 ) => {
   const backGroundToFind = backgroundData.find((background) => {
-    background.description === `${descriptionData}`;
+    return background.description === `${descriptionData}`;
   });
   if (backGroundToFind) {
     callback(backGroundToFind.url);
