@@ -18,7 +18,7 @@ export default function Header({ setMenuOpen, isMenuOpen }: HeaderProps) {
 
   return (
     <header>
-      <section className="navBar">
+      <section className="nav-bar">
         <button type="button" onClick={handleClick}>
           <img
             src={isMenuOpen ? `${menuBurgerOpen}` : `${menuBurger}`}
