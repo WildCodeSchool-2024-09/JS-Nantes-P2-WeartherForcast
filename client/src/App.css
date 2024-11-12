@@ -5,23 +5,19 @@
 
 header {
   border: solid 3px;
-  height: 75px;
+  height: 80px;
 }
 
 main {
-  /* margin: 8px; */
   border: solid 2px red;
-  height: 80vh;
+  height: calc(100vh - 80px - 80px); /*sticky footer*/
   width: 100vw;
-  margin-right: auto;
-  margin-left: auto;
-  flex-shrink: 1 0 auto;
+  margin: 0 auto;
 }
 
 footer {
   border: solid 3px;
-  height: 75px;
-  flex-shrink: 0;
+  height: 80px;
 }
 
 h1 {
