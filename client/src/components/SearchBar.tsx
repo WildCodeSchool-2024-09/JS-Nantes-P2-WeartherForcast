@@ -29,8 +29,8 @@ export default function SearchBar({ setCity }: SearchBarProps) {
         id="city-input"
         placeholder="Search a city ..."
       />
-      <button className="buttonSearch" type="submit">
-        <img className="searchIcon" src={searchIcon} alt="" />
+      <button className="button-search" type="submit">
+        <img className="search-icon" src={searchIcon} alt="" />
       </button>
     </form>
   );

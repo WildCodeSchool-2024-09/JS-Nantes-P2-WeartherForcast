@@ -16,12 +16,12 @@ input {
   margin-left: 20px; /* ⚠️ Don't touch -> this margin allow to make border-radius of form efficient*/
 }
 
-.buttonSearch {
+.button-search {
   border-left: solid 0.5px var(--shadowColor);
   padding-left: 20px;
 }
 
-.searchIcon {
+.search-icon {
   width: 28px;
   margin-right: 20px;
 }

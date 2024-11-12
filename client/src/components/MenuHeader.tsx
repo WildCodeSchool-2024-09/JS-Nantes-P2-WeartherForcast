@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function MenuHeader() {
   return (
-    <section className="menuDropdown">
+    <section className="menu-dropdown">
       <nav>
         <NavLink to="/">Geolocalise me</NavLink>
         <NavLink to="/myCities">My cities</NavLink>
