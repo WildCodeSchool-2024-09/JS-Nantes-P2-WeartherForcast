@@ -22,7 +22,7 @@ header {
   margin-right: 18px;
 }
 
-.menuDropdown {
+.menu-dropdown {
   position: absolute;
   background: var(--mainColor);
   padding: 32px;
@@ -30,13 +30,13 @@ header {
   border-bottom-right-radius: 8px;
 }
 
-.menuDropdown nav {
+.menu-dropdown nav {
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-.menuDropdown nav a {
+.menu-dropdown nav a {
   width: 168px;
   height: 40px;
   border-radius: 4px;
