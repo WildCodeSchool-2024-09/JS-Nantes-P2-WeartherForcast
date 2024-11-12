@@ -30,7 +30,7 @@ export default function App() {
       >
         {isMenuOpen ? <MenuHeader /> : null}
         <SearchBar setCity={setCity} />
-        <section className="pageContentSection">
+        <section className="page-content-section">
           <PageContent outletContext={{ city, setCity }} />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
         </section>

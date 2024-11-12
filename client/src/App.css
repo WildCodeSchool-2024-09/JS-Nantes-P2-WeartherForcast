@@ -72,7 +72,7 @@ main {
   position: relative;
 }
 
-.pageContentSection {
+.page-content-section {
   position: absolute;
   top: 40%;
   border: solid black 1px;

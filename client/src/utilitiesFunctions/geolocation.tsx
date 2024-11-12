@@ -37,6 +37,7 @@ async function recoverCityDatas(
     const datas = await request.json();
     calback1(`${datas.name}`);
     const currentDescriptionData = `${datas.weather[0].main}`;
+    console.log({ currentDescriptionData });
     getBackground(currentDescriptionData, callback2);
   } catch (error) {
     alert("Sorry, we met a problem. Please, come back later.");
