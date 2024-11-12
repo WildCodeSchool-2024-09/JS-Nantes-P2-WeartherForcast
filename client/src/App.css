@@ -10,3 +10,31 @@
   /* margin-top: 155px;*/
   /*margin-left: 30px;*/
 }
+#city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+#news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+#actuality {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+#Card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
