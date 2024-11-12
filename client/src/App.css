@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #app {
   display: flex;
   justify-content: center;
@@ -37,4 +38,30 @@
   align-items: center;
 
   height: 100vh;
+=======
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  border: solid 3px;
+  height: 80px;
+}
+
+main {
+  border: solid 2px red;
+  height: calc(100vh - 80px - 80px); /*sticky footer*/
+  width: 100vw;
+  margin: 0 auto;
+}
+
+footer {
+  border: solid 3px;
+  height: 80px;
+}
+
+h1 {
+  font-size: 24px;
+>>>>>>> 1cf63104c07b520f898d93c97dd492584dac86bb
 }

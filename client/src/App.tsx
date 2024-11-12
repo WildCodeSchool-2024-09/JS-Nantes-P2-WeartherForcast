@@ -1,13 +1,14 @@
 import "./App.css";
-import "./weathernews.tsx";
-import Newscard from "./weathernews.tsx";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import PageContent from "./components/PageContent";
 
-function App() {
+export default function App() {
   return (
     <>
-      <Newscard />
+      <Header />
+      <PageContent />
+      <Footer />
     </>
   );
 }
-
-export default App;
