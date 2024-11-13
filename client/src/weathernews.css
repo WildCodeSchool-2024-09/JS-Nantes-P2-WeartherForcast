@@ -11,13 +11,6 @@
 /*margin-left: 30px;
 }*/
 
-/*#city {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}*/
-
 /*#news {
   display: flex;
   justify-content: center;
@@ -38,4 +31,21 @@
   align-items: center;
   height: 100vh;
 }*/
-
+.city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+iframe {
+  border-radius: 30px;
+}
+button {
+  justify-content: space-between;
+  margin: 50px;
+  height: 20px;
+}
+section h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

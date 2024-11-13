@@ -11,28 +11,34 @@ function WeatherNews() {
   };
 
   return (
-    <div id="city">
-      <iframe
-        title="something"
-        src={weatherNewsData[cityIndex].src}
-        width="290"
-        height="350"
-      />
-      {cityIndex > 0 ? (
-        <button type="button" onClick={handleClickDec}>
-          previous
-        </button>
-      ) : (
-        <></>
-      )}
-      {cityIndex < weatherNewsData.length - 1 ? (
-        <button type="button" onClick={handleClickInc}>
-          next
-        </button>
-      ) : (
-        <></>
-      )}
-    </div>
+    <section>
+      <div>
+        <h1>Weather News</h1>
+      </div>
+      <div className="city">
+        {cityIndex > 0 ? (
+          <button type="button" onClick={handleClickDec}>
+            previous
+          </button>
+        ) : (
+          <></>
+        )}
+        <iframe
+          title="something"
+          src={weatherNewsData[cityIndex].src}
+          width="350"
+          height="550"
+        />
+
+        {cityIndex < weatherNewsData.length - 1 ? (
+          <button type="button" onClick={handleClickInc}>
+            next
+          </button>
+        ) : (
+          <></>
+        )}
+      </div>
+    </section>
   );
 }
 /* <div id="app">
