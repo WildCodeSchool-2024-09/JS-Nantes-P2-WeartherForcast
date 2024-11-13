@@ -1,8 +1,9 @@
 import "/src/weathernews.css";
 import { useState } from "react";
+
+import arrow from "/src/assets/icons/arrow3.png";
 import { weatherNewsData } from "../weatherNewsData.tsx";
-import rightArrow from "/src/assets/icons/right-arrow.png";
-import rightArrow2 from "/src/assets/icons/right-arrow2.png";
+
 function WeatherNews() {
   const [cityIndex, setCityIndex] = useState(0);
   const handleClickInc = () => {
@@ -17,9 +18,13 @@ function WeatherNews() {
       <div>
         <h1>Weather News</h1>
       </div>
-      <div className="city">
+      <div className="carrousselContainer">
         <button type="button" onClick={handleClickDec}>
-          <img src={rightArrow2} alt="right arrow previous button " />
+          <img
+            className="left-arrow"
+            src={arrow}
+            alt="right arrow previous button "
+          />
         </button>
 
         <iframe
@@ -30,7 +35,11 @@ function WeatherNews() {
         />
 
         <button type="button" onClick={handleClickInc}>
-          <img src={rightArrow} alt="right arrow next button " />
+          <img
+            className="right-arrow"
+            src={arrow}
+            alt="right arrow next button "
+          />
         </button>
       </div>
     </section>

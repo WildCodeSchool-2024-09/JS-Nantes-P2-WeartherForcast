@@ -31,11 +31,12 @@
   align-items: center;
   height: 100vh;
 }*/
-.city {
+.carrousselContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 iframe {
   border-radius: 30px;
 }
@@ -45,11 +46,23 @@ section h1 {
   justify-content: center;
   align-items: center;
 }
+
 button {
   background: none;
   border: none;
 }
+
 img {
   height: 20px;
   margin: 15px;
+}
+
+.left-arrow {
+  transform-origin: 50%;
+  transform: rotate(360deg);
+}
+
+.right-arrow {
+  transform-origin: 50%;
+  transform: rotate(180deg);
 }
