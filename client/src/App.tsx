@@ -1,12 +1,14 @@
 import "./App.css";
-import Today from "./components/Today";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import PageContent from "./components/PageContent";
 
-function App() {
+export default function App() {
   return (
     <>
-      <Today />
+      <Header />
+      <PageContent />
+      <Footer />
     </>
   );
 }
-
-export default App;

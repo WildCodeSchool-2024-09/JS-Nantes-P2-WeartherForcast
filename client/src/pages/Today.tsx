@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
 
 function Today() {
-  const city = "Nantes";
+  const city = "Moscou";
   const [skyState, setSkyState] = useState();
   const [temperature, setTemperature] = useState();
   const [realFeel, setRealFeel] = useState();
@@ -14,16 +15,16 @@ function Today() {
       .then((response) => response.json())
       .then((data) => {
         setSkyState(data.weather[0].icon);
-        setTemperature(data.main.temp);
-        setRealFeel(data.main.feels_like);
+        setTemperature(Math.round(data.main.temp));
+        setRealFeel(Math.round(data.main.feels_like));
       })
       .catch((err) => console.error(err));
   }, []);
 
   // Formater la date actuelle
   const today = new Date();
-  const options = { weekday: "long", day: "numeric", month: "long" };
-  const dateOfToday = today.toLocaleDateString("fr-FR", options);
+  // const options = { weekday: "long", day: "numeric", month: "long" };
+  const dateOfToday = today.toLocaleDateString("fr-FR");
 
   return (
     <div className="cadranContainer">
@@ -38,10 +39,10 @@ function Today() {
           </figcaption>
           <h3 className="temperature">{temperature}°</h3>
         </div>
-        <div className="realFeel">RealFeel® {realFeel}°</div>
+        <div className="realFeel">Feel like : {realFeel}°</div>
         <div className="date">{dateOfToday}</div>
-        <button type="button">
-          <img src="<3" alt="<3" />
+        <button type="button" className="favButton">
+          <img className="favIcon" src={emptyHeart} alt="<3" />
         </button>
       </div>
     </div>

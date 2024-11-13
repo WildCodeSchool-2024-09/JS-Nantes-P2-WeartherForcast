@@ -1,34 +1,52 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 .cadranContainer {
+  position: relative;
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background: linear-gradient(to bottom, #409dd3, #cd981b, #6913da); /* Contour dégradé */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadranContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    #6bb3d6 30.2%,
+    #ecc36d 49.7%,
+    #e67226 57.1%,
+    #572a6d 67.4%
+  );
+  mask-image: radial-gradient(circle, transparent 65%, black 66%);
+  -webkit-mask-image: radial-gradient(circle, transparent 65%, black 66%);
 }
 
 .cadranContent {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: rgba(21, 128, 170, 0.8); /* Fond gris semi-transparent */
+  background: rgba(21, 128, 170, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
-  font-family: Arial, sans-serif;
 }
 
-.cadranContent img {
+.stateTemp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stateTemp img {
   width: 50px;
   height: 50px;
 }
@@ -40,4 +58,19 @@
 .realFeel,
 .date {
   font-size: 14px;
+  padding: 4px;
+}
+
+.favButton {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.favIcon {
+  width: 32px;
+  height: 32px;
+  background: none;
 }
