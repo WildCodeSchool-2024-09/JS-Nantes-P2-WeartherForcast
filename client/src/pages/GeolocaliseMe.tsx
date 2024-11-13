@@ -4,16 +4,16 @@ import "/src/style/animationCircle.css";
 export default function GeolocaliseMe() {
   return (
     <section className="circleContainer">
-      {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
       <svg className="circle1" height="30rem" width="30rem">
+        <title>animated circle</title>
         <defs>
           <linearGradient id="MyGradient">
-            <stop offset="0%" stop-color="#826CA0" />
-            <stop offset="25%" stop-color="#AC8FD3" />
-            <stop offset="50%" stop-color="#FF8768" />
-            <stop offset="60%" stop-color="#ECC36D" />
+            <stop offset="0%" stop-color="#572a6d" />
+            <stop offset="25%" stop-color="#572a6d" />
+            <stop offset="50%" stop-color="#e67226 " />
+            <stop offset="60%" stop-color="#ecc36d " />
             <stop offset="85%" stop-color="#61AEFF" />
-            <stop offset="100%" stop-color="#61AEFF" />
+            <stop offset="100%" stop-color="#6bb3d6 " />
           </linearGradient>
         </defs>
         <circle
