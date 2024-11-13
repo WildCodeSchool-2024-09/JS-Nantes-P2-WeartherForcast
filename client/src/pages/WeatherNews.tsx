@@ -15,9 +15,6 @@ function WeatherNews() {
 
   return (
     <section>
-      <div>
-        <h1>Weather News</h1>
-      </div>
       <div className="carrousselContainer">
         {cityIndex > 0 ? (
           <button type="button" onClick={handleClickDec}>
