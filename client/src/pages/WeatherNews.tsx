@@ -19,13 +19,23 @@ function WeatherNews() {
         <h1>Weather News</h1>
       </div>
       <div className="carrousselContainer">
-        <button type="button" onClick={handleClickDec}>
-          <img
-            className="left-arrow"
-            src={arrow}
-            alt="right arrow previous button "
-          />
-        </button>
+        {cityIndex > 0 ? (
+          <button type="button" onClick={handleClickDec}>
+            <img
+              className="left-arrow"
+              src={arrow}
+              alt="right arrow previous button "
+            />
+          </button>
+        ) : (
+          <button type="button">
+            <img
+              className="left-arrow"
+              src={arrow}
+              alt="right arrow previous button "
+            />
+          </button>
+        )}
 
         <iframe
           title="something"
@@ -33,14 +43,23 @@ function WeatherNews() {
           width="350"
           height="550"
         />
-
-        <button type="button" onClick={handleClickInc}>
-          <img
-            className="right-arrow"
-            src={arrow}
-            alt="right arrow next button "
-          />
-        </button>
+        {cityIndex < 4 ? (
+          <button type="button" onClick={handleClickInc}>
+            <img
+              className="right-arrow"
+              src={arrow}
+              alt="right arrow next button "
+            />
+          </button>
+        ) : (
+          <button type="button">
+            <img
+              className="right-arrow"
+              src={arrow}
+              alt="left arrow previous button "
+            />
+          </button>
+        )}
       </div>
     </section>
   );
