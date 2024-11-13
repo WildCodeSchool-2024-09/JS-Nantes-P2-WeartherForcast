@@ -6,7 +6,6 @@
 .today-comp {
   display: flex;
   justify-content: center;
-  background: rgb(11, 58, 77);
 }
 
 .circle-container {
@@ -31,8 +30,8 @@
 }
 
 .cadran-content {
-  width: 225px;
-  height: 225px;
+  width: 235px;
+  height: 235px;
   border-radius: 50%;
   background: rgba(21, 128, 170);
   display: flex;
@@ -41,6 +40,7 @@
   align-items: center;
   color: white;
   position: absolute;
+  z-index: -1;
 }
 
 .state-temp {
