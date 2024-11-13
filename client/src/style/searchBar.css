@@ -16,10 +16,23 @@ input {
 
 .button-search {
   border-left: solid 0.5px var(--shadowColor);
-  padding-left: 20px;
+  border-radius: 25px;
+  background: var(--mainColor);
+  position: relative;
+  border: solid 1px var(--shadowColor);
+  width: 60px;
+  transition: all 100ms ease-in;
+}
+
+.button-search:hover {
+  background: var(--secondaryColor);
+  border: solid 1px #61aeff;
 }
 
 .search-icon {
   width: 28px;
   margin-right: 20px;
+  position: absolute;
+  top: 5%;
+  left: 25%;
 }
