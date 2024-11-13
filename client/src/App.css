@@ -1,67 +1,78 @@
-<<<<<<< HEAD
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*FONT IMPORT*/
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-  height: 100vh;
-  /* margin: auto;
-  display: grid;
-  display: flexbox;
-  /* margin-top: 155px;*/
-  /*margin-left: 30px;*/
+/*VARIABLES*/
+:root {
+  /*COLOR*/
+  --mainColor: #ffffff;
+  --black: #303030;
+  --shadowColor: rgb(0 0 0 / 25%);
+  --secondaryColor: #c7dff9;
+  --font-highlight-color: #61aeff;
+  --blueGradient: #6bb3d6;
+  --yellowGradient: #98dccb;
+  --orangeGradient: #e67226;
+  --purpleGradient: #572a6d;
+  /*TEXT CONFIGURATION*/
+  --general-font: "Inter", sans-serif;
+  --body-font-size: 1rem; /*12px initialement Un peu petit -> 16px, donc 1rem plutot ?*/
+  --body-font-bold: 600;
+  --title-font-size: 16px; /*Un peu petit -> 20px peut etre ? a mettre en rem*/
+  --title-font-bold: 400;
 }
-#city {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  height: 100vh;
-}
-#news {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-}
-#actuality {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-}
-#Card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-=======
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-header {
-  border: solid 3px;
-  height: 80px;
+/*GENERAL STYLE*/
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
-main {
-  border: solid 2px red;
-  height: calc(100vh - 80px - 80px); /*sticky footer*/
-  width: 100vw;
-  margin: 0 auto;
+a {
+  height: 40px;
+  border: solid 1px #bdbdbd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--general-font);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-bold);
+  color: var(--font-highlight-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
 }
 
-footer {
-  border: solid 3px;
-  height: 80px;
+a:hover {
+  background: var(--secondaryColor);
+  font-weight: 400;
+  border: solid 1px #61aeff;
 }
 
 h1 {
   font-size: 24px;
->>>>>>> 1cf63104c07b520f898d93c97dd492584dac86bb
+}
+
+main {
+  width: 100vw;
+  margin-right: auto;
+  margin-left: auto;
+  min-height: calc(100vh - 80px - 80px - 56px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => (view port total height - header height - footer height - (form height + margin-bottom header))*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*FONCTIONNAL CLASSES*/
+.active {
+  background: var(--secondaryColor);
+  border: solid 1px #61aeff;
 }

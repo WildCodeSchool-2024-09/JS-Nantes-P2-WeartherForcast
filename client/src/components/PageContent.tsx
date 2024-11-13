@@ -1,11 +1,15 @@
 import { Outlet } from "react-router-dom";
 
-export default function PageContent() {
+interface PageContentProps {
+  outletContext: { city: string; setCity: (value: string) => void };
+}
+
+export default function PageContent({ outletContext }: PageContentProps) {
   return (
-    <main>
-      <h1>CITY</h1>
+    <section>
+      <h1>{outletContext.city}</h1>
       <p>test</p>
-      <Outlet />
-    </main>
+      <Outlet context={outletContext} />
+    </section>
   );
 }
