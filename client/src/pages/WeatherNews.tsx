@@ -1,6 +1,5 @@
-import "/src/weathernews.css";
+import "/src/style/weathernews.css";
 import { useState } from "react";
-
 import arrow from "/src/assets/icons/arrow3.png";
 import { weatherNewsData } from "../weatherNewsData.tsx";
 
