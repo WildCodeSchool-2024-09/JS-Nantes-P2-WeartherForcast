@@ -20,8 +20,8 @@
 .circle2 {
   position: absolute;
   background-color: #88b9dd;
-  width: 380px;
-  height: 380px;
+  width: 235px;
+  height: 235px;
   border-radius: 50%;
   z-index: -1;
 }
