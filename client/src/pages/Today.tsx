@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
 
+interface WeatherData {
+  skyState: string | undefined;
+  temperature: number | undefined;
+  realFeel: number | undefined;
+}
+
 function Today() {
   const city = "Moscou";
-  const [skyState, setSkyState] = useState();
-  const [temperature, setTemperature] = useState();
-  const [realFeel, setRealFeel] = useState();
+  const [skyState, setSkyState] = useState<WeatherData["skyState"]>(undefined);
+  const [temperature, setTemperature] =
+    useState<WeatherData["temperature"]>(undefined);
+  const [realFeel, setRealFeel] = useState<WeatherData["realFeel"]>(undefined);
 
-  // Appel API pour récupérer la météo
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
     fetch(url)
@@ -21,9 +27,7 @@ function Today() {
       .catch((err) => console.error(err));
   }, []);
 
-  // Formater la date actuelle
   const today = new Date();
-  // const options = { weekday: "long", day: "numeric", month: "long" };
   const dateOfToday = today.toLocaleDateString("fr-FR");
 
   return (
