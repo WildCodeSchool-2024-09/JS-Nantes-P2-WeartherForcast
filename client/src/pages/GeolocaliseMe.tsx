@@ -4,7 +4,7 @@ import "/src/style/animationCircle.css";
 export default function GeolocaliseMe() {
   return (
     <section className="circleContainer">
-      <svg className="circle1" height="30rem" width="30rem">
+      <svg className="circle-1" height="30rem" width="30rem">
         <title>animated circle</title>
         <defs>
           <linearGradient id="MyGradient">
