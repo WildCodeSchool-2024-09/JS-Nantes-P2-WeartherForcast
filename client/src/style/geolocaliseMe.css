@@ -1,0 +1,92 @@
+.today-comp {
+  display: flex;
+  justify-content: center;
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 275px;
+  height: 275px;
+}
+
+.circle-1 {
+  z-index: 1;
+}
+
+.circle1-stroke {
+  top: 0;
+  stroke-dasharray: calc(12rem * 2 * PI);
+  stroke-dashoffset: calc(12rem * 2 * PI);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.animation-circles {
+  animation: load 2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.cadran-content {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(21, 128, 170);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  font-family: var(--general-font);
+  font-size: 16px;
+  gap: 8px;
+}
+
+.your-city {
+  text-align: center;
+  font-size: 16px;
+  max-width: 150px;
+  padding-top: 24px;
+}
+
+.state-temp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.state-temp img {
+  width: 50px;
+  height: 50px;
+}
+
+.temperature {
+  font-size: 32px;
+}
+
+.real-feel,
+.date {
+  font-size: 14px;
+  padding: 4px;
+}
+
+.fav-button {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.fav-icon {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes load {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
