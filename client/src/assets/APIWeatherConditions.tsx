@@ -1,71 +1,120 @@
-// const weatherConditions = {
-//   // Thunderstorm
-//   200: 'Thunderstorm with light rain',
-//   201: 'Thunderstorm with rain',
-//   202: 'Thunderstorm with heavy rain',
-//   210: 'Light thunderstorm',
-//   211: 'Thunderstorm',
-//   212: 'Heavy thunderstorm',
-//   221: 'Ragged thunderstorm',
-//   230: 'Thunderstorm with light drizzle',
-//   231: 'Thunderstorm with drizzle',
-//   232: 'Thunderstorm with heavy drizzle',
-
-//   // Drizzle
-//   300: 'Light intensity drizzle',
-//   301: 'Drizzle',
-//   302: 'Heavy intensity drizzle',
-//   310: 'Light intensity drizzle rain',
-//   311: 'Drizzle rain',
-//   312: 'Heavy intensity drizzle rain',
-//   313: 'Shower rain and drizzle',
-//   314: 'Heavy shower rain and drizzle',
-//   321: 'Shower drizzle',
-
-//   // Rain
-//   500: 'Light rain',
-//   501: 'Moderate rain',
-//   502: 'Heavy intensity rain',
-//   503: 'Very heavy rain',
-//   504: 'Extreme rain',
-//   511: 'Freezing rain',
-//   520: 'Light intensity shower rain',
-//   521: 'Shower rain',
-//   522: 'Heavy intensity shower rain',
-//   531: 'Ragged shower rain',
-
-//   // Snow
-//   600: 'Light snow',
-//   601: 'Snow',
-//   602: 'Heavy snow',
-//   611: 'Sleet',
-//   612: 'Light shower sleet',
-//   613: 'Shower sleet',
-//   615: 'Light rain and snow',
-//   616: 'Rain and snow',
-//   620: 'Light shower snow',
-//   621: 'Shower snow',
-//   622: 'Heavy shower snow',
-
-//   // Atmosphere
-//   701: 'Mist',
-//   711: 'Smoke',
-//   721: 'Haze',
-//   731: 'Sand/dust whirls',
-//   741: 'Fog',
-//   751: 'Sand',
-//   761: 'Dust',
-//   762: 'Ash',
-//   771: 'Squalls',
-//   781: 'Tornado',
-
-//   // Clear
-//   800: 'Clear sky',
-
-//   // Clouds
-//   801: 'Few clouds: 11-25%',
-//   802: 'Scattered clouds: 25-50%',
-//   803: 'Broken clouds: 51-84%',
-//   804: 'Overcast clouds: 85-100%'
-// };
-// export default WeatherConditions
+const weatherConditions = [
+  {
+    category: "Thunderstorm",
+    id: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232],
+    description: [
+      "Thunderstorm with light rain",
+      "Thunderstorm with rain",
+      "Thunderstorm with heavy rain",
+      "Light thunderstorm",
+      "Thunderstorm",
+      "Heavy thunderstorm",
+      "Ragged thunderstorm",
+      "Thunderstorm with light drizzle",
+      "Thunderstorm with drizzle",
+      "Thunderstorm with heavy drizzle",
+    ],
+    imgSrc: [
+      "/./src/assets/images/WCRaincoat.png",
+      "/./src/assets/images/WCWaterproofShoes.png",
+    ],
+  },
+  {
+    category: "Drizzle",
+    id: [300, 301, 302, 310, 311, 312, 313, 314, 321],
+    description: [
+      "Light intensity drizzle",
+      "Drizzle",
+      "Heavy intensity drizzle",
+      "Light intensity drizzle rain",
+      "Drizzle rain",
+      "Heavy intensity drizzle rain",
+      "Shower rain and drizzle",
+      "Heavy shower rain and drizzle",
+      "Shower drizzle",
+    ],
+    imgSrc: [
+      "/./src/assets/images/WCRaincoat.png",
+      "/./src/assets/images/WCUmbrella.png",
+    ],
+  },
+  {
+    category: "Rain",
+    id: [500, 501, 502, 503, 504, 511, 520, 521, 522, 531],
+    description: [
+      "Light rain",
+      "Moderate rain",
+      "Heavy intensity rain",
+      "Very heavy rain",
+      "Extreme rain",
+      "Freezing rain",
+      "Light intensity shower rain",
+      "Shower rain",
+      "Heavy intensity shower rain",
+      "Ragged shower rain",
+    ],
+    imgSrc: [
+      "/./src/assets/images/WCRaincoat.png",
+      "/./src/assets/images/WCUmbrella.png",
+      "/./src/assets/images/WCWaterproofShoes.png",
+    ],
+  },
+  {
+    category: "Snow",
+    id: [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622],
+    description: [
+      "Light snow",
+      "Snow",
+      "Heavy snow",
+      "Sleet",
+      "Light shower sleet",
+      "Shower sleet",
+      "Light rain and snow",
+      "Rain and snow",
+      "Light shower snow",
+      "Shower snow",
+      "Heavy shower snow",
+    ],
+    imgSrc: [
+      "/./src/assets/images/WCScarf.png",
+      "/./src/assets/images/WC Gloves.png",
+      "/./src/assets/images/WCWaterproofBoots.png",
+      "/./src/assets/images/WCBeanie.png",
+    ],
+  },
+  {
+    category: "Atmosphere",
+    id: [701, 711, 721, 731, 741, 751, 761, 762, 771, 781],
+    description: [
+      "Mist",
+      "Smoke",
+      "Haze",
+      "Sand/dust whirls",
+      "Fog",
+      "Sand",
+      "Dust",
+      "Ash",
+      "Squalls",
+      "Tornado",
+    ],
+    imgSrc: ["/./src/assets/images/WCScarf.png"],
+  },
+  {
+    category: "Clear",
+    id: [800],
+    description: ["Clear sky"],
+    imgSrc: ["/./src/assets/images/WCScarf.png"],
+  },
+  {
+    category: "Clouds",
+    id: [801, 802, 803, 804],
+    description: [
+      "Few clouds: 11-25%",
+      "Scattered clouds: 25-50%",
+      "Broken clouds: 51-84%",
+      "Overcast clouds: 85-100%",
+    ],
+    imgSrc: ["/./src/assets/images/WCScarf.png"],
+  },
+];
+export default weatherConditions;
