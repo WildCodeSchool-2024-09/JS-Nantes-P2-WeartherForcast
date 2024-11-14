@@ -7,7 +7,6 @@ interface PageContentProps {
 export default function PageContent({ outletContext }: PageContentProps) {
   return (
     <section>
-      <p>test</p>
       <Outlet context={outletContext} />
     </section>
   );
