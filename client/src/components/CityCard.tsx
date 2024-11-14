@@ -1,11 +1,11 @@
-interface CityProps {
+interface cityProps {
   City: {
     first: string;
     last: string;
   };
 }
 
-function CityCard({ City }: CityProps) {
+function CityCard({ City }: cityProps) {
   return (
     <figcaption>
       <strong>{City.first}</strong>
