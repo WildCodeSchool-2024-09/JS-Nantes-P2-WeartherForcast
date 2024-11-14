@@ -8,22 +8,21 @@
   border-radius: 30px;
 }
 
-button .arrow {
+.arrow {
   background: none;
   border: none;
-}
-
-img {
-  height: 20px;
-  margin: 15px;
 }
 
 .left-arrow {
   transform-origin: 50%;
   transform: rotate(360deg);
+  height: 20px;
+  margin: 15px;
 }
 
 .right-arrow {
   transform-origin: 50%;
   transform: rotate(180deg);
+  height: 20px;
+  margin: 15px;
 }
