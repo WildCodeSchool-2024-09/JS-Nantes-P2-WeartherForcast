@@ -2,6 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import "/src/style/animationCircle.css";
 import { useEffect, useState } from "react";
 import type { CityOutletContextType } from "../App";
+import emptyHeart from "../assets/icons/emptyheart.png";
 
 export default function GeolocaliseMe() {
   const outletContext = useOutletContext<CityOutletContextType>();
@@ -10,12 +11,17 @@ export default function GeolocaliseMe() {
     cityId?: string;
     currentTemp?: string;
     tempDescription?: string;
+    realFeel?: string;
   }>({
     city: undefined,
     cityId: undefined,
     currentTemp: undefined,
     tempDescription: undefined,
+    realFeel: undefined,
   }); //undefind parce qu"il est nul au depart
+
+  const today = new Date();
+  const dateOfToday = today.toLocaleDateString("fr-FR");
 
   useEffect(() => {
     if (outletContext.city) {
@@ -35,6 +41,7 @@ export default function GeolocaliseMe() {
           cityId: `${datas.id}`,
           currentTemp: `${datas.main.temp}`,
           tempDescription: `${datas.weather[0].main}`,
+          realFeel: `${datas.main.feels_like}`,
         })); //currentState au cas ou on oublie de passer une valeur ou si la donnee est caduque, il y aura toujours l,ancienne valeur qui s'affichera
       } catch (error) {
         alert("Sorry, we met a problem. Please, come back later.");
@@ -71,7 +78,10 @@ export default function GeolocaliseMe() {
           <p>{cityInfoMeteo.currentTemp}°C</p>
         </div>
         <p>Real feel</p>
-        <p>date</p>
+        <p className="date">{dateOfToday}</p>
+        <button type="button" className="fav-button">
+          <img className="fav-icon" src={emptyHeart} alt="<3" />
+        </button>
       </div>
     </section>
   );
