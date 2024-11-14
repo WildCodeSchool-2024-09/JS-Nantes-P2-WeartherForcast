@@ -46,9 +46,6 @@
   border: none;
   background: none;
   cursor: pointer;
-  border: none;
-  background: none;
-  cursor: pointer;
 }
 .button-link:hover {
   background: var(--secondaryColor);
