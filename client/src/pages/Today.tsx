@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
 
@@ -6,26 +7,37 @@ interface WeatherData {
   skyState: string | undefined;
   temperature: number | undefined;
   realFeel: number | undefined;
+  cityName: string;
+}
+
+interface OutletContextProps {
+  city: string;
+  setCity: (value: string) => void;
 }
 
 function Today() {
-  const city = "Nantes";
+  // Utilise useOutletContext pour obtenir city depuis outletContext
+  const { city } = useOutletContext<OutletContextProps>();
   const [skyState, setSkyState] = useState<WeatherData["skyState"]>(undefined);
   const [temperature, setTemperature] =
     useState<WeatherData["temperature"]>(undefined);
   const [realFeel, setRealFeel] = useState<WeatherData["realFeel"]>(undefined);
+  const [cityName, setCityName] = useState<string>("");
 
   useEffect(() => {
+    // Crée l'URL de l'API avec la ville dynamique
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
+        setCityName(data.name); // Met à jour cityName avec la ville récupérée
         setSkyState(data.weather[0].icon);
         setTemperature(Math.round(data.main.temp));
         setRealFeel(Math.round(data.main.feels_like));
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [city]); // Re-fetch à chaque changement de ville
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
@@ -37,10 +49,10 @@ function Today() {
           <title>animationCircles</title>
           <defs>
             <linearGradient id="MyGradient">
-              <stop offset="30.2%" stop-color="#572a6d" />
-              <stop offset="49.7%" stop-color="#e67226" />
-              <stop offset="57.1%" stop-color="#ecc36d" />
-              <stop offset="67.4%" stop-color="#6bb3d6" />
+              <stop offset="30.2%" stopColor="#572a6d" />
+              <stop offset="49.7%" stopColor="#e67226" />
+              <stop offset="57.1%" stopColor="#ecc36d" />
+              <stop offset="67.4%" stopColor="#6bb3d6" />
             </linearGradient>
           </defs>
           <circle
@@ -55,7 +67,8 @@ function Today() {
           />
         </svg>
         <div className="cadran-content">
-          <h2 className="your-city">{city}</h2>
+          <h2 className="your-city">{cityName || city}</h2>{" "}
+          {/* Affiche cityName ou city */}
           <div className="state-temp">
             <figcaption>
               <img
