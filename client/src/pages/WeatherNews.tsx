@@ -11,9 +11,6 @@ function WeatherNews() {
   const handleClickDec = () => {
     setCityIndex(cityIndex - 1);
   };
-  const handleClick = () => {
-    setCityIndex(cityIndex);
-  };
 
   return (
     <section className="element">
@@ -63,16 +60,14 @@ function WeatherNews() {
         )}
       </div>
       <div className="to-site">
-        <button type="button" className="button-link" onClick={handleClick}>
-          <a
-            href={weatherNewsData[cityIndex].src}
-            className="link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Lien vers l'article
-          </a>
-        </button>
+        <a
+          href={weatherNewsData[cityIndex].src}
+          className="link, button-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Lien vers l'article
+        </a>
       </div>
     </section>
   );

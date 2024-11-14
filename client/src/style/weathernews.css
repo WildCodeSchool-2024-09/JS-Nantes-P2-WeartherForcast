@@ -6,6 +6,8 @@
 
 .news {
   border-radius: 30px;
+  height: 350px;
+  width: 80%;
 }
 
 .arrow {
@@ -27,32 +29,30 @@
   margin: 15px;
 }
 .button-link {
+  width: 200px;
   margin-top: 10px;
-  margin-left: 130px;
+
   border: solid 1px #61aeff;
-  height: 40px;
+
   border: solid 1px #bdbdbd;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  font-family: var(--general-font);
-  font-size: var(--body-font-size);
-  font-weight: var(--body-font-bold);
-  color: var(--font-highlight-color);
-  border-radius: 4px;
+  border-radius: 60px;
   cursor: pointer;
   transition: all 100ms ease-in;
-  border: none;
-  background: none;
-  cursor: pointer;
+  padding: 20px 20px 20px;
+  box-shadow: 0 2px 6px var(--shadowColor);
 }
-.button-link:hover {
-  background: var(--secondaryColor);
-  font-weight: 400;
-  border: solid 1px #61aeff;
+.element {
+  justify-content: center;
+  align-items: center;
 }
 
-.link {
-  padding: 20px 20px 20px;
+.to-site {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
