@@ -23,7 +23,6 @@ header {
 
 .menu-dropdown {
   position: absolute;
-  top: 80px;
   left: 0;
   background: var(--mainColor);
   padding: 32px;
