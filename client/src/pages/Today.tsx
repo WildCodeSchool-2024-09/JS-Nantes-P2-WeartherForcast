@@ -9,7 +9,7 @@ interface WeatherData {
 }
 
 function Today() {
-  const city = "Strasbourg";
+  const city = "Nantes";
   const [skyState, setSkyState] = useState<WeatherData["skyState"]>(undefined);
   const [temperature, setTemperature] =
     useState<WeatherData["temperature"]>(undefined);
@@ -48,7 +48,7 @@ function Today() {
             stroke="url(#MyGradient)"
             strokeWidth="15px"
             strokeLinecap="round"
-            r="117px"
+            r="130px"
             cx="50%"
             cy="50%"
             fill="transparent"
