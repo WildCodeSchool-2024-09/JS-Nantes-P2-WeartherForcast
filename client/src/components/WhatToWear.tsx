@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import weatherConditions from "../assets/APIWeatherConditions";
 import "../WhatToWear.css";
+import tempRanges from "../assets/Temps";
 
 function WhatToWear() {
-  // Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
+  // DECLARATION OF VARIABLES -- Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
   const [conditions, setConditions] = useState();
   const [feelsLike, setFeelsLike] = useState();
   const [tempMin, setTempMin] = useState();
-  const [tempMax, setTempMax] = useState();
+  const [tempMax, setTempMax] = useState(20);
   const [humidity, setHumidity] = useState();
   const [wind, setWind] = useState();
   const [clouds, setClouds] = useState();
@@ -16,7 +17,9 @@ function WhatToWear() {
   // const [city, setCity] = useState("Paris");
   const city = "Nesselwang";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric`;
+  const [tempRange, setTempRange] = useState("cool");
 
+  // FETCH API
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
@@ -35,12 +38,11 @@ function WhatToWear() {
       .catch((err) => console.error(err));
   }, [url]);
 
-  // import { useState, useEffect } from "react";
-
+  // DECLARATION OF TYPES
   interface WeatherConditionImagesProps {
     [id: number]: string[];
   }
-
+  // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - WEATHER CONDITIONS
   const weatherConditionImages: WeatherConditionImagesProps = {};
 
   for (const condition of weatherConditions) {
@@ -48,14 +50,29 @@ function WhatToWear() {
       weatherConditionImages[id] = condition.imgSrc;
     }
   }
+  //  FIND TEMERATURE RANGE (ie: warm, very warm, cool, etc.)
+  function findTemperatureRange(tempIn: number) {
+    for (const range of tempRanges) {
+      tempIn >= range.start && tempIn <= range.end
+        ? setTempRange(range.temp)
+        : setTempRange("Who knows?");
+    }
+  }
+  findTemperatureRange(tempMax);
 
+  // above - maybe use variables ? tempRangeVar = range.temp :
+  // tempRangeVar = "Who knows?")
+
+  // SET URLS TO VARIABLES
   const imageUrls = weatherConditionImages[conditID];
   const imageUrl1 = imageUrls && imageUrls.length > 0 ? imageUrls[0] : "";
   const imageUrl2 = imageUrls && imageUrls.length > 0 ? imageUrls[1] : "";
   const imageUrl3 = imageUrls && imageUrls.length > 0 ? imageUrls[2] : "";
   const imageUrl4 = imageUrls && imageUrls.length > 0 ? imageUrls[3] : "";
 
+  // DISPLAY ELEMENTS
   return (
+    // TEST DISPLAY OF API DATA
     <div>
       <h1>{city}</h1>
       <p>Conditions: {conditions}</p>
@@ -67,6 +84,9 @@ function WhatToWear() {
       <p>Clouds: {clouds}</p>
       <p>Probability of Rain {rain}</p>
       <p>CID: {conditID}</p>
+      <p>Temp Range {tempRange}</p>
+
+      {/* DISPLAY OF CLOTHING RECOMMENDATIONS DEPENDING ON WEATHER CONDITIONS */}
       <img
         src={imageUrl1}
         alt="Weather Condition"
