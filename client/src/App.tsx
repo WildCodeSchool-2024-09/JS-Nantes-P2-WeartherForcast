@@ -7,11 +7,16 @@ import PageContent from "./components/PageContent";
 import SearchBar from "./components/SearchBar";
 import { geolocaliseMe } from "./utilitiesFunctions/geolocation";
 
+export interface CityOutletContextType {
+  city: string;
+  setCity: (city: string) => void;
+}
+
 export default function App() {
   //MODAL MENU OPEN STATE
   const [isMenuOpen, setMenuOpen] = useState(false);
   //GENERAL CITY STATE
-  const [city, setCity] = useState("Paris");
+  const [city, setCity] = useState("");
   //GEOLOCATION ON LOAD
   useEffect(() => {
     geolocaliseMe(setCity);
