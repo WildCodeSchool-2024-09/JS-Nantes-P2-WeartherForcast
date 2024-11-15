@@ -14,7 +14,7 @@ function WeatherNews() {
 
   return (
     <section className="element">
-      <div className="carrousel-container">
+      <div className="carousel-container">
         {cityIndex > 0 ? (
           <button className="arrow" type="button" onClick={handleClickDec}>
             <img
