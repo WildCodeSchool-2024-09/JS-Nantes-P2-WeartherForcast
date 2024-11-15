@@ -1,7 +1,7 @@
 import "/src/style/weathernews.css";
 import { useState } from "react";
 import arrow from "/src/assets/icons/arrow3.png";
-import { weatherNewsData } from "../weatherNewsData.tsx";
+import { weatherNewsData } from "../WeatherNewsData.tsx";
 
 function WeatherNews() {
   const [cityIndex, setCityIndex] = useState(0);
