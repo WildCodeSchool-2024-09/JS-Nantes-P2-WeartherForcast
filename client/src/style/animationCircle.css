@@ -1,0 +1,41 @@
+.circleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.circle-1 {
+  z-index: 1;
+}
+
+.circle1__Stroke {
+  position: absolute;
+  top: 0;
+  stroke-dasharray: calc(12rem * 2 * PI) calc(12rem * 2 * PI); /*circomference*/
+  stroke-dashoffset: calc(12rem * 2 * PI); /*cache donc tout le dasharray*/
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.circle2 {
+  position: absolute;
+  background-color: #88b9dd;
+  width: 235px;
+  height: 235px;
+  border-radius: 50%;
+}
+
+.animationCircles {
+  animation: load 2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes load {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
