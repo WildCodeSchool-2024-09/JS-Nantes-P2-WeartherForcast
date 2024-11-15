@@ -10,6 +10,7 @@ import { geolocaliseMe } from "./utilitiesFunctions/geolocation";
 export interface CityOutletContextType {
   city: string;
   setCity: (city: string) => void;
+  colorCircle: string;
 }
 
 export default function App() {
@@ -19,10 +20,12 @@ export default function App() {
   const [city, setCity] = useState("");
   //BACKGROUND STATE FOR GEOLOC
   const [background, setBackground] = useState("");
+  //COLOR CIRCLE METEO INFO STATE
+  const [colorCircle, setColorCircle] = useState("");
 
   //GEOLOCATION ON LOAD
   useEffect(() => {
-    geolocaliseMe(setCity, setBackground);
+    geolocaliseMe(setCity, setBackground, setColorCircle);
   }, []);
 
   return (
@@ -36,7 +39,7 @@ export default function App() {
         {isMenuOpen ? <MenuHeader /> : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
-          <PageContent outletContext={{ city, setCity }} />
+          <PageContent outletContext={{ city, setCity, colorCircle }} />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
         </section>
       </main>

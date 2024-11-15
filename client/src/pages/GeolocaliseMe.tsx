@@ -55,10 +55,10 @@ export default function GeolocaliseMe() {
           <title>animationCircles</title>
           <defs>
             <linearGradient id="MyGradient">
-              <stop offset="30.2%" stop-color="#572a6d" />
-              <stop offset="49.7%" stop-color="#e67226" />
-              <stop offset="57.1%" stop-color="#ecc36d" />
-              <stop offset="67.4%" stop-color="#6bb3d6" />
+              <stop offset="30.2%" stopColor="#572a6d" />
+              <stop offset="49.7%" stopColor="#e67226" />
+              <stop offset="57.1%" stopColor="#ecc36d" />
+              <stop offset="67.4%" stopColor="#6bb3d6" />
             </linearGradient>
           </defs>
           <circle
@@ -72,7 +72,12 @@ export default function GeolocaliseMe() {
             fill="transparent"
           />
         </svg>
-        <div className="cadran-content">
+        <div
+          className="cadran-content"
+          style={{
+            backgroundColor: `${outletContext.colorCircle}`,
+          }}
+        >
           <h2 className="your-city">{cityInfoMeteo.city}</h2>
           <div className="state-temp">
             {/* <img src="" alt="" /> */}
