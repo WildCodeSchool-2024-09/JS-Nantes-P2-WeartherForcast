@@ -5,6 +5,7 @@
 }
 
 .news {
+  transition: all 20ms ease-in;
   border-radius: 30px;
   height: 350px;
   width: 80%;
