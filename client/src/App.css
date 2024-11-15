@@ -73,12 +73,6 @@ main {
   background-position: bottom;
 }
 
-.page-content-section {
-  position: absolute;
-  top: 40%;
-  border: solid black 1px;
-}
-
 /*FONCTIONNAL CLASSES*/
 .active {
   background: var(--secondaryColor);
