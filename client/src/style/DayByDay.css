@@ -6,7 +6,7 @@
   display: flex;
   gap: 2px;
   border-radius: 20px;
-  flex-direction: row;
+
   margin: 15px;
 }
 
@@ -25,4 +25,13 @@
   flex-direction: row;
   margin: 15px;
   margin-top: 100px;
+}
+.rectangle-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div > p {
+  text-align: center;
 }
