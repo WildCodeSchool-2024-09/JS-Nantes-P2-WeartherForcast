@@ -11,20 +11,29 @@ export default function App() {
   //MODAL MENU OPEN STATE
   const [isMenuOpen, setMenuOpen] = useState(false);
   //GENERAL CITY STATE
-  const [city, setCity] = useState("Paris");
+  const [city, setCity] = useState("");
+  //BACKGROUND STATE FOR GEOLOC
+  const [background, setBackground] = useState("");
+
   //GEOLOCATION ON LOAD
   useEffect(() => {
-    geolocaliseMe(setCity);
+    geolocaliseMe(setCity, setBackground);
   }, []);
 
   return (
     <>
       <Header setMenuOpen={setMenuOpen} isMenuOpen={isMenuOpen} />
-      <SearchBar setCity={setCity} />
-      <main>
+      <main
+        style={{
+          backgroundImage: `url(${background})`,
+        }}
+      >
         {isMenuOpen ? <MenuHeader /> : null}
-        <PageContent outletContext={{ city, setCity }} />
-        {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
+        <SearchBar setCity={setCity} />
+        <section className="page-content-section">
+          <PageContent outletContext={{ city, setCity }} />
+          {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
+        </section>
       </main>
       <Footer />
     </>
