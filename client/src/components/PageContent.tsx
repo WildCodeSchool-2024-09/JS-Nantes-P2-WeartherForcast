@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-interface contextCityProps {
+export interface contextCityProps {
   outletContext: {
     city: string;
     setCity: (value: string) => void;

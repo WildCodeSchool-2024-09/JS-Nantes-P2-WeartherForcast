@@ -1,26 +1,17 @@
 import { useEffect, useState } from "react";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
+import { useOutletContext } from "react-router-dom";
+import type { CityOutletContextType } from "../App";
 
-interface WeatherData {
-  skyState: string | undefined;
-  temperature: number | undefined;
-  realFeel: number | undefined;
-}
-
-type TodayProps = WeatherData & {
-  colorCircle: string;
-};
-
-function Today({ colorCircle }: TodayProps) {
-  const city = "Nantes";
-  const [skyState, setSkyState] = useState<WeatherData["skyState"]>(undefined);
-  const [temperature, setTemperature] =
-    useState<WeatherData["temperature"]>(undefined);
-  const [realFeel, setRealFeel] = useState<WeatherData["realFeel"]>(undefined);
+function Today() {
+  const outletContext = useOutletContext<CityOutletContextType>();
+  const [skyState, setSkyState] = useState("");
+  const [temperature, setTemperature] = useState<number>();
+  const [realFeel, setRealFeel] = useState<number>();
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -29,7 +20,7 @@ function Today({ colorCircle }: TodayProps) {
         setRealFeel(Math.round(data.main.feels_like));
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [outletContext]);
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
@@ -61,10 +52,10 @@ function Today({ colorCircle }: TodayProps) {
         <div
           className="cadran-content"
           style={{
-            backgroundColor: `${colorCircle}`,
+            backgroundColor: `${outletContext.colorCircle}`,
           }}
         >
-          <h2 className="your-city">{city}</h2>
+          <h2 className="your-city">{outletContext.city}</h2>
           <div className="state-temp">
             <figcaption>
               <img
