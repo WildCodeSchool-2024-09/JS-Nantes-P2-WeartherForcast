@@ -6,16 +6,16 @@ import tempRanges from "../assets/Temps";
 function WhatToWear() {
   // DECLARATION OF VARIABLES -- Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
   const [conditions, setConditions] = useState();
-  const [feelsLike, setFeelsLike] = useState();
-  const [tempMin, setTempMin] = useState();
+  // const [feelsLike, setFeelsLike] = useState();
+  // const [tempMin, setTempMin] = useState();
   const [tempMax, setTempMax] = useState(20);
-  const [humidity, setHumidity] = useState();
-  const [wind, setWind] = useState();
-  const [clouds, setClouds] = useState();
-  const [rain, setRain] = useState(0);
+  // const [humidity, setHumidity] = useState();
+  // const [wind, setWind] = useState();
+  // const [clouds, setClouds] = useState();
+  // const [rain, setRain] = useState(0);
   const [conditID, setConditID] = useState(615);
   // const [city, setCity] = useState("Paris");
-  const city = "Singapore";
+  const city = "Nantes";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric`;
   const [tempRange, setTempRange] = useState("cool");
 
@@ -26,13 +26,13 @@ function WhatToWear() {
       .then((data) => {
         // est-ce que je peux utiliser un 'map' ou 'spread' pour automatiser ce genre de code?
         setConditions(data.weather[0].description);
-        setFeelsLike(data.main.feels_like);
-        setTempMin(data.main.temp_min);
+        // setFeelsLike(data.main.feels_like);
+        // setTempMin(data.main.temp_min);
         setTempMax(data.main.temp_max);
-        setHumidity(data.main.humidity);
-        setWind(data.wind.speed);
-        setClouds(data.clouds.all);
-        setRain(data.pop);
+        // setHumidity(data.main.humidity);
+        // setWind(data.wind.speed);
+        // setClouds(data.clouds.all);
+        // setRain(data.pop);
         setConditID(data.weather[0].id);
       })
       .catch((err) => console.error(err));
@@ -97,8 +97,8 @@ function WhatToWear() {
   // DISPLAY ELEMENTS
   return (
     // TEST DISPLAY OF API DATA
-    <div>
-      <h1>{city}</h1>
+    <div className="wtw-mother-div">
+      {/* <h1>{city}</h1>
       <p>Conditions: {conditions}</p>
       <p>Real feel: {feelsLike}</p>
       <p>Min: {tempMin}</p>
@@ -108,47 +108,49 @@ function WhatToWear() {
       <p>Clouds: {clouds}</p>
       <p>Probability of Rain {rain}</p>
       <p>CID: {conditID}</p>
-      <p>Temp Range {tempRange}</p>
+      <p>Temp Range {tempRange}</p> */}
 
       {/* Title */}
-      <h3>What to Wear</h3>
+      <h3 className="wtw-title">What to Wear</h3>
 
-      <p>
+      <p className="wtw-text-description">
         Today it will be {tempRange} with {conditions}. Don't forget your{" "}
         {weatherItem}{" "}
       </p>
 
       {/* DISPLAY OF CLOTHING RECOMMENDATIONS DEPENDING ON WEATHER CONDITIONS */}
-      <img
-        src={imageUrl1}
-        alt="Weather Condition"
-        className={imageUrl1 ? "active" : "hide"}
-      />
-      <img
-        src={imageUrl2}
-        alt="Weather Condition"
-        className={imageUrl2 ? "active" : "hide"}
-      />
-      <img
-        src={imageUrl3}
-        alt="Weather Condition"
-        className={imageUrl3 ? "active" : "hide"}
-      />
-      <img
-        src={imageUrl4}
-        alt="Weather Condition"
-        className={imageUrl4 ? "active" : "hide"}
-      />
-      <img
-        src={tempUrl1}
-        alt="Weather Condition"
-        className={tempUrl1 ? "active" : "hide"}
-      />
-      <img
-        src={tempUrl2}
-        alt="Weather Condition"
-        className={tempUrl2 ? "active" : "hide"}
-      />
+      <figure className="wtw-images">
+        <img
+          src={imageUrl1}
+          alt="Weather Condition"
+          className={imageUrl1 ? "active" : "hide"}
+        />
+        <img
+          src={imageUrl2}
+          alt="Weather Condition"
+          className={imageUrl2 ? "active" : "hide"}
+        />
+        <img
+          src={imageUrl3}
+          alt="Weather Condition"
+          className={imageUrl3 ? "active" : "hide"}
+        />
+        <img
+          src={imageUrl4}
+          alt="Weather Condition"
+          className={imageUrl4 ? "active" : "hide"}
+        />
+        <img
+          src={tempUrl1}
+          alt="Weather Condition"
+          className={tempUrl1 ? "active" : "hide"}
+        />
+        <img
+          src={tempUrl2}
+          alt="Weather Condition"
+          className={tempUrl2 ? "active" : "hide"}
+        />
+      </figure>
     </div>
   );
 }

@@ -75,10 +75,7 @@ function Today() {
           </div>
         </div>
       </section>
-      <>
-        <div>Meteo Info</div>; {/*Make your component instead of this div*/}
-        <WhatToWear />
-      </>
+      <WhatToWear />
     </>
   );
 }
