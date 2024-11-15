@@ -75,8 +75,7 @@ main {
 
 .page-content-section {
   position: absolute;
-  top: 40%;
-  border: solid black 1px;
+  top: 30%;
 }
 
 /*FONCTIONNAL CLASSES*/
