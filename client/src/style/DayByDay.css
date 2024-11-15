@@ -1,16 +1,16 @@
 .rectangle {
   border: 1px solid #000000;
-  height: 334px;
-  width: 35px;
+  height: 350px;
+  width: 40px;
   background-color: #61aeff;
   display: flex;
   gap: 2px;
   border-radius: 20px;
   flex-direction: row;
-  margin: 10px;
+  margin: 15px;
 }
 
 .day {
   display: flex;
-  margin-top: 40px;
+  margin-top: 30px;
 }
