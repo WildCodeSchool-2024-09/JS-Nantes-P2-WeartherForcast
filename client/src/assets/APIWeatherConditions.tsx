@@ -18,6 +18,7 @@ const weatherConditions = [
       "/./src/assets/images/WCRaincoat.png",
       "/./src/assets/images/WCWaterproofShoes.png",
     ],
+    item: "rain protection - just in case!",
   },
   {
     category: "Drizzle",
@@ -37,6 +38,7 @@ const weatherConditions = [
       "/./src/assets/images/WCRaincoat.png",
       "/./src/assets/images/WCUmbrella.png",
     ],
+    item: "rain protection - just in case!",
   },
   {
     category: "Rain",
@@ -58,6 +60,7 @@ const weatherConditions = [
       "/./src/assets/images/WCUmbrella.png",
       "/./src/assets/images/WCWaterproofShoes.png",
     ],
+    item: "rain protection - just in case!",
   },
   {
     category: "Snow",
@@ -81,6 +84,7 @@ const weatherConditions = [
       "/./src/assets/images/WCWaterproofBoots.png",
       "/./src/assets/images/WCBeanie.png",
     ],
+    item: "warmest clothes!",
   },
   {
     category: "Atmosphere",
@@ -98,12 +102,14 @@ const weatherConditions = [
       "Tornado",
     ],
     imgSrc: ["/./src/assets/images/WCScarf.png"],
+    item: "highest visibility clothing!",
   },
   {
     category: "Clear",
     id: [800],
     description: ["Clear sky"],
     imgSrc: ["/./src/assets/images/WCScarf.png"],
+    item: "finest fashions! It'll be a clear day!",
   },
   {
     category: "Clouds",
@@ -115,6 +121,7 @@ const weatherConditions = [
       "Overcast clouds: 85-100%",
     ],
     imgSrc: ["/./src/assets/images/WCScarf.png"],
+    item: "bright colours. While the skies are grey, you can brighten the day!",
   },
 ];
 export default weatherConditions;

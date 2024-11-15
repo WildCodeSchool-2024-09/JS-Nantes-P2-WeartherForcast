@@ -15,7 +15,7 @@ function WhatToWear() {
   const [rain, setRain] = useState(0);
   const [conditID, setConditID] = useState(615);
   // const [city, setCity] = useState("Paris");
-  const city = "Nesselwang";
+  const city = "Singapore";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric`;
   const [tempRange, setTempRange] = useState("cool");
 
@@ -42,6 +42,12 @@ function WhatToWear() {
   interface WeatherConditionImagesProps {
     [id: number]: string[];
   }
+  interface WeatherTempImagesProps {
+    [id: string]: string[];
+  }
+  interface weatherConditionItemProps {
+    [id: number]: string;
+  }
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - WEATHER CONDITIONS
   const weatherConditionImages: WeatherConditionImagesProps = {};
 
@@ -51,24 +57,42 @@ function WhatToWear() {
     }
   }
   //  FIND TEMERATURE RANGE (ie: warm, very warm, cool, etc.)
-  function findTemperatureRange(tempIn: number) {
-    for (const range of tempRanges) {
-      tempIn >= range.start && tempIn <= range.end
-        ? setTempRange(range.temp)
-        : setTempRange("Who knows?");
+  useEffect(() => {
+    function findTemperatureRange(tempIn: number) {
+      for (const range of tempRanges) {
+        if (tempIn >= range.start && tempIn <= range.end) {
+          setTempRange(range.temp);
+        }
+      }
+    }
+    findTemperatureRange(tempMax);
+  }, [tempMax]);
+
+  // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - TEMPERATURE RANGE
+
+  const weatherTempImages: WeatherTempImagesProps = {};
+  for (const condition of tempRanges) {
+    weatherTempImages[condition.temp] = condition.imgSrc;
+  }
+
+  // SET WEATHER ITEM
+  const weatherConditionItems: weatherConditionItemProps = {};
+  for (const condition of weatherConditions) {
+    for (const id of condition.id) {
+      weatherConditionItems[id] = condition.item;
     }
   }
-  findTemperatureRange(tempMax);
-
-  // above - maybe use variables ? tempRangeVar = range.temp :
-  // tempRangeVar = "Who knows?")
 
   // SET URLS TO VARIABLES
   const imageUrls = weatherConditionImages[conditID];
+  const tempUrls = weatherTempImages[tempRange];
+  const weatherItem = weatherConditionItems[conditID];
   const imageUrl1 = imageUrls && imageUrls.length > 0 ? imageUrls[0] : "";
   const imageUrl2 = imageUrls && imageUrls.length > 0 ? imageUrls[1] : "";
   const imageUrl3 = imageUrls && imageUrls.length > 0 ? imageUrls[2] : "";
   const imageUrl4 = imageUrls && imageUrls.length > 0 ? imageUrls[3] : "";
+  const tempUrl1 = tempUrls && tempUrls.length > 0 ? tempUrls[0] : "";
+  const tempUrl2 = tempUrls && tempUrls.length > 0 ? tempUrls[1] : "";
 
   // DISPLAY ELEMENTS
   return (
@@ -85,6 +109,14 @@ function WhatToWear() {
       <p>Probability of Rain {rain}</p>
       <p>CID: {conditID}</p>
       <p>Temp Range {tempRange}</p>
+
+      {/* Title */}
+      <h3>What to Wear</h3>
+
+      <p>
+        Today it will be {tempRange} with {conditions}. Don't forget your{" "}
+        {weatherItem}{" "}
+      </p>
 
       {/* DISPLAY OF CLOTHING RECOMMENDATIONS DEPENDING ON WEATHER CONDITIONS */}
       <img
@@ -106,6 +138,16 @@ function WhatToWear() {
         src={imageUrl4}
         alt="Weather Condition"
         className={imageUrl4 ? "active" : "hide"}
+      />
+      <img
+        src={tempUrl1}
+        alt="Weather Condition"
+        className={tempUrl1 ? "active" : "hide"}
+      />
+      <img
+        src={tempUrl2}
+        alt="Weather Condition"
+        className={tempUrl2 ? "active" : "hide"}
       />
     </div>
   );

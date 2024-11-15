@@ -3,7 +3,7 @@
 // tempRanges.veryWarm[0].end = 7;
 const tempRanges = [
   {
-    temp: "veryWarm",
+    temp: "very warm",
     start: 25,
     end: 250,
     imgSrc: [
@@ -43,7 +43,7 @@ const tempRanges = [
   },
 
   {
-    temp: "veryCold",
+    temp: "very cold",
     start: -300,
     end: 0,
     imgSrc: [
