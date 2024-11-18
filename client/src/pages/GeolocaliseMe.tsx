@@ -75,7 +75,6 @@ export default function GeolocaliseMe() {
         <div className="cadran-content">
           <h2 className="your-city">{cityInfoMeteo.city}</h2>
           <div className="state-temp">
-            {/* <img src="" alt="" /> */}
             <h3 className="temperature">{cityInfoMeteo.currentTemp}°</h3>
           </div>
           <div className="real-feel">Feel like : {cityInfoMeteo.realFeel}°</div>
