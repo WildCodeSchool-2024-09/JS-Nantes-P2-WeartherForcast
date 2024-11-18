@@ -16,7 +16,7 @@ const weatherConditions = [
     ],
     imgSrc: [
       "/./src/assets/images/WCRaincoat.png",
-      "/./src/assets/images/WCWaterproofShoes.png",
+      "/./src/assets/images/WCWaterproofBoots.png",
     ],
     item: "rain protection - just in case!",
   },
@@ -58,7 +58,7 @@ const weatherConditions = [
     imgSrc: [
       "/./src/assets/images/WCRaincoat.png",
       "/./src/assets/images/WCUmbrella.png",
-      "/./src/assets/images/WCWaterproofShoes.png",
+      "/./src/assets/images/WCWaterproofBoots.png",
     ],
     item: "rain protection - just in case!",
   },
