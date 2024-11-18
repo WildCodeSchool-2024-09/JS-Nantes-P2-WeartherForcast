@@ -4,8 +4,8 @@ import DayByDay from "./pages/DayByDay";
 import GeolocaliseMe from "./pages/GeolocaliseMe";
 import MyCities from "./pages/MyCities";
 import PreferenciesWear from "./pages/PreferenciesWear";
-import WeatherNews from "./pages/WeatherNews";
 import Today from "./pages/Today";
+import WeatherNews from "./pages/WeatherNews";
 
 const router = createBrowserRouter([
   {
