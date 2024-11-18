@@ -1,9 +1,8 @@
 import "/src/style/animationCircle.css";
-// client\src\style\animationCircle.css
 
 export default function GeolocaliseMe() {
   return (
-    <section className="circleContainer">
+    <section className="circle-container">
       <svg className="circle-1" height="30rem" width="30rem">
         <title>animated circle</title>
         <defs>
@@ -15,7 +14,7 @@ export default function GeolocaliseMe() {
           </linearGradient>
         </defs>
         <circle
-          className="circle1__Stroke animationCircles"
+          className="circle-1__Stroke animation-circle"
           stroke="url(#MyGradient)"
           stroke-width="15px"
           stroke-linecap="round"
@@ -25,7 +24,7 @@ export default function GeolocaliseMe() {
           fill="transparent"
         />
       </svg>
-      <div className="circle2" />
+      <div className="circle-2" />
     </section>
   );
 }
