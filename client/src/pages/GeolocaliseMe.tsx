@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import "/src/style/geolocaliseMe.css";
+import "/src/style/animationCircle.css";
 import { useEffect, useState } from "react";
 import type { CityOutletContextType } from "../App";
 import emptyHeart from "../assets/icons/emptyheart.png";
