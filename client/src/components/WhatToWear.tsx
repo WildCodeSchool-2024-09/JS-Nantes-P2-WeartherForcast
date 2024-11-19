@@ -70,7 +70,7 @@ function WhatToWear() {
 
   // DISPLAY ELEMENTS
   return (
-    <div className="wtw-mother-div">
+    <div className="wtw-mother-div animated-section">
       {/* Title */}
       <h3 className="wtw-title">What to Wear</h3>
 

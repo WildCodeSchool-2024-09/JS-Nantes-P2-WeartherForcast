@@ -37,11 +37,11 @@ export default function GeolocaliseMe() {
         const datas = await request.json();
         setCityInfoMeteo((currentState) => ({
           ...currentState,
-          city: `${datas.name}`,
+          city: `${outletContext.city || datas.name}`,
           cityId: `${datas.id}`,
-          currentTemp: `${datas.main.temp}`,
+          currentTemp: `${Math.round(datas.main.temp)}`,
           tempDescription: `${datas.weather[0].main}`,
-          realFeel: `${datas.main.feels_like}`,
+          realFeel: `${Math.round(datas.main.feels_like)}`,
         })); //currentState au cas ou on oublie de passer une valeur ou si la donnee est caduque, il y aura toujours l,ancienne valeur qui s'affichera
       } catch (error) {
         alert("Sorry, we met a problem. Please, come back later.");
@@ -49,7 +49,7 @@ export default function GeolocaliseMe() {
     }
   }
   return (
-    <section className="today-comp">
+    <section className="today-comp animated-section">
       <div className="circle-container">
         <svg className="circle-1" height="30rem" width="30rem">
           <title>animationCircles</title>

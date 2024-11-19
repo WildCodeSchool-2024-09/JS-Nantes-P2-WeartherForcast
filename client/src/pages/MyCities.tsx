@@ -1,3 +1,3 @@
 export default function MyCities() {
-  return <div>MyCities</div>;
+  return <div className="animated-section">MyCities</div>;
 }

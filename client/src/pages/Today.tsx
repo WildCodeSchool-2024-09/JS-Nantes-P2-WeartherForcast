@@ -30,7 +30,7 @@ function Today() {
 
   return (
     <>
-      <section className="today-comp">
+      <section className="today-comp animated-section">
         <div className="circle-container">
           <svg className="circle-1" height="30rem" width="30rem">
             <title>animationCircles</title>
