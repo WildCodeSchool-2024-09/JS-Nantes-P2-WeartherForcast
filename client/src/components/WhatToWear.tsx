@@ -87,7 +87,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="weather conditions icon"
-              className="active"
+              className="wearIcon"
             />
           ))}
         </section>
@@ -97,7 +97,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="temperature conditions icon"
-              className="active"
+              className="wearIcon"
             />
           ))}
         </section>
