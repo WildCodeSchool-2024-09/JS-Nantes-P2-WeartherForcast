@@ -14,9 +14,42 @@ footer nav {
 }
 
 footer nav a {
-  width: 100px;
+  width: 130px;
   border-radius: 60px;
-  box-shadow: 0 2px 6px var(--shadowColor);
+  box-shadow: 0 2px 6px var(--shadowColor), inset 0px 0px 0 3px var(--mainColor);
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  border: var(--secondaryColor);
+  background: var(--mainColor);
+}
+
+footer nav a::before {
+  position: absolute;
+  content: "";
+  width: 120%;
+  height: 100%;
+  transform: rotate(45deg);
+  background: var(--mainColor);
+  z-index: -1;
+}
+
+footer nav a:hover::before {
+  animation: animateBorder 1s linear;
+  animation-fill-mode: backwards;
+  background: var(--secondaryColor);
+  z-index: 0;
+}
+
+footer nav a::after {
+  position: absolute;
+  content: "";
+  inset: 2px;
+  background: var(--white);
+}
+
+footer nav a span {
+  z-index: 10;
 }
 
 footer div {
@@ -31,4 +64,13 @@ footer div img {
 p {
   font-size: 10px;
   font-family: var(--general-font);
+}
+
+@keyframes animateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
