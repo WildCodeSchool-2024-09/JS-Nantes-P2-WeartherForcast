@@ -12,15 +12,17 @@ function Today() {
   const [realFeel, setRealFeel] = useState<number>();
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setSkyState(data.weather[0].icon);
-        setTemperature(Math.round(data.main.temp));
-        setRealFeel(Math.round(data.main.feels_like));
-      })
-      .catch((err) => console.error(err));
+    if (outletContext.city) {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          setSkyState(data.weather[0].icon);
+          setTemperature(Math.round(data.main.temp));
+          setRealFeel(Math.round(data.main.feels_like));
+        })
+        .catch((err) => console.error(err));
+    }
   }, [outletContext]);
 
   const today = new Date();
