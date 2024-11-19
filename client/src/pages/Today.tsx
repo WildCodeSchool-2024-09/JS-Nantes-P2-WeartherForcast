@@ -32,7 +32,7 @@ function Today() {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log("C'est quoi la data ?? ", data);
+        // console.log("C'est quoi la data ?? ", data);
         setCityName(data.name); // Met à jour cityName avec la ville récupérée
         setSkyState(data.weather[0].icon);
         setTemperature(Math.round(data.main.temp));
@@ -75,7 +75,7 @@ function Today() {
             <figcaption>
               <img
                 src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
-                alt="symbole de l'état du ciel"
+                alt="Etat du ciel"
               />
             </figcaption>
             <h3 className="temperature">{temperature}°</h3>
