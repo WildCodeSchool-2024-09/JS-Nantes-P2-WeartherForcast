@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import weatherConditions from "../assets/APIWeatherConditions";
 import "../WhatToWear.css";
 import tempRanges from "../assets/Temps";
 import type WhatToWearInterfaces from "../types/whatToWear";
-
 function WhatToWear() {
   // DECLARATION OF VARIABLES -- Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
   const [conditions, setConditions] = useState();
-  const [tempMax, setTempMax] = useState(20);
+  const [tempMax, setTempMax] = useState<WhatToWearInterfaces.useStateProps>();
   const [conditID, setConditID] = useState(615);
-  const city = "nantes";
+  const city = useOutletContext<WhatToWearInterfaces.OutletContextProps>().city;
+  const warmthPref =
+    useOutletContext<WhatToWearInterfaces.OutletContextProps>().warmthPref;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric`;
   const [tempRange, setTempRange] = useState("cool");
 
@@ -37,15 +39,17 @@ function WhatToWear() {
   }
   //  FIND TEMERATURE RANGE (ie: warm, very warm, cool, etc.)
   useEffect(() => {
-    function findTemperatureRange(tempIn: number) {
+    function findTemperatureRange(tempIn: string, tempPref: string) {
+      const prefRealFeel = Number.parseInt(tempIn) + Number.parseInt(tempPref);
       for (const range of tempRanges) {
-        if (tempIn >= range.start && tempIn <= range.end) {
+        if (prefRealFeel >= range.start && prefRealFeel <= range.end) {
           setTempRange(range.temp);
+          break;
         }
       }
     }
-    findTemperatureRange(tempMax);
-  }, [tempMax]);
+    findTemperatureRange(tempMax, warmthPref);
+  }, [tempMax, warmthPref]);
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - TEMPERATURE RANGE
 
@@ -87,7 +91,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="weather conditions icon"
-              className="active"
+              className="wtw-icons"
             />
           ))}
         </section>
@@ -97,7 +101,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="temperature conditions icon"
-              className="active"
+              className="wtw-icons"
             />
           ))}
         </section>

@@ -15,6 +15,9 @@ export default function App() {
   //BACKGROUND STATE FOR GEOLOC
   const [background, setBackground] = useState("");
 
+  //CLOTHING PREFERENCES
+  const [warmthPref, setWarmthPref] = useState(0);
+
   //GEOLOCATION ON LOAD
   useEffect(() => {
     geolocaliseMe(setCity, setBackground);
@@ -31,7 +34,9 @@ export default function App() {
         {isMenuOpen ? <MenuHeader /> : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
-          <PageContent outletContext={{ city, setCity }} />
+          <PageContent
+            outletContext={{ city, setCity, warmthPref, setWarmthPref }}
+          />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
         </section>
       </main>
