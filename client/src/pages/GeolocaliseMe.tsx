@@ -37,11 +37,11 @@ export default function GeolocaliseMe() {
         const datas = await request.json();
         setCityInfoMeteo((currentState) => ({
           ...currentState,
-          city: `${outletContext.city || datas.name}`,
+          city: `${datas.name}`,
           cityId: `${datas.id}`,
-          currentTemp: `${Math.round(datas.main.temp)}`,
+          currentTemp: `${datas.main.temp}`,
           tempDescription: `${datas.weather[0].main}`,
-          realFeel: `${Math.round(datas.main.feels_like)}`,
+          realFeel: `${datas.main.feels_like}`,
         })); //currentState au cas ou on oublie de passer une valeur ou si la donnee est caduque, il y aura toujours l,ancienne valeur qui s'affichera
       } catch (error) {
         alert("Sorry, we met a problem. Please, come back later.");
@@ -54,16 +54,16 @@ export default function GeolocaliseMe() {
         <svg className="circle-1" height="30rem" width="30rem">
           <title>animationCircles</title>
           <defs>
-            <linearGradient id="MyGradient">
-              <stop offset="30.2%" stopColor="#572a6d" />
-              <stop offset="49.7%" stopColor="#e67226" />
-              <stop offset="57.1%" stopColor="#ecc36d" />
-              <stop offset="67.4%" stopColor="#6bb3d6" />
+            <linearGradient id="my-gradient">
+              <stop offset="30.2%" stop-color="#572a6d" />
+              <stop offset="49.7%" stop-color="#e67226" />
+              <stop offset="57.1%" stop-color="#ecc36d" />
+              <stop offset="67.4%" stop-color="#6bb3d6" />
             </linearGradient>
           </defs>
           <circle
             className="circle1-stroke animation-circles"
-            stroke="url(#MyGradient)"
+            stroke="url(#my-gradient)"v
             strokeWidth="15px"
             strokeLinecap="round"
             r="130px"
