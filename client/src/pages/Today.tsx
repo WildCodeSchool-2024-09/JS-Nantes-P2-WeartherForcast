@@ -28,6 +28,8 @@ function Today() {
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
 
+  const handleClick = () => {};
+
   return (
     <>
       <section className="today-comp animated-section">
@@ -71,7 +73,7 @@ function Today() {
             </div>
             <div className="real-feel">Feel like : {realFeel}°</div>
             <div className="date">{dateOfToday}</div>
-            <button type="button" className="fav-button">
+            <button type="button" className="fav-button" onClick={handleClick}>
               <img className="fav-icon" src={emptyHeart} alt="<3" />
             </button>
           </div>

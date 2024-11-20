@@ -2,7 +2,6 @@
   background-color: var(--mainColor);
   border-radius: 40px;
   width: 322px;
-  min-height: 455px;
   box-shadow: 0 2px 6px var(--shadowColor);
   font-family: var(--general-font);
   color: var(--black);
@@ -23,4 +22,15 @@
 
 .iconFavoritesOnTitle {
   width: 20px;
+}
+
+.container-body {
+  min-height: 382px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
