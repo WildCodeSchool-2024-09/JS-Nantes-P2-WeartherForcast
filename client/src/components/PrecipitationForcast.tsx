@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import type CityOutletContextType from "../types/Outletcontext";
 import "../style/precipitationForcast.css";
 
-interface OutletContextProps {
-  city: string;
-  setCity: (value: string) => void;
-}
-
 function PrecipitationForecast() {
-  const outletContext = useOutletContext<OutletContextProps>();
+  const outletContext = useOutletContext<CityOutletContextType>();
   const [forecast, setForecast] = useState<number | undefined>(undefined);
 
   useEffect(() => {
