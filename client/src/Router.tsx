@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Today />,
+        element: <GeolocaliseMe />,
       },
       {
         path: "/geolocaliseMe",
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/preferenciesWear",
         element: <PreferenciesWear />,
+      },
+      {
+        path: "/today",
+        element: <Today />,
       },
       {
         path: "/dayByDay",

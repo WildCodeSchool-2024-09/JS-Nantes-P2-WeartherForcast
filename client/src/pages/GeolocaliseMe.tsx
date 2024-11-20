@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import "/src/style/animationCircle.css";
+import "/src/style/geolocaliseMe.css";
 import { useEffect, useState } from "react";
 import type { CityOutletContextType } from "../App";
 import emptyHeart from "../assets/icons/emptyheart.png";
@@ -75,7 +75,6 @@ export default function GeolocaliseMe() {
         <div className="cadran-content">
           <h2 className="your-city">{cityInfoMeteo.city}</h2>
           <div className="state-temp">
-            {/* <img src="" alt="" /> */}
             <h3 className="temperature">{cityInfoMeteo.currentTemp}°</h3>
           </div>
           <div className="real-feel">Feel like : {cityInfoMeteo.realFeel}°</div>

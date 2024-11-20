@@ -77,7 +77,7 @@
   border: none;
   padding: 4px;
   cursor: pointer;
-  z-index: 110;
+  z-index: 2;
 }
 
 .fav-icon {
