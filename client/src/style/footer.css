@@ -14,7 +14,7 @@ footer nav {
 }
 
 footer nav a {
-  width: 110px;
+  width: 130px;
   border-radius: 60px;
   box-shadow: 0 2px 6px var(--shadowColor), inset 0px 0px 0 3px var(--mainColor);
   letter-spacing: 1px;
