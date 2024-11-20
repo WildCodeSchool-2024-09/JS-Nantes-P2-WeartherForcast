@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import "../style/precipitationForcadt.css";
 
 interface OutletContextProps {
   city: string;
@@ -34,14 +35,14 @@ function PrecipitationForecast() {
   }, [outletContext.city]);
 
   return (
-    <div>
+    <div className="precip-forecast-windows">
       {forecast && forecast > 0 ? (
-        <p>
+        <p className="precip-forecast-txt">
           Précipitations attendues dans les trois prochaines heures à{" "}
           {outletContext.city} !
         </p>
       ) : (
-        <p>
+        <p className="precip-forecast-txt">
           Pas de précipitations prévues dans les trois prochaines heures à{" "}
           {outletContext.city}.
         </p>
