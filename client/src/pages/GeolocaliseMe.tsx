@@ -54,16 +54,16 @@ export default function GeolocaliseMe() {
         <svg className="circle-1" height="30rem" width="30rem">
           <title>animationCircles</title>
           <defs>
-            <linearGradient id="MyGradient">
-              <stop offset="30.2%" stopColor="#572a6d" />
-              <stop offset="49.7%" stopColor="#e67226" />
-              <stop offset="57.1%" stopColor="#ecc36d" />
-              <stop offset="67.4%" stopColor="#6bb3d6" />
+            <linearGradient id="my-gradient">
+              <stop offset="30.2%" stop-color="#572a6d" />
+              <stop offset="49.7%" stop-color="#e67226" />
+              <stop offset="57.1%" stop-color="#ecc36d" />
+              <stop offset="67.4%" stop-color="#6bb3d6" />
             </linearGradient>
           </defs>
           <circle
             className="circle1-stroke animation-circles"
-            stroke="url(#MyGradient)"
+            stroke="url(#my-gradient)"
             strokeWidth="15px"
             strokeLinecap="round"
             r="130px"
@@ -80,7 +80,6 @@ export default function GeolocaliseMe() {
         >
           <h2 className="your-city">{cityInfoMeteo.city}</h2>
           <div className="state-temp">
-            {/* <img src="" alt="" /> */}
             <h3 className="temperature">{cityInfoMeteo.currentTemp}°</h3>
           </div>
           <div className="real-feel">Feel like : {cityInfoMeteo.realFeel}°</div>
