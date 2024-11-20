@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import "../style/precipitationForcadt.css";
+import "../style/precipitationForcast.css";
 
 interface OutletContextProps {
   city: string;

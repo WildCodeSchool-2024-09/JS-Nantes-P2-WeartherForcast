@@ -33,7 +33,9 @@ export default function App() {
           backgroundImage: `url(${background})`,
         }}
       >
-        {isMenuOpen ? <MenuHeader /> : null}
+        {isMenuOpen ? (
+          <MenuHeader setters={{ setCity, setBackground }} />
+        ) : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
           <PageContent outletContext={{ city, setCity }} />
