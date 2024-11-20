@@ -3,6 +3,7 @@ import { useOutletContext } from "react-router-dom";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
 import PrecipitationForecast from "../components/PrecipitationForcast";
+import WhatToWear from "../components/WhatToWear";
 
 interface WeatherData {
   skyState: string | undefined;
@@ -52,10 +53,10 @@ function Today() {
             <title>animationCircles</title>
             <defs>
               <linearGradient id="MyGradient">
-                <stop offset="30.2%" stopColor="#572a6d" />
-                <stop offset="49.7%" stopColor="#e67226" />
-                <stop offset="57.1%" stopColor="#ecc36d" />
-                <stop offset="67.4%" stopColor="#6bb3d6" />
+                <stop offset="30.2%" stop-color="#572a6d" />
+                <stop offset="49.7%" stop-color="#e67226" />
+                <stop offset="57.1%" stop-color="#ecc36d" />
+                <stop offset="67.4%" stop-color="#6bb3d6" />
               </linearGradient>
             </defs>
             <circle
@@ -76,7 +77,7 @@ function Today() {
               <figcaption>
                 <img
                   src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
-                  alt="Etat du ciel"
+                  alt="symbole de l'état du ciel"
                 />
               </figcaption>
               <h3 className="temperature">{temperature}°</h3>
@@ -90,8 +91,8 @@ function Today() {
         </div>
       </section>
       <PrecipitationForecast />
+      <WhatToWear />
     </>
   );
 }
-
 export default Today;

@@ -6,9 +6,15 @@ export default function Footer() {
   return (
     <footer>
       <nav>
-        <NavLink to="/">Today</NavLink>
-        <NavLink to="/dayByDay">Day By Day</NavLink>
-        <NavLink to="/WeatherNews">News</NavLink>
+        <NavLink to="/">
+          <span>Today</span>
+        </NavLink>
+        <NavLink to="/dayByDay">
+          <span>Day By Day</span>
+        </NavLink>
+        <NavLink to="/WeatherNews">
+          <span>News</span>
+        </NavLink>
       </nav>
       <div>
         <p>2024 copyright</p>
