@@ -11,6 +11,7 @@ export interface CityOutletContextType {
   city: string;
   setCity: (city: string) => void;
   colorCircle: string;
+  setColorCircle: (value: string) => void;
 }
 
 export default function App() {

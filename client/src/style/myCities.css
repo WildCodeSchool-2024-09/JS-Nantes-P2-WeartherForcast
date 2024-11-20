@@ -1,0 +1,26 @@
+.favorites-cities-container {
+  background-color: var(--mainColor);
+  border-radius: 40px;
+  width: 322px;
+  min-height: 455px;
+  box-shadow: 0 2px 6px var(--shadowColor);
+  font-family: var(--general-font);
+  color: var(--black);
+}
+
+.container-header {
+  border-bottom: solid 1px var(--shadowColor);
+}
+
+.container-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 30px;
+  color: var(--font-highlight-color);
+}
+
+.iconFavoritesOnTitle {
+  width: 20px;
+}
