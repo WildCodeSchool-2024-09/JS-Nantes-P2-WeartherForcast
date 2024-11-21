@@ -64,17 +64,17 @@ function WeatherNews() {
             />
           </button>
         )}
-      </div>
 
-      <div className="to-site">
-        <a
-          href={weatherNewsData[cityIndex].src}
-          className="link, button-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Lien vers l'article
-        </a>
+        <div className="to-site">
+          <a
+            href={weatherNewsData[cityIndex].src}
+            className="link, button-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Lien vers l'article
+          </a>
+        </div>
       </div>
     </section>
   );
