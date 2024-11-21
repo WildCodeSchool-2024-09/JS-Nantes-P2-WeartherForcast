@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
 import { useOutletContext } from "react-router-dom";
 import type { CityOutletContextType } from "../App";
+import ToggleIconFav from "../components/ToggleIconFav";
 import WhatToWear from "../components/WhatToWear";
 import { getBackground } from "../utilitiesFunctions/getBackground";
 
@@ -33,8 +33,6 @@ function Today() {
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
-
-  const handleClick = () => {};
 
   return (
     <>
@@ -79,8 +77,8 @@ function Today() {
             </div>
             <div className="real-feel">Feel like : {realFeel}°</div>
             <div className="date">{dateOfToday}</div>
-            <button type="button" className="fav-button" onClick={handleClick}>
-              <img className="fav-icon" src={emptyHeart} alt="<3" />
+            <button type="button" className="fav-button">
+              <ToggleIconFav />
             </button>
           </div>
         </div>
