@@ -12,6 +12,8 @@ export interface CityOutletContextType {
   setCity: (city: string) => void;
   colorCircle: string;
   setColorCircle: (value: string) => void;
+  setBackground: (value: string) => void;
+  background: string;
 }
 
 export default function App() {
@@ -40,7 +42,15 @@ export default function App() {
         {isMenuOpen ? <MenuHeader /> : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
-          <PageContent outletContext={{ city, setCity, colorCircle }} />
+          <PageContent
+            outletContext={{
+              city,
+              setCity,
+              colorCircle,
+              setBackground,
+              background,
+            }}
+          />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
         </section>
       </main>

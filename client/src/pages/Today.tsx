@@ -4,13 +4,16 @@ import "../style/Today.css";
 import { useOutletContext } from "react-router-dom";
 import type { CityOutletContextType } from "../App";
 import WhatToWear from "../components/WhatToWear";
+import { getBackground } from "../utilitiesFunctions/getBackground";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
+  const [description, setDescription] = useState("");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
@@ -20,10 +23,13 @@ function Today() {
           setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
+          setDescription(data.weather[0].main);
+          if (description)
+            getBackground(description, outletContext.setBackground);
         })
         .catch((err) => console.error(err));
     }
-  }, [outletContext]);
+  }, [outletContext.city]);
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");

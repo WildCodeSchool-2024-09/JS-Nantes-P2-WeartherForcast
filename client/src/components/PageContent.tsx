@@ -5,6 +5,8 @@ export interface contextCityProps {
     city: string;
     setCity: (value: string) => void;
     colorCircle: string;
+    setBackground: (value: string) => void;
+    background: string;
   };
 }
 
