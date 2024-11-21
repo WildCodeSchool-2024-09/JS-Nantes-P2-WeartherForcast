@@ -73,10 +73,10 @@ main {
   background-position: bottom;
 }
 
-.page-content-section {
+/* .page-content-section {
   position: absolute;
   top: 30%;
-}
+} */
 
 /*FONCTIONNAL CLASSES*/
 .active {
