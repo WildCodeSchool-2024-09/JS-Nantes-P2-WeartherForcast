@@ -14,7 +14,7 @@ function Today() {
 
   useEffect(() => {
     if (outletContext.city) {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.OPENWEATHER_API_KEY}&units=metric`;
 
       fetch(url)
         .then((response) => response.json())

@@ -25,7 +25,7 @@ export default function GeolocaliseMe() {
 
   useEffect(() => {
     if (outletContext.city) {
-      const urlforCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
+      const urlforCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.OPENWEATHER_API_KEY}&units=metric`;
       recoverCityInfoMeteo(urlforCity);
     }
   }, [outletContext]);

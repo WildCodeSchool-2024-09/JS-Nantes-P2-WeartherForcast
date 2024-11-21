@@ -10,7 +10,7 @@ function WhatToWear() {
   const [tempMax, setTempMax] = useState(20);
   const [conditID, setConditID] = useState(615);
   const city = "nantes";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.OPENWEATHER_API_KEY}&units=metric`;
   const [tempRange, setTempRange] = useState("cool");
 
   // FETCH API
