@@ -39,6 +39,13 @@
   align-items: center;
   color: white;
   position: absolute;
+  font-family: var(--general-font);
+}
+
+.your-city {
+  font-size: 16px;
+  text-align: center;
+  max-width: 150px;
 }
 
 .state-temp {
