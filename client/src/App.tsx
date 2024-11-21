@@ -22,6 +22,7 @@ export default function App() {
 
   //CLOTHING PREFERENCES
   const [warmthPref, setWarmthPref] = useState(0);
+  const [clothingPref, setClothingPref] = useState(0);
 
   //GEOLOCATION ON LOAD
   useEffect(() => {
@@ -40,7 +41,14 @@ export default function App() {
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
           <PageContent
-            outletContext={{ city, setCity, warmthPref, setWarmthPref }}
+            outletContext={{
+              city,
+              setCity,
+              warmthPref,
+              setWarmthPref,
+              clothingPref,
+              setClothingPref,
+            }}
           />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
         </section>

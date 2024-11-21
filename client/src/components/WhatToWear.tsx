@@ -10,8 +10,8 @@ function WhatToWear() {
   const [tempMax, setTempMax] = useState<WhatToWearInterfaces.useStateProps>();
   const [conditID, setConditID] = useState(615);
   const city = useOutletContext<WhatToWearInterfaces.OutletContextProps>().city;
-  const warmthPref =
-    useOutletContext<WhatToWearInterfaces.OutletContextProps>().warmthPref;
+  const clothingPref =
+    useOutletContext<WhatToWearInterfaces.OutletContextProps>().clothingPref;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric`;
   const [tempRange, setTempRange] = useState("cool");
 
@@ -48,8 +48,8 @@ function WhatToWear() {
         }
       }
     }
-    findTemperatureRange(tempMax, warmthPref);
-  }, [tempMax, warmthPref]);
+    findTemperatureRange(tempMax, clothingPref.warmthPref);
+  }, [tempMax, clothingPref.warmthPref]);
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - TEMPERATURE RANGE
 

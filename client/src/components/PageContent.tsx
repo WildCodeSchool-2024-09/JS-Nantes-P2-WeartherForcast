@@ -6,6 +6,8 @@ interface PageContentProps {
     setCity: (value: string) => void;
     warmthPref: number;
     setWarmthPref: (value: number) => void;
+    clothingPref: object | number;
+    setClothingPref: (clothingPref: number) => void;
   };
 }
 
