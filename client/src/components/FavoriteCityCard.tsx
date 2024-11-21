@@ -1,8 +1,8 @@
 import "/src/style/FavoriteCityCard.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import type { CityOutletContextType } from "../App";
 import rubbishBin from "../assets/icons/rubbish-bin.png";
 import visibilityIcon from "../assets/icons/visibility-icon.png";
+import type CityOutletContextType from "../types/Outletcontext";
 
 export default function FavoriteCityCard() {
   const outletContext = useOutletContext<CityOutletContextType>();

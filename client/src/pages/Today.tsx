@@ -4,7 +4,8 @@ import PrecipitationForecast from "../components/PrecipitationForcast";
 import WhatToWear from "../components/WhatToWear";
 import type CityOutletContextType from "../types/Outletcontext";
 import "../style/Today.css";
-import ToggleIconFav from "../components/ToggleIconFav";
+import emptyHeart from "../assets/icons/emptyheart.png";
+import whiteHeart from "../assets/icons/white-heart.png";
 import { getBackground } from "../utilitiesFunctions/getBackground";
 
 function Today() {
@@ -13,6 +14,13 @@ function Today() {
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
   const [description, setDescription] = useState("");
+  const [isFav, setFav] = useState(false);
+
+  const handleClick = () => {
+    setFav((currentFav) => !currentFav); /* 🆕 A chaque fois que je clique sur mon bouton, je dis que je veux setter la valeur de menu open a l'inverse de sa valeur courante grace a !currentMenuOpen. La fonction dans le set State prend en
+    parametre la valeur courante (currentMenuOpen -> donnee fournit par useState) au moment de mon setState. Cette facon de faire est la facon LAZY qui permet de setter le state de facon decaler 
+    (on lui dot d'attendre d'avoir terminer sa derniere operation),evitant des conflits si un utilisateur fait plein de clic tres vite */
+  };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
@@ -78,8 +86,12 @@ function Today() {
             </div>
             <div className="real-feel">Feel like : {realFeel}°</div>
             <div className="date">{dateOfToday}</div>
-            <button type="button" className="fav-button">
-              <ToggleIconFav />
+            <button type="button" className="fav-button" onClick={handleClick}>
+              <img
+                className="fav-icon"
+                src={isFav ? emptyHeart : whiteHeart}
+                alt=""
+              />
             </button>
           </div>
         </div>

@@ -1,20 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { geolocaliseMe } from "../utilitiesFunctions/geolocation";
 
 export default function MenuHeader(props: {
   setters: {
     setCity: React.Dispatch<React.SetStateAction<string>>;
     setBackground: React.Dispatch<React.SetStateAction<string>>;
+    setColorCircle: (value: string) => void;
   };
 }) {
-  const { setCity, setBackground } = props.setters;
+  const { setCity, setBackground, setColorCircle } = props.setters;
+  const navigate = useNavigate();
   return (
     <section className="menu-dropdown">
       <nav>
         <button
+          className="geoloc-button"
           type="button"
           onClick={() => {
-            geolocaliseMe(setCity, setBackground);
+            geolocaliseMe(setCity, setBackground, setColorCircle);
+            navigate("/today");
           }}
         >
           Geolocalise me

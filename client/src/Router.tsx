@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         element: <GeolocaliseMe />,
       },
       {
-        path: "/geolocaliseMe",
+        path: "/geolocalise-me",
         element: <GeolocaliseMe />,
       },
       {
