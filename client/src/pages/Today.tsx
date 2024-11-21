@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import "../style/Today.css";
 import { useOutletContext } from "react-router-dom";
-import type { CityOutletContextType } from "../App";
-import ToggleIconFav from "../components/ToggleIconFav";
+import PrecipitationForecast from "../components/PrecipitationForcast";
 import WhatToWear from "../components/WhatToWear";
+import type CityOutletContextType from "../types/Outletcontext";
+import "../style/Today.css";
+import ToggleIconFav from "../components/ToggleIconFav";
 import { getBackground } from "../utilitiesFunctions/getBackground";
 
 function Today() {
@@ -83,6 +84,7 @@ function Today() {
           </div>
         </div>
       </section>
+      <PrecipitationForecast />
       <WhatToWear />
     </>
   );

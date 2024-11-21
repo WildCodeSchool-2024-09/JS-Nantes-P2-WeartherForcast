@@ -1,8 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 import "/src/style/geolocaliseMe.css";
 import { useEffect, useState } from "react";
-import type { CityOutletContextType } from "../App";
 import emptyHeart from "../assets/icons/emptyheart.png";
+import type CityOutletContextType from "../types/Outletcontext";
 import { getBackground } from "../utilitiesFunctions/getBackground";
 
 export default function GeolocaliseMe() {
