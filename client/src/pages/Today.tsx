@@ -1,53 +1,51 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import emptyHeart from "../assets/icons/emptyheart.png";
-import "../style/Today.css";
+import PrecipitationForecast from "../components/PrecipitationForcast";
 import WhatToWear from "../components/WhatToWear";
-
-interface WeatherData {
-  skyState: string | undefined;
-  temperature: number | undefined;
-  realFeel: number | undefined;
-}
+import type CityOutletContextType from "../types/Outletcontext";
+import "../style/Today.css";
 
 function Today() {
-  const city = "Nantes";
-  const [skyState, setSkyState] = useState<WeatherData["skyState"]>(undefined);
-  const [temperature, setTemperature] =
-    useState<WeatherData["temperature"]>(undefined);
-  const [realFeel, setRealFeel] = useState<WeatherData["realFeel"]>(undefined);
+  const outletContext = useOutletContext<CityOutletContextType>();
+  const [skyState, setSkyState] = useState("");
+  const [temperature, setTemperature] = useState<number>();
+  const [realFeel, setRealFeel] = useState<number>();
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setSkyState(data.weather[0].icon);
-        setTemperature(Math.round(data.main.temp));
-        setRealFeel(Math.round(data.main.feels_like));
-      })
-      .catch((err) => console.error(err));
-  }, []);
+    if (outletContext.city) {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          setSkyState(data.weather[0].icon);
+          setTemperature(Math.round(data.main.temp));
+          setRealFeel(Math.round(data.main.feels_like));
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [outletContext]);
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
 
   return (
     <>
-      <section className="today-comp">
+      <section className="today-comp animated-section">
         <div className="circle-container">
           <svg className="circle-1" height="30rem" width="30rem">
             <title>animationCircles</title>
             <defs>
-              <linearGradient id="MyGradient">
-                <stop offset="30.2%" stop-color="#572a6d" />
-                <stop offset="49.7%" stop-color="#e67226" />
-                <stop offset="57.1%" stop-color="#ecc36d" />
-                <stop offset="67.4%" stop-color="#6bb3d6" />
+              <linearGradient id="my-gradient">
+                <stop offset="30.2%" stopColor="#572a6d" />
+                <stop offset="49.7%" stopColor="#e67226" />
+                <stop offset="57.1%" stopColor="#ecc36d" />
+                <stop offset="67.4%" stopColor="#6bb3d6" />
               </linearGradient>
             </defs>
             <circle
               className="circle1-stroke animation-circles"
-              stroke="url(#MyGradient)"
+              stroke="url(#my-gradient)"
               strokeWidth="15px"
               strokeLinecap="round"
               r="130px"
@@ -57,7 +55,7 @@ function Today() {
             />
           </svg>
           <div className="cadran-content">
-            <h2 className="your-city">{city}</h2>
+            <h2 className="your-city">{outletContext.city}</h2>
             <div className="state-temp">
               <figcaption>
                 <img
@@ -75,6 +73,7 @@ function Today() {
           </div>
         </div>
       </section>
+      <PrecipitationForecast />
       <WhatToWear />
     </>
   );

@@ -1,17 +1,10 @@
 import { Outlet } from "react-router-dom";
+import type CityOutletContextType from "../types/Outletcontext";
 
-interface PageContentProps {
-  outletContext: {
-    city: string;
-    setCity: (value: string) => void;
-    warmthPref: number;
-    setWarmthPref: (value: number) => void;
-    clothingPref: object | number;
-    setClothingPref: (clothingPref: number) => void;
-  };
-}
 
-export default function PageContent({ outletContext }: PageContentProps) {
+export default function PageContent({
+  outletContext,
+}: { outletContext: CityOutletContextType }) {
   return (
     <section>
       <Outlet context={outletContext} />
