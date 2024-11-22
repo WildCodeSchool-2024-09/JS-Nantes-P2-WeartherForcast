@@ -1,6 +1,9 @@
 import "/src/style/DayByDay.css";
 // import "/src/assets/images/Cloudy.png/";
+// import { useState } from "react";
+
 function DayByday() {
+  // const [temperature, setTemperature] = useState();
   return (
     <section className="day">
       <div className="container-rectangle">
