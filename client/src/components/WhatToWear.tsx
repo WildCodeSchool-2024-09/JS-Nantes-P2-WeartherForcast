@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import weatherConditions from "../assets/APIWeatherConditions";
 import "../WhatToWear.css";
+import { NavLink } from "react-router-dom";
 import tempRanges from "../assets/Temps";
 import type WhatToWearInterfaces from "../types/whatToWear";
+
 function WhatToWear() {
   // DECLARATION OF VARIABLES -- Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
   const [conditions, setConditions] = useState();
@@ -82,6 +84,12 @@ function WhatToWear() {
         Today it will be {tempRange} with {conditions}. Don't forget your{" "}
         {weatherItem}
       </p>
+      <nav>
+        <p>
+          {" "}
+          <NavLink to="/WhatToWearMore">more...</NavLink>
+        </p>
+      </nav>
 
       {/* DISPLAY OF CLOTHING RECOMMENDATIONS DEPENDING ON WEATHER CONDITIONS - need to use map*/}
       <figure className="wtw-images">

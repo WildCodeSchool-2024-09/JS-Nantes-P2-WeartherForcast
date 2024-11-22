@@ -16,8 +16,14 @@ export default function App() {
   const [background, setBackground] = useState("");
 
   //CLOTHING PREFERENCES
-  const [warmthPref, setWarmthPref] = useState(0);
-  const [clothingPref, setClothingPref] = useState(0);
+  const [clothingPref, setClothingPref] = useState({
+    warmthPref: 0,
+    humidPref: 0,
+    bikePref: false,
+    pubTransPref: false,
+    drivePref: false,
+    walkPref: false,
+  });
 
   //GEOLOCATION ON LOAD
   useEffect(() => {
@@ -41,8 +47,6 @@ export default function App() {
             outletContext={{
               city,
               setCity,
-              warmthPref,
-              setWarmthPref,
               clothingPref,
               setClothingPref,
             }}

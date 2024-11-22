@@ -29,7 +29,7 @@ function ClothingPreferences() {
 
   return (
     <div className="cp-main-div">
-      <h1 className="cp-title">My Preferences</h1>
+      <h2 className="cp-title">My Preferences</h2>
 
       {/*Sliders  */}
       <h3 className="cp-slide-title">I have the tendancy to be:</h3>
@@ -68,41 +68,43 @@ function ClothingPreferences() {
         </figcaption>
       </section>
 
-      <section>
+      <div className="cp-check-box-div">
         <h3 className="cp-slide-title">I regularly:</h3>
-        <input
-          type="checkbox"
-          id="bikePref"
-          name="bikePref"
-          checked={clothingPref.bikePref}
-          onChange={handleInputChangeChkBox}
-        />{" "}
-        <label htmlFor="bike">ride a bike</label>
-        <input
-          type="checkbox"
-          id="walkPref"
-          name="walkPref"
-          checked={clothingPref.walkPref}
-          onChange={handleInputChangeChkBox}
-        />{" "}
-        <label htmlFor="walk">walk long distances</label>
-        <input
-          type="checkbox"
-          id="drivePref"
-          name="drivePref"
-          checked={clothingPref.drivePref}
-          onChange={handleInputChangeChkBox}
-        />{" "}
-        <label htmlFor="drive">drive a vehicle</label>
-        <input
-          type="checkbox"
-          id="pubTransPref"
-          name="pubTransPref"
-          checked={clothingPref.pubTransPref}
-          onChange={handleInputChangeChkBox}
-        />{" "}
-        <label htmlFor="pubTrans">have access to public transport</label>
-      </section>
+        <section className="cp-check-boxes">
+          <input
+            type="checkbox"
+            id="bikePref"
+            name="bikePref"
+            checked={clothingPref.bikePref}
+            onChange={handleInputChangeChkBox}
+          />{" "}
+          <label htmlFor="bike">go bike riding</label>
+          <input
+            type="checkbox"
+            id="walkPref"
+            name="walkPref"
+            checked={clothingPref.walkPref}
+            onChange={handleInputChangeChkBox}
+          />{" "}
+          <label htmlFor="walk">walk long distances</label>
+          <input
+            type="checkbox"
+            id="drivePref"
+            name="drivePref"
+            checked={clothingPref.drivePref}
+            onChange={handleInputChangeChkBox}
+          />{" "}
+          <label htmlFor="drive">drive a vehicle</label>
+          <input
+            type="checkbox"
+            id="pubTransPref"
+            name="pubTransPref"
+            checked={clothingPref.pubTransPref}
+            onChange={handleInputChangeChkBox}
+          />{" "}
+          <label htmlFor="pubTrans">use public transport</label>
+        </section>
+      </div>
     </div>
   );
 }
