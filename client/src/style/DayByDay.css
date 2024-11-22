@@ -1,5 +1,6 @@
 .rectangle {
-  border: 1px solid #000000;
+  box-shadow: 0 2px 6px var(--shadowColor);
+
   height: 420px;
   width: 40px;
   background-color: #61aeff;
@@ -17,24 +18,23 @@
   margin-top: 5px;
 }
 .small-rectangle {
-  border: 1px solid #000000;
   height: 200px;
   width: 15px;
   background-color: white;
   display: flex;
   /* gap: 2px; */
   border-radius: 20px;
-  margin-top: 45px;
+  margin-top: 20px;
   display: inline-block;
   justify-content: center;
   align-items: center;
 }
-.rectangle-parent {
+/* .rectangle-parent {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .dbd-text {
   text-align: center;
@@ -51,6 +51,14 @@
   color: white;
   padding-bottom: 10px;
 }
-img {
+.day-friday {
   height: 25px;
+}
+/* img {
+  height: 25px;
+} */
+.dbd-temperature {
+  color: white;
+  font-size: 15px;
+  padding: 10px;
 }
