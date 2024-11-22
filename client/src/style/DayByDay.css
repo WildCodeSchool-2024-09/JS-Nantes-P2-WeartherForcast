@@ -1,11 +1,9 @@
 .rectangle {
   box-shadow: 0 2px 6px var(--shadowColor);
-
   height: 420px;
   width: 40px;
   background-color: #61aeff;
   display: flex;
-  /* gap: 2px; */
   border-radius: 20px;
   margin: 15px;
   display: flex;
@@ -29,12 +27,6 @@
   justify-content: center;
   align-items: center;
 }
-/* .rectangle-parent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 
 .dbd-text {
   text-align: center;
@@ -54,9 +46,7 @@
 .day-friday {
   height: 25px;
 }
-/* img {
-  height: 25px;
-} */
+
 .dbd-temperature {
   color: white;
   font-size: 15px;
