@@ -4,10 +4,12 @@
   width: 40px;
   background-color: #61aeff;
   display: flex;
-  gap: 2px;
+  /* gap: 2px; */
   border-radius: 20px;
-
   margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .day {
@@ -20,11 +22,11 @@
   width: 15px;
   background-color: white;
   display: flex;
-  gap: 2px;
+  /* gap: 2px; */
   border-radius: 20px;
-  flex-direction: row;
-  margin: 15px;
-  margin-top: 100px;
+  margin-top: 45px;
+  display: flex;
+  justify-content: center;
 }
 .rectangle-parent {
   display: flex;
@@ -34,4 +36,27 @@
 }
 div > p {
   text-align: center;
+  color: white;
+
+  /* font-size: 20px; */
+}
+/* p {
+  color: white;
+   font-size: 20px; 
+}  */
+
+.dbd-text {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 20px;
+  /* 
+  justify-content: center;
+  align-items: center; */
+}
+
+.day-text {
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
 }
