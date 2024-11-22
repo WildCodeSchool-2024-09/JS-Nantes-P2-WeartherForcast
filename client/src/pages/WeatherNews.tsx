@@ -13,11 +13,9 @@ function WeatherNews() {
   };
 
   return (
-    <section className="element">
-      <div className="header">
-        <div className="title">
-          <h2>News</h2>
-        </div>
+    <section className="weather-news">
+      <div className="title">
+        <h2>News</h2>
       </div>
 
       <div className="carousel-container">

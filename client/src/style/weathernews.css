@@ -48,7 +48,7 @@
   padding: 20px 20px 20px;
   box-shadow: 0 2px 6px var(--shadowColor);
 }
-.element {
+.weather-news {
   background-color: var(--mainColor);
   border-radius: 40px;
   width: 322px;
@@ -58,17 +58,14 @@
   margin-top: 15px;
 }
 
-.header {
+.title {
   border-bottom: solid 1px var(--shadowColor);
 }
-
 h2 {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 0px 8px 0px;
-  padding-top: 1%;
-  font-size: 24px;
-  font-family: "Inter", sans-serif;
+
   color: #61aeff;
 }
