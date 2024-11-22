@@ -34,12 +34,12 @@ function PrecipitationForecast() {
     <div className="precip-forecast-windows">
       {forecast && forecast > 0 ? (
         <p className="precip-forecast-txt">
-          Précipitations attendues dans les trois prochaines heures à{" "}
-          {outletContext.city} !
+          Precipitation expected in the next three hours in {outletContext.city}
+          !
         </p>
       ) : (
         <p className="precip-forecast-txt">
-          Pas de précipitations prévues dans les trois prochaines heures à{" "}
+          No precipitation expected in the next three hours in{" "}
           {outletContext.city}.
         </p>
       )}
