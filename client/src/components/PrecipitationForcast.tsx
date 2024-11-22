@@ -9,7 +9,7 @@ function PrecipitationForecast() {
 
   useEffect(() => {
     if (outletContext.city) {
-      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${outletContext.city}&cnt=1&appid=4e41f328e6b4fcf670b66844921c47d8`;
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${outletContext.city}&cnt=1&appid=${import.meta.env.OPENWEATHER_API_KEY}`;
 
       fetch(url)
         .then((response) => {
