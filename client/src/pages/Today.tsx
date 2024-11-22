@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import emptyHeart from "../assets/icons/emptyheart.png";
-import "../style/Today.css";
 import { useOutletContext } from "react-router-dom";
-import type { CityOutletContextType } from "../App";
-import WhatToWear from "../components/WhatToWear";
+import emptyHeart from "../assets/icons/emptyheart.png";
 import { getBackground } from "../utilitiesFunctions/getBackground";
+import PrecipitationForecast from "../components/PrecipitationForcast";
+import WhatToWear from "../components/WhatToWear";
+import type CityOutletContextType from "../types/Outletcontext";
+import "../style/Today.css";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
@@ -13,7 +14,7 @@ function Today() {
   const [realFeel, setRealFeel] = useState<number>();
   const [description, setDescription] = useState("");
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> //TODO: find a better solution !
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
@@ -30,6 +31,10 @@ function Today() {
         .catch((err) => console.error(err));
     }
   }, [outletContext.city]);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [outletContext]);
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
@@ -85,6 +90,7 @@ function Today() {
           </div>
         </div>
       </section>
+      <PrecipitationForecast />
       <WhatToWear />
     </>
   );
