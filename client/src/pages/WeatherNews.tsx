@@ -16,7 +16,7 @@ function WeatherNews() {
     <section className="element">
       <div className="header">
         <div className="title">
-          <h1>News</h1>
+          <h2>News</h2>
         </div>
       </div>
 
