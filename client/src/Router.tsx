@@ -1,7 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import DayByDay from "./pages/DayByDay";
-import GeolocaliseMe from "./pages/GeolocaliseMe";
 import MyCities from "./pages/MyCities";
 import PreferenciesWear from "./pages/PreferenciesWear";
 import Today from "./pages/Today";
@@ -13,11 +12,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <GeolocaliseMe />,
+        element: <Today />,
       },
       {
-        path: "/geolocaliseMe",
-        element: <GeolocaliseMe />,
+        path: "/today",
+        element: <Today />,
       },
       {
         path: "/myCities",
