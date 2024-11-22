@@ -6,7 +6,8 @@ import type CityOutletContextType from "../types/Outletcontext";
 import "../style/Today.css";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
-import { getBackground } from "../utilitiesFunctions/getBackground";
+import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
+import { addCityOnCityUserFav } from "../utilitiesFunctions/localStorage";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
@@ -20,6 +21,7 @@ function Today() {
     setFav((currentFav) => !currentFav); /* 🆕 A chaque fois que je clique sur mon bouton, je dis que je veux setter la valeur de menu open a l'inverse de sa valeur courante grace a !currentMenuOpen. La fonction dans le set State prend en
     parametre la valeur courante (currentMenuOpen -> donnee fournit par useState) au moment de mon setState. Cette facon de faire est la facon LAZY qui permet de setter le state de facon decaler 
     (on lui dot d'attendre d'avoir terminer sa derniere operation),evitant des conflits si un utilisateur fait plein de clic tres vite */
+    if (isFav) addCityOnCityUserFav(outletContext.idCity, outletContext.city);
   };
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
@@ -74,7 +76,9 @@ function Today() {
               backgroundColor: `${outletContext.colorCircle}`,
             }}
           >
-            <h2 className="your-city">{outletContext.city}</h2>
+            <h2 className="your-city" id={outletContext.idCity}>
+              {outletContext.city}
+            </h2>
             <div className="state-temp">
               <figcaption>
                 <img
@@ -89,7 +93,7 @@ function Today() {
             <button type="button" className="fav-button" onClick={handleClick}>
               <img
                 className="fav-icon"
-                src={isFav ? emptyHeart : whiteHeart}
+                src={isFav ? whiteHeart : emptyHeart}
                 alt=""
               />
             </button>

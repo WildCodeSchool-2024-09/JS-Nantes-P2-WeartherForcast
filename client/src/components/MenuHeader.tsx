@@ -6,9 +6,10 @@ export default function MenuHeader(props: {
     setCity: React.Dispatch<React.SetStateAction<string>>;
     setBackground: React.Dispatch<React.SetStateAction<string>>;
     setColorCircle: (value: string) => void;
+    setIdCity: (id: string) => void;
   };
 }) {
-  const { setCity, setBackground, setColorCircle } = props.setters;
+  const { setCity, setBackground, setColorCircle, setIdCity } = props.setters;
   const navigate = useNavigate();
   return (
     <section className="menu-dropdown">
@@ -17,8 +18,8 @@ export default function MenuHeader(props: {
           className="geoloc-button"
           type="button"
           onClick={() => {
-            geolocaliseMe(setCity, setBackground, setColorCircle);
-            navigate("/today");
+            geolocaliseMe(setCity, setBackground, setColorCircle, setIdCity);
+            navigate("/today"); //👉FIXE ME LATER? WARNING geolocaliseMe is not async so maybe a problem with the promise API who could arrive after the navigation
           }}
         >
           Geolocalise me
