@@ -7,23 +7,55 @@ import "../style/Today.css";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
 import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
-import { addCityOnCityUserFav } from "../utilitiesFunctions/localStorage";
+
+type NewCity = {
+  cityId: string;
+  cityName: string;
+};
 
 function Today() {
+  // GETTER OUTLET CONTEXT
   const outletContext = useOutletContext<CityOutletContextType>();
+
+  // FAV
+  // const [isFav, setFav] = useState(false);
+  const citiesUserInLS = localStorage.getItem("savedCities");
+  const savedCities = citiesUserInLS
+    ? (JSON.parse(citiesUserInLS as string) as NewCity[])
+    : [];
+  const [favorites, setFavorites] = useState(savedCities);
+
+  useEffect(() => {
+    if (favorites) {
+      localStorage.setItem("savedCities", JSON.stringify(favorites));
+    }
+  }, [favorites]);
+
+  const handleClick = (id: string, name: string) => {
+    if (
+      !favorites.some((city) => {
+        return city.cityId === id;
+      })
+    ) {
+      setFavorites((currentFavorites) => [
+        ...currentFavorites,
+        { cityName: name, cityId: id },
+      ]);
+      //currentFavorites pour lui dire de regarder d"abord le contenu courant de favorites et de le modifier avant de faire la suite. Ca garantie qu"on prenne bien la valeur telle auelle est au ;o;emt ou on de;ande l"operation DAC A AJOUTER
+    } else {
+      setFavorites((currentFavorites) =>
+        currentFavorites.filter((city) => {
+          return city.cityId !== id;
+        }),
+      );
+    }
+  };
+
+  // CALL API AND DATA STATES
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
   const [description, setDescription] = useState("");
-  const [isFav, setFav] = useState(false);
-
-  const handleClick = () => {
-    setFav((currentFav) => !currentFav); /* 🆕 A chaque fois que je clique sur mon bouton, je dis que je veux setter la valeur de menu open a l'inverse de sa valeur courante grace a !currentMenuOpen. La fonction dans le set State prend en
-    parametre la valeur courante (currentMenuOpen -> donnee fournit par useState) au moment de mon setState. Cette facon de faire est la facon LAZY qui permet de setter le state de facon decaler 
-    (on lui dot d'attendre d'avoir terminer sa derniere operation),evitant des conflits si un utilisateur fait plein de clic tres vite */
-    if (isFav) addCityOnCityUserFav(outletContext.idCity, outletContext.city);
-  };
-
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (outletContext.city) {
@@ -76,9 +108,7 @@ function Today() {
               backgroundColor: `${outletContext.colorCircle}`,
             }}
           >
-            <h2 className="your-city" id={outletContext.idCity}>
-              {outletContext.city}
-            </h2>
+            <h2 className="your-city">{outletContext.city}</h2>
             <div className="state-temp">
               <figcaption>
                 <img
@@ -90,10 +120,23 @@ function Today() {
             </div>
             <div className="real-feel">Feel like : {realFeel}°</div>
             <div className="date">{dateOfToday}</div>
-            <button type="button" className="fav-button" onClick={handleClick}>
+            <button
+              type="button"
+              className="fav-button"
+              onClick={() =>
+                handleClick(outletContext.idCity, outletContext.city)
+              }
+            >
               <img
                 className="fav-icon"
-                src={isFav ? whiteHeart : emptyHeart}
+                src={
+                  favorites.some((cities) => {
+                    //SOME = is there one ? true : false
+                    return cities.cityId === outletContext.idCity;
+                  })
+                    ? whiteHeart
+                    : emptyHeart
+                }
                 alt=""
               />
             </button>
