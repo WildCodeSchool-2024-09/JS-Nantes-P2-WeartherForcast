@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import searchIcon from "/src/assets/icons/searchIcon.png";
 import "/src/style/SearchBar.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface SearchBarProps {
   setCity: (value: string) => void;
@@ -9,6 +10,8 @@ interface SearchBarProps {
 export default function SearchBar({ setCity }: SearchBarProps) {
   const inputRef = useRef<null | HTMLInputElement>(null);
   /* 💡 useRef() hook instead of querySelector. 📖 DOC => https://react.dev/reference/react/useRef */
+  const navigate = useNavigate();
+
   return (
     <form
       onSubmit={(event) => {
@@ -28,7 +31,11 @@ export default function SearchBar({ setCity }: SearchBarProps) {
         id="city-input"
         placeholder="Search a city ..."
       />
-      <button className="button-search" type="submit">
+      <button
+        className="button-search"
+        type="submit"
+        onClick={() => navigate("/today")}
+      >
         <img className="search-icon" src={searchIcon} alt="" />
       </button>
     </form>
