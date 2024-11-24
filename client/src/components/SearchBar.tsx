@@ -9,7 +9,6 @@ interface SearchBarProps {
 export default function SearchBar({ setCity }: SearchBarProps) {
   const inputRef = useRef<null | HTMLInputElement>(null);
   /* 💡 useRef() hook instead of querySelector. 📖 DOC => https://react.dev/reference/react/useRef */
-
   return (
     <form
       onSubmit={(event) => {

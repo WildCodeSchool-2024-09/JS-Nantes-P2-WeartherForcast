@@ -67,7 +67,9 @@ function Today() {
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
           setDescription(data.weather[0].main);
+          outletContext.setIdCity(data.id); //For the favorites gestion
           if (description)
+            //For the background dynamic
             getBackground(description, outletContext.setBackground);
         })
         .catch((err) => console.error(err));
