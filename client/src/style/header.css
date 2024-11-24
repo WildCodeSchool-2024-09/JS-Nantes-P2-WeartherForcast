@@ -45,6 +45,19 @@ header {
   letter-spacing: 1px;
 }
 
+.geoloc-button {
+  height: 40px;
+  border: solid 1px #bdbdbd;
+  text-decoration: none;
+  font-family: var(--general-font);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-bold);
+  color: var(--font-highlight-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
 .geoloc-button:hover {
   background: var(--secondaryColor);
   border: solid 1px #61aeff;
