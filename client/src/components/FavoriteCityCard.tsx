@@ -23,9 +23,6 @@ export default function FavoriteCityCard({
     navigate("/today");
   };
 
-  // TODO: function for remove city of localStorage
-  //TODO: map on cities in localStorage
-
   return (
     <section className="city-favorite-card">
       <div className="city-favorite-card-header">

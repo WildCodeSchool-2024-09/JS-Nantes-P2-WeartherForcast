@@ -14,7 +14,6 @@ function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
 
   // FAV
-  // const [isFav, setFav] = useState(false);
   const citiesUserInLocalStorage = localStorage.getItem("savedCities");
   const savedCities = citiesUserInLocalStorage
     ? (JSON.parse(citiesUserInLocalStorage as string) as NewCity[])
@@ -37,7 +36,8 @@ function Today() {
         ...currentFavorites,
         { cityName: name, cityId: id },
       ]);
-      //currentFavorites pour lui dire de regarder d"abord le contenu courant de favorites et de le modifier avant de faire la suite. Ca garantie qu"on prenne bien la valeur telle auelle est au ;o;emt ou on de;ande l"operation DAC A AJOUTER
+      //currentFavorites pour lui dire de regarder d"abord le contenu courant de favorites et de le modifier avant de faire la suite. Ca garantie qu"on prenne bien la valeur telle auelle est au momemt ou on demande l"operation
+      //📖 DOC : https://react.dev/reference/react/useState -> "I’ve updated the state, but the screen doesn’t update" AND "My initializer or updater function runs twice"
     } else {
       setFavorites((currentFavorites) =>
         currentFavorites.filter((city) => {
@@ -52,7 +52,7 @@ function Today() {
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
   const [description, setDescription] = useState("");
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> => 🐛 // TODO : Find a better way for this !
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
@@ -63,15 +63,16 @@ function Today() {
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
           setDescription(data.weather[0].main);
-          outletContext.setIdCity(data.id); //For the favorites gestion
+          outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
           if (description)
-            //For the background dynamic
+            // ℹ️ For the background dynamic
             getBackground(description, outletContext.setBackground);
         })
         .catch((err) => console.error(err));
     }
   }, [outletContext.city]);
 
+  //SET THE DATE
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
 
@@ -129,7 +130,7 @@ function Today() {
                 className="fav-icon"
                 src={
                   favorites.some((cities) => {
-                    //SOME = is there one ? true : false
+                    // 💡 SOME = is there one ? true : false
                     return cities.cityId === outletContext.idCity;
                   })
                     ? whiteHeart
