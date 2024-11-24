@@ -40,7 +40,6 @@ export const backgroundData = [
     url: "/src/assets/images/clear.jpg",
     description: "Clear",
     circleBackground: "radial-gradient(#9dcdd5, #8cc7d1, #56B0CA, #56bece)",
-    // "radial-gradient(#9dcdd5, #56B0CA)"
   },
   {
     id: 8,

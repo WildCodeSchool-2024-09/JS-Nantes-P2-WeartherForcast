@@ -75,7 +75,6 @@ function Today() {
   //SET THE DATE
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
-  console.log(outletContext.colorCircle);
 
   return (
     <>
