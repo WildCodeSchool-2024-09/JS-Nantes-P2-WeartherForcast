@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import searchIcon from "/src/assets/icons/searchIcon.png";
 import "/src/style/SearchBar.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface SearchBarProps {
   setCity: (value: string) => void;
