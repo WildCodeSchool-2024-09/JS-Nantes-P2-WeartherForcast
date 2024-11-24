@@ -6,12 +6,8 @@ import type CityOutletContextType from "../types/Outletcontext";
 import "../style/Today.css";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
+import type { NewCity } from "../types/newFavoriteCity";
 import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
-
-type NewCity = {
-  cityId: string;
-  cityName: string;
-};
 
 function Today() {
   // GETTER OUTLET CONTEXT
@@ -19,9 +15,9 @@ function Today() {
 
   // FAV
   // const [isFav, setFav] = useState(false);
-  const citiesUserInLS = localStorage.getItem("savedCities");
-  const savedCities = citiesUserInLS
-    ? (JSON.parse(citiesUserInLS as string) as NewCity[])
+  const citiesUserInLocalStorage = localStorage.getItem("savedCities");
+  const savedCities = citiesUserInLocalStorage
+    ? (JSON.parse(citiesUserInLocalStorage as string) as NewCity[])
     : [];
   const [favorites, setFavorites] = useState(savedCities);
 

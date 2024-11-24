@@ -1,8 +1,8 @@
 import heartPurple from "../assets/icons/heart-purple.png";
 import FavoriteCityCard from "../components/FavoriteCityCard";
 import "/src/style/myCities.css";
-// import type { NewCity } from "../types/newFavoriteCity";
 // import { useState } from "react";
+// import type { NewCity } from "../types/newFavoriteCity";
 
 export default function MyCities() {
   //1.recuperer les cities du LS -> savedCities ->JSON.parse
