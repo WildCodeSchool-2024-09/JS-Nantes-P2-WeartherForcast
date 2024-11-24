@@ -75,6 +75,7 @@ function Today() {
   //SET THE DATE
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
+  console.log(outletContext.colorCircle);
 
   return (
     <>
@@ -104,7 +105,7 @@ function Today() {
           <div
             className="cadran-content"
             style={{
-              backgroundColor: `${outletContext.colorCircle}`,
+              background: outletContext.colorCircle,
             }}
           >
             <h2 className="your-city">{outletContext.city}</h2>
