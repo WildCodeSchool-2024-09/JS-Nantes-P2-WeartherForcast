@@ -1,4 +1,4 @@
-interface OutletContextProps {
+export interface OutletContextProps {
   clothingPref: {
     warmthPref: 0;
     humidPref: 0;
@@ -6,6 +6,8 @@ interface OutletContextProps {
     pubTransPref: false;
     drivePref: false;
     walkPref: false;
+    wind: 0;
+    humidity: 0;
   };
   setClothingPref: (clothingPref: object) => void;
 }

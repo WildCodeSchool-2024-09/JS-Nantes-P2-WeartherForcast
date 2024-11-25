@@ -5,12 +5,20 @@ import PrecipitationForecast from "../components/PrecipitationForcast";
 import WhatToWear from "../components/WhatToWear";
 import type CityOutletContextType from "../types/Outletcontext";
 import "../style/Today.css";
+import type OutletContextProps from "../types/preferencesWear";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
+  const { clothingPref, setClothingPref } =
+    useOutletContext<OutletContextProps>();
+  const [conditions, setConditions] = useState<string>("descritpion");
+  const [tempMax, setTempMax] = useState(0);
+  const [conditID, setConditID] = useState(615);
+  // const [windT, setWind] = useState(0);
+  // const [humidityT, setHumidity] = useState(0);
 
   useEffect(() => {
     if (outletContext.city) {
@@ -22,13 +30,32 @@ function Today() {
           setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
+          setConditions(data.weather[0].description);
+          setTempMax(data.main.temp_max);
+          setConditID(data.weather[0].id);
+          // setWind(data.wind.speed);
+          setClothingPref(
+            {
+              ...clothingPref,
+              wind: data.wind.speed,
+            },
+            {
+              ...clothingPref,
+              humidity: data.main.humidity,
+            },
+          );
+          // setHumidity(data.main.humidity);
         })
         .catch((err) => console.error(err));
     }
-  }, [outletContext]);
-
+  }, [outletContext, setClothingPref, clothingPref]);
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
+
+  // console.log("CPWind:", clothingPref.wind)
+  // console.log("CPHumidity", clothingPref.humidity)
+  // console.log ("wind:", windT)
+  // console.log ("humidity", humidityT)
 
   return (
     <>
@@ -75,7 +102,11 @@ function Today() {
         </div>
       </section>
       <PrecipitationForecast />
-      <WhatToWear />
+      <WhatToWear
+        conditID={conditID}
+        conditions={conditions}
+        tempMax={tempMax}
+      />
     </>
   );
 }

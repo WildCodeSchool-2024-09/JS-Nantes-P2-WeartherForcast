@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <GeolocaliseMe />,
+        element: <Today />,
       },
       {
         path: "/geolocaliseMe",
