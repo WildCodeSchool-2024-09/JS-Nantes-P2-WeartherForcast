@@ -55,7 +55,8 @@ function Today() {
   // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> => 🐛 // TODO : Find a better way for this !
   useEffect(() => {
     if (outletContext.city) {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=4e41f328e6b4fcf670b66844921c47d8&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
+
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
