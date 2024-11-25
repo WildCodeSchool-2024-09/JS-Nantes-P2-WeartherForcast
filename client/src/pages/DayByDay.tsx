@@ -1,31 +1,17 @@
 import "/src/style/DayByDay.css";
 import "/src/assets/images/Cloudy.png/";
-// import { useState } from "react";
+// import { useEffect, useState } from "react";
 
 function DayByday() {
-  // const [temperature, setTemperature] = useState();
-  // {
-  //   "list": [
-  //     {
-  //       "dt": 1661870400,
-  //       "main": {
-  //         "temp_min": 293.55,
-  //         "temp_max": 294.75,
-  //         "humidity": 82
-  //       },
-  //       "weather": [
-  //         {
-  //           "main": "Rain",
-  //           "description": "light rain"
-  //         }
-  //       ],
-  //       "pop": 0.2,
-  //       "dt_txt": "2022-08-30 15:00:00"
-  //     },
-  //     ...
-  //   ]
-  // }
+  // const [temperature, setTemperature] = useState(null);
 
+  // useEffect(() => {
+  //   fetch(
+  //     "https://api.openweathermap.org/data/2.5/forecast?q={city}&appid=db33a6aa09eb95eb5bae868283feca9e",
+  //   )
+  //     .then((response) => response.json())
+  //     .then((characters) => setTemperature(characters.results));
+  // }, []);
   return (
     <section className="day">
       <div className="container-rectangle">
