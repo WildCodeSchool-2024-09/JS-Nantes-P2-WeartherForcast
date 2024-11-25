@@ -7,7 +7,10 @@ import "../style/Today.css";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
 import type { NewCity } from "../types/newFavoriteCity";
-import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
+import {
+  getBackground,
+  getColorCircle,
+} from "../utilitiesFunctions/getBackground.tsx";
 
 function Today() {
   // GETTER OUTLET CONTEXT
@@ -51,8 +54,7 @@ function Today() {
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
-  const [description, setDescription] = useState("");
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> => 🐛 // TODO : Find a better way for this !
+
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
@@ -63,15 +65,16 @@ function Today() {
           setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
-          setDescription(data.weather[0].main);
           outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
-          if (description)
+          if (data.weather[0].main) {
             // ℹ️ For the background dynamic
-            getBackground(description, outletContext.setBackground);
+            getBackground(data.weather[0].main, outletContext.setBackground);
+            getColorCircle(data.weather[0].main, outletContext.setColorCircle);
+          }
         })
         .catch((err) => console.error(err));
     }
-  }, [outletContext.city]);
+  }, [outletContext]);
 
   //SET THE DATE
   const today = new Date();

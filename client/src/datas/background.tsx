@@ -3,7 +3,7 @@ export const backgroundData = [
     id: 1,
     url: "/src/assets/images/clouds.jpg",
     description: "Clouds",
-    circleBackground: "radial-gradient(#C0B6B2, ##B4B1B4, #8A92A9)",
+    circleBackground: "radial-gradient(#C0B6B2, #B4B1B4, #8A92A9)",
   },
   {
     id: 2,
