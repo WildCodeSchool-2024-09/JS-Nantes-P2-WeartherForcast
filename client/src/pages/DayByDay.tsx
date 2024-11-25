@@ -3,7 +3,7 @@ import "/src/assets/images/Cloudy.png/";
 // import { useEffect, useState } from "react";
 
 function DayByday() {
-  // https://codesandbox.io/p/sandbox/ftn8jn?file=%2Fsrc%2FApp.tsx%3A16%2C51 CODE SANDBOX A NE PAS PERDE !!!!!!!!
+  // https://codesandbox.io/p/sandbox/ftn8jn CODE SANDBOX A NE PAS PERDE !!!!!!!!
 
   // const [temperature, setTemperature] = useState(null);
   // useEffect(() => {
@@ -25,6 +25,26 @@ function DayByday() {
   //   )
   //     .then((response) => response.json())
   // }, []);
+
+  // setSkyState(data.list[8].weather[0].icon);
+  // setTemperatureMin(Math.round(data.list[8].main.temp_min));
+  // setTemperature(Math.round(data.list[8].main.temp_max));
+  // setRealFeel(Math.round(data.list[8].main.feels_like));
+
+  // return (
+  //   <div className="App">
+  //     <figcaption>
+  //       <img
+  //         src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
+  //         alt="symbole de l'état du ciel"
+  //       />
+  //     </figcaption>
+  //     <div className="temperaturemin">{temperaturemin}°</div>
+  //     <div className="temperature">{temperature}°</div>
+  //     <div className="real-feel">{realFeel}°</div>
+  //   </div>
+  // );
+
   return (
     <section className="day">
       <div className="container-rectangle">
