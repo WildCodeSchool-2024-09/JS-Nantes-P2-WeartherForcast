@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <nav>
-        <NavLink to="/">Today</NavLink>
+        <NavLink to="/today">Today</NavLink>
         <NavLink to="/dayByDay">Day By Day</NavLink>
         <NavLink to="/WeatherNews">News</NavLink>
       </nav>

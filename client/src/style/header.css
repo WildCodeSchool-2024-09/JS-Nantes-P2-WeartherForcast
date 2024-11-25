@@ -23,12 +23,13 @@ header {
 
 .menu-dropdown {
   position: absolute;
-  top: 80px;
   left: 0;
   background: var(--mainColor);
   padding: 32px;
   box-shadow: 0 2px 6px var(--shadowColor);
   border-bottom-right-radius: 8px;
+  z-index: 10;
+  overflow: hidden;
 }
 
 .menu-dropdown nav {
@@ -41,4 +42,5 @@ header {
   width: 168px;
   height: 40px;
   border-radius: 4px;
+  letter-spacing: 1px;
 }

@@ -9,7 +9,7 @@ export const geolocaliseMe = (
   if ("geolocation" in navigator) {
     const watch = navigator.geolocation.watchPosition(async (position) => {
       navigator.geolocation.clearWatch(watch);
-      urlGeo = `https://api.openweathermap.org/data/2.5/weather?lon=${position.coords.longitude}&lat=${position.coords.latitude}&appid=075e3c803b57e9d25a7e50c00e33a2ff&units=metric`;
+      urlGeo = `https://api.openweathermap.org/data/2.5/weather?lon=${position.coords.longitude}&lat=${position.coords.latitude}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
       await recoverCityDatas(urlGeo, calback1, callback2);
     }, error);
     //if user don't accept geolocation
