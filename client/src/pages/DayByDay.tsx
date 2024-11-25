@@ -1,9 +1,9 @@
 import "/src/style/DayByDay.css";
 import "/src/assets/images/Cloudy.png/";
-import { useState } from "react";
+// import { useState } from "react";
 
 function DayByday() {
-  const [temperature, setTemperature] = useState();
+  // const [temperature, setTemperature] = useState();
   // {
   //   "list": [
   //     {
