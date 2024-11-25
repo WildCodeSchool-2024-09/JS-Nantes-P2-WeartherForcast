@@ -4,6 +4,28 @@ import "/src/style/DayByDay.css";
 
 function DayByday() {
   // const [temperature, setTemperature] = useState();
+  // {
+  //   "list": [
+  //     {
+  //       "dt": 1661870400,
+  //       "main": {
+  //         "temp_min": 293.55,
+  //         "temp_max": 294.75,
+  //         "humidity": 82
+  //       },
+  //       "weather": [
+  //         {
+  //           "main": "Rain",
+  //           "description": "light rain"
+  //         }
+  //       ],
+  //       "pop": 0.2,
+  //       "dt_txt": "2022-08-30 15:00:00"
+  //     },
+  //     ...
+  //   ]
+  // }
+
   return (
     <section className="day">
       <div className="container-rectangle">
