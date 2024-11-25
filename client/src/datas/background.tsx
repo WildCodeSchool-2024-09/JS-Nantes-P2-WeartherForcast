@@ -9,7 +9,7 @@ export const backgroundData = [
     id: 2,
     url: "/src/assets/images/rain.jpg",
     description: "Rain",
-    circleBackground: "#535954",
+    circleBackground: "radial-gradient(#6f8783, #586b67, #424743, #404440)",
   },
   {
     id: 3,
