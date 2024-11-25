@@ -6,7 +6,19 @@ function DayByday() {
   // https://codesandbox.io/p/sandbox/ftn8jn?file=%2Fsrc%2FApp.tsx%3A16%2C51 CODE SANDBOX A NE PAS PERDE !!!!!!!!
 
   // const [temperature, setTemperature] = useState(null);
-
+  // useEffect(() => {
+  //   fetch(
+  //     "https://api.openweathermap.org/data/2.5/forecast?q=Nantes&cnt1=1&appid=db33a6aa09eb95eb5bae868283feca9e"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setData(data);
+  //       console.log(moredata);
+  //       console.log(data.list[8].main.temp_min);
+  //       console.log(data.list[8].main.temp_max);
+  //       console.log(data.list[8].main.feels_like);
+  //     });
+  // }, []);
   // useEffect(() => {
   //   fetch(
   //     "https://api.openweathermap.org/data/2.5/forecast?q={city}&appid=db33a6aa09eb95eb5bae868283feca9e",
