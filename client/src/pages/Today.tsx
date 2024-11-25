@@ -84,7 +84,7 @@ function Today() {
     <>
       <section className="today-comp animated-section">
         <div className="circle-container">
-          <svg className="circle-1" height="30rem" width="30rem">
+          <svg className="circle-1" height="20rem" width="30rem">
             <title>animationCircles</title>
             <defs>
               <linearGradient id="my-gradient">
