@@ -13,7 +13,7 @@
 
 .day {
   display: flex;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 .small-rectangle {
   height: 200px;
@@ -51,4 +51,11 @@
   color: white;
   font-size: 15px;
   padding: 10px;
+}
+
+@media (max-height: 667px) {
+  .rectangle {
+    height: 350px;
+    margin-top: 1px;
+  }
 }
