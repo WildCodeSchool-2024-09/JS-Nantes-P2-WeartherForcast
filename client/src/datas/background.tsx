@@ -3,7 +3,7 @@ export const backgroundData = [
     id: 1,
     url: "/src/assets/images/clouds.jpg",
     description: "Clouds",
-    circleBackground: "#A5A9B9",
+    circleBackground: "radial-gradient(#C0B6B2, ##B4B1B4, #8A92A9)",
   },
   {
     id: 2,
@@ -15,25 +15,25 @@ export const backgroundData = [
     id: 3,
     url: "/src/assets/images/atmosphere.jpg",
     description: "Drizzle",
-    circleBackground: "#A5A9B9",
+    circleBackground: "radial-gradient(#93bfdb, #475b5a, #354645)",
   },
   {
     id: 4,
     url: "/src/assets/images/drizzle.jpg",
     description: "Mist",
-    circleBackground: "#4d4d4d",
+    circleBackground: "radial-gradient(#84857e, #6f706b, #171717, #141414)",
   },
   {
     id: 5,
     url: "/src/assets/images/drizzle.jpg",
     description: "Haze",
-    circleBackground: "#4d4d4d",
+    circleBackground: "radial-gradient(#84857e, #6f706b, #171717, #141414)",
   },
   {
     id: 6,
     url: "/src/assets/images/snow.jpg",
     description: "Snow",
-    circleBackground: "#7DB2D1",
+    circleBackground: "radial-gradient(#93bfdb, #7DB2D1, #779ab6)",
   },
   {
     id: 7,
@@ -45,7 +45,7 @@ export const backgroundData = [
     id: 8,
     url: "/src/assets/images/atmosphere.jpg",
     description: "Atmosphere",
-    circleBackground: "#354645",
+    circleBackground: "radial-gradient(#93bfdb, #475b5a, #354645)",
   },
   {
     id: 9,
