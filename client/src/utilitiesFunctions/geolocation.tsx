@@ -45,7 +45,7 @@ async function recoverCityDatas(
     const request = await fetch(url);
     const datas = await request.json();
     callbackCity(`${datas.name}`);
-    const currentDescriptionData = `${datas.weather[0].main}`;
+    const currentDescriptionData = "Thunderstorm";
     getBackground(currentDescriptionData, callbackBackground);
     getColorCircle(currentDescriptionData, callbackCircleBackground);
     callBackIdCity(datas.id);

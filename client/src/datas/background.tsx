@@ -51,6 +51,6 @@ export const backgroundData = [
     id: 9,
     url: "/src/assets/images/thunderstorm.jpg",
     description: "Thunderstorm",
-    circleBackground: "#5C6E8F",
+    circleBackground: "radial-gradient(#8BA2CE, #11457e, #001534)",
   },
 ];
