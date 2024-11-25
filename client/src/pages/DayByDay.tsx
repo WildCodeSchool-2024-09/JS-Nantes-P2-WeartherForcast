@@ -3,9 +3,13 @@ import "/src/assets/images/Cloudy.png/";
 // import { useEffect, useState } from "react";
 
 function DayByday() {
-  // https://codesandbox.io/p/sandbox/ftn8jn CODE SANDBOX A NE PAS PERDE !!!!!!!!
+  //  https://codesandbox.io/p/sandbox/ftn8jn?file=%2Fsrc%2FApp.tsx%3A29%2C11 LIEN SANDBOX A NE PAS PERDE !!!!!!!!
 
-  // const [temperature, setTemperature] = useState(null);
+  // const [moredata, setData] = useState("");
+  // const [skyState, setSkyState] = useState("");
+  // const [temperaturemin, setTemperatureMin] = useState<number>();
+  // const [temperature, setTemperature] = useState<number>();
+  // const [realFeel, setRealFeel] = useState<number>();
   // useEffect(() => {
   //   fetch(
   //     "https://api.openweathermap.org/data/2.5/forecast?q=Nantes&cnt1=1&appid=db33a6aa09eb95eb5bae868283feca9e"
@@ -13,23 +17,17 @@ function DayByday() {
   //     .then((response) => response.json())
   //     .then((data) => {
   //       setData(data);
+  //       setSkyState(data.list[8].weather[0].icon);
+  //       setTemperatureMin(Math.round(data.list[8].main.temp_min));
+  //       setTemperature(Math.round(data.list[8].main.temp_max));
+  //       setRealFeel(Math.round(data.list[8].main.feels_like));
   //       console.log(moredata);
+  //       console.log(data.list[8].weather[0].icon);
   //       console.log(data.list[8].main.temp_min);
   //       console.log(data.list[8].main.temp_max);
   //       console.log(data.list[8].main.feels_like);
   //     });
   // }, []);
-  // useEffect(() => {
-  //   fetch(
-  //     "https://api.openweathermap.org/data/2.5/forecast?q={city}&appid=db33a6aa09eb95eb5bae868283feca9e",
-  //   )
-  //     .then((response) => response.json())
-  // }, []);
-
-  // setSkyState(data.list[8].weather[0].icon);
-  // setTemperatureMin(Math.round(data.list[8].main.temp_min));
-  // setTemperature(Math.round(data.list[8].main.temp_max));
-  // setRealFeel(Math.round(data.list[8].main.feels_like));
 
   // return (
   //   <div className="App">
@@ -44,6 +42,8 @@ function DayByday() {
   //     <div className="real-feel">{realFeel}°</div>
   //   </div>
   // );
+
+  // // db33a6aa09eb95eb5bae868283feca9e
 
   return (
     <section className="day">
