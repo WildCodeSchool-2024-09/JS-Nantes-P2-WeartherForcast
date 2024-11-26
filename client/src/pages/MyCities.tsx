@@ -31,7 +31,7 @@ export default function MyCities() {
     }
   }, [favorites]);
 
-  //5. Dans ce component MyCities mapper favorites issu du state et non du LS et pour chaque item retourner une favoriteCityCard avec en props :
+  //5. Dans ce component MyCities, mapper favorites issu du state et non du LS et pour chaque item retourner une favoriteCityCard avec en props :
   // ->cityiD, ->cityName, ->onClick= le handleclickGarbage.
   return (
     <section className="favorites-cities-container">
