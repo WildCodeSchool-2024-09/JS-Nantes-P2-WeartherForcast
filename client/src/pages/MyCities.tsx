@@ -8,7 +8,7 @@ export default function MyCities() {
       <div className="container-header">
         <div className="container-title">
           <h2>My favorites cities</h2>
-          <img className="iconFavoritesOnTitle" src={heartPurple} alt="" />
+          <img className="icon-favorites-on-title" src={heartPurple} alt="" />
         </div>
       </div>
       <div className="container-body">
