@@ -31,7 +31,7 @@ export default function App() {
         }}
       >
         {isMenuOpen ? (
-          <MenuHeader setters={{ setCity, setBackground }} />
+          <MenuHeader setters={{ setCity, setBackground, setColorCircle }} />
         ) : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">

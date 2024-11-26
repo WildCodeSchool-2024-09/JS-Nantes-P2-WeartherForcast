@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import "../style/Today.css";
-import WhatToWear from "../components/WhatToWear";
-import { getBackground } from "../utilitiesFunctions/getBackground";
 import PrecipitationForecast from "../components/PrecipitationForcast";
+import WhatToWear from "../components/WhatToWear";
 import type CityOutletContextType from "../types/Outletcontext";
+import { getBackground } from "../utilitiesFunctions/getBackground";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();

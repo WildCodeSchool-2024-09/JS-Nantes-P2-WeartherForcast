@@ -5,16 +5,17 @@ export default function MenuHeader(props: {
   setters: {
     setCity: React.Dispatch<React.SetStateAction<string>>;
     setBackground: React.Dispatch<React.SetStateAction<string>>;
+    setColorCircle: (value: string) => void;
   };
 }) {
-  const { setCity, setBackground } = props.setters;
+  const { setCity, setBackground, setColorCircle } = props.setters;
   return (
     <section className="menu-dropdown">
       <nav>
         <button
           type="button"
           onClick={() => {
-            geolocaliseMe(setCity, setBackground);
+            geolocaliseMe(setCity, setBackground, setColorCircle);
           }}
         >
           Geolocalise me
