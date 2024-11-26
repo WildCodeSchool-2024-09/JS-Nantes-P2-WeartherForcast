@@ -12,7 +12,7 @@ function DayByday() {
   // const [realFeel, setRealFeel] = useState<number>();
   // useEffect(() => {
   //   fetch(
-  //     "https://api.openweathermap.org/data/2.5/forecast?q=Nantes&cnt1=1&appid=db33a6aa09eb95eb5bae868283feca9e"
+  //     "https://api.openweathermap.org/data/2.5/forecast?q=Nantes&cnt1=1&appid={import.meta.env.VITE_OPENWEATHER_API_KEY}"
   //   )
   //     .then((response) => response.json())
   //     .then((data) => {
