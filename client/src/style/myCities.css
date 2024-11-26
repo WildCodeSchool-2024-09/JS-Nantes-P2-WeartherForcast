@@ -9,9 +9,6 @@
 
 .container-header {
   border-bottom: solid 1px var(--shadowColor);
-}
-
-.container-title {
   display: flex;
   justify-content: center;
   align-items: center;
