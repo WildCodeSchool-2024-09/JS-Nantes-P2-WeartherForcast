@@ -1,9 +1,12 @@
 import { useOutletContext } from "react-router-dom";
 import "/src/style/geolocaliseMe.css";
 import { useEffect, useState } from "react";
-import type { CityOutletContextType } from "../App";
 import emptyHeart from "../assets/icons/emptyheart.png";
+<<<<<<< HEAD
 import { getBackground } from "../utilitiesFunctions/getBackground";
+=======
+import type CityOutletContextType from "../types/Outletcontext";
+>>>>>>> e97963d06064c381f480e69e97533421aeae91a8
 
 export default function GeolocaliseMe() {
   const outletContext = useOutletContext<CityOutletContextType>();
@@ -26,7 +29,7 @@ export default function GeolocaliseMe() {
 
   useEffect(() => {
     if (outletContext.city) {
-      const urlforCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=075e3c803b57e9d25a7e50c00e33a2ff&units=metric`;
+      const urlforCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.OPENWEATHER_API_KEY}&units=metric`;
       recoverCityInfoMeteo(urlforCity);
     }
   }, [outletContext]);
