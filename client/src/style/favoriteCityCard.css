@@ -6,7 +6,7 @@
   height: 88px;
 }
 
-.city-favorite-card header {
+.city-favorite-card-header {
   height: 44px;
   border-bottom: solid 1px var(--shadowColor);
 }
@@ -18,7 +18,7 @@
   line-height: 44px;
 }
 
-.city-favorite-card footer {
+.city-favorite-card-footer {
   display: flex;
 }
 

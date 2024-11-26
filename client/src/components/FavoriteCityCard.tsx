@@ -19,11 +19,11 @@ export default function FavoriteCityCard() {
   //TODO: map on cities in localStorage
 
   return (
-    <section className="city-favorite-card">
-      <header>
+    <article className="city-favorite-card">
+      <section className="city-favorite-card-header">
         <h2 className="city-favorite-card-title">Nantes</h2>
-      </header>
-      <footer className="city-favorite-card-footer">
+      </section>
+      <section className="city-favorite-card-footer">
         <div className="visibility-container">
           <button
             type="button"
@@ -40,7 +40,7 @@ export default function FavoriteCityCard() {
             <img className="rubbish-bin-icon" src={rubbishBin} alt="" />
           </button>
         </div>
-      </footer>
-    </section>
+      </section>
+    </article>
   );
 }
