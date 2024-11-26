@@ -12,7 +12,9 @@ function Today() {
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
+  const [description, setDescription] = useState("");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> //TODO: find a better solution !
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
@@ -23,8 +25,9 @@ function Today() {
           setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
-          if (data.weather[0].main)
-            getBackground(data.weather[0].main, outletContext.setBackground);
+          setDescription(data.weather[0].main);
+          if (description)
+            getBackground(description, outletContext.setBackground);
         })
         .catch((err) => console.error(err));
     }
