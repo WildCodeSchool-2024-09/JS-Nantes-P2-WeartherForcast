@@ -61,6 +61,36 @@ function DayByday() {
         // console.log(data.list[0].main.temp_max);
       });
   }, []);
+  const calculateDimensions = (temperature: number) => {
+    // Logique de calcul ici, par exemple :
+    // const width = temperature * 10;
+    const height = temperature * 5;
+    return { height };
+  };
+  const calculateDimensions1 = (temperature1: number) => {
+    // Logique de calcul ici, par exemple :
+    // const width = temperature * 10;
+    const height = temperature1 * 5;
+    return { height };
+  };
+  const calculateDimensions2 = (temperature2: number) => {
+    // Logique de calcul ici, par exemple :
+    // const width = temperature * 10;
+    const height = temperature2 * 5;
+    return { height };
+  };
+  const calculateDimensions3 = (temperature3: number) => {
+    // Logique de calcul ici, par exemple :
+    // const width = temperature * 10;
+    const height = temperature3 * 5;
+    return { height };
+  };
+  const calculateDimensions4 = (temperature4: number) => {
+    // Logique de calcul ici, par exemple :
+    // const width = temperature * 10;
+    const height = temperature4 * 5;
+    return { height };
+  };
 
   function getDayName(dateStr: string, locale: string) {
     const date = new Date(dateStr);
@@ -96,8 +126,19 @@ function DayByday() {
             />
           </figcaption>
           <div className="temperaturemaxdbd">{temperature}°</div>
-          <div className="small-rectangle" />
-          <div className="temperatureminbdb">{temperaturemin}°</div>
+          <section className="tempsminandrectangle">
+            {temperature && (
+              <div
+                className="small-rectangle"
+                style={{
+                  // width: calculateDimensions(temperature).width,
+                  height: calculateDimensions(temperature).height,
+                  backgroundColor: "white",
+                }}
+              />
+            )}
+            <div className="temperatureminbdb">{temperaturemin}°</div>
+          </section>
         </div>
       </div>
       <div className="rectangle">
@@ -110,8 +151,18 @@ function DayByday() {
           />
         </figcaption>
         <div className="temperaturemaxdbd">{temperature1}°</div>
-        <div className="small-rectangle" />
-        <div className="temperatureminbdb">{temperaturemin1}°</div>
+        <section className="tempsminandrectangle">
+          {temperature1 && (
+            <div
+              className="small-rectangle"
+              style={{
+                height: calculateDimensions1(temperature1).height,
+                backgroundColor: "white",
+              }}
+            />
+          )}
+          <div className="temperatureminbdb">{temperaturemin1}°</div>
+        </section>
       </div>
 
       <div className="rectangle">
@@ -124,8 +175,18 @@ function DayByday() {
           />
         </figcaption>
         <div className="temperaturemaxdbd">{temperature2}°</div>
-        <div className="small-rectangle" />
-        <div className="temperatureminbdb">{temperaturemin2}°</div>
+        <section className="tempsminandrectangle">
+          {temperature2 && (
+            <div
+              className="small-rectangle"
+              style={{
+                height: calculateDimensions2(temperature2).height,
+                backgroundColor: "white",
+              }}
+            />
+          )}
+          <div className="temperatureminbdb">{temperaturemin2}°</div>
+        </section>
       </div>
       <div className="rectangle">
         <div className="datebdb">{firstlettre3}</div>
@@ -137,8 +198,18 @@ function DayByday() {
           />
         </figcaption>
         <div className="temperaturemaxdbd">{temperature3}°</div>
-        <div className="small-rectangle" />
-        <div className="temperatureminbdb">{temperaturemin3}°</div>
+        <section className="tempsminandrectangle">
+          {temperature3 && (
+            <div
+              className="small-rectangle"
+              style={{
+                height: calculateDimensions3(temperature3).height,
+                backgroundColor: "white",
+              }}
+            />
+          )}
+          <div className="temperatureminbdb">{temperaturemin3}°</div>
+        </section>
       </div>
       <div className="rectangle">
         <div className="datebdb">{firstlettre4}</div>
@@ -151,8 +222,18 @@ function DayByday() {
           />
         </figcaption>
         <div className="temperaturemaxdbd">{temperature4}°</div>
-        <div className="small-rectangle" />
-        <div className="temperatureminbdb">{temperaturemin4}°</div>
+        <section className="tempsminandrectangle">
+          {temperature4 && (
+            <div
+              className="small-rectangle"
+              style={{
+                height: calculateDimensions4(temperature4).height,
+                backgroundColor: "white",
+              }}
+            />
+          )}
+          <div className="temperatureminbdb">{temperaturemin4}°</div>
+        </section>
       </div>
     </section>
   );

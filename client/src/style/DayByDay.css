@@ -24,7 +24,15 @@ img {
 }
 .temperatureminbdb {
   color: white;
-  margin-top: 20px;
+  padding-top: 50px;
+}
+.tempsminandrectangle {
+  display: grid;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 380px;
+  margin-bottom: 10px;
 }
 .small-rectangle {
   height: 200px;
