@@ -83,11 +83,6 @@ function Today() {
             getBackground(data.weather[0].main, outletContext.setBackground);
             getColorCircle(data.weather[0].main, outletContext.setColorCircle);
           }
-
-          // ℹ️ For the background dynamic
-          description
-            ? getBackground(description, outletContext.setBackground)
-            : "";
           setConditions(data.weather[0].description);
           setTempMax(data.main.temp_max);
           setConditID(data.weather[0].id);
@@ -104,7 +99,7 @@ function Today() {
     setNewHumidity,
     setWindDirection,
     setWind,
-    description,
+    outletContext.setColorCircle,
   ]);
 
   //SET THE DATE
