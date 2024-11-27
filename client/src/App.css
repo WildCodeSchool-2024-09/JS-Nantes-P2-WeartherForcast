@@ -63,7 +63,8 @@ h1 {
 main {
   margin-right: auto;
   margin-left: auto;
-  min-height: calc(100vh - 80px - 80px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => (view port total height - header height - footer height))*/
+  min-height: calc(100vh - 80px); /* ⚠️ Don't change it please => In order to have a sticky footer, calc => (view port total height - footer height))*/
+  padding-bottom: 100px; /* footer height because it is sticky + 20px for space*/
   display: flex;
   flex-direction: column;
   display: flex;
@@ -71,11 +72,11 @@ main {
   align-items: center;
   position: relative;
   background-position: bottom;
+  background-size: cover;
 }
 
 .page-content-section {
-  position: absolute;
-  top: 20%;
+  margin-top: 30px;
 }
 
 /*FONCTIONNAL CLASSES*/
