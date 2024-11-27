@@ -68,19 +68,15 @@ function Today() {
           if (data.weather[0].main) {
             // ℹ️ For the background dynamic
             getBackground(data.weather[0].main, outletContext.setBackground);
+            getColorCircle(data.weather[0].main, outletContext.setColorCircle);
             // ℹ️ For the icon dynamic
             getWheatherIcons(
               data.weather[0].main,
               outletContext.setWeatherIcon,
             );
           }
-          getBackground(data.weather[0].main, outletContext.setBackground);
-          getColorCircle(data.weather[0].main, outletContext.setColorCircle);
-          outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
-          if (data.weather[0].main)
-            // ℹ️ For the background dynamic
-            getBackground(data.weather[0].main, outletContext.setBackground);
         })
+
         .catch((err) => console.error(err));
     }
   }, [outletContext]);
