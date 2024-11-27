@@ -5,6 +5,7 @@ import MyCities from "./pages/MyCities";
 import PreferenciesWear from "./pages/PreferenciesWear";
 import Today from "./pages/Today";
 import WeatherNews from "./pages/WeatherNews";
+import WhatToWearMore from "./pages/WhatToWearMore";
 
 const router = createBrowserRouter([
   {
@@ -38,10 +39,18 @@ const router = createBrowserRouter([
         path: "/WeatherNews",
         element: <WeatherNews />,
       },
+      {
+        path: "/WhatToWearMore",
+        element: <WhatToWearMore />,
+      },
     ],
   },
 ]);
 
 export default function Router() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }

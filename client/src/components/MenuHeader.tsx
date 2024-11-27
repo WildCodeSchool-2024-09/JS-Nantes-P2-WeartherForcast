@@ -45,7 +45,7 @@ export default function MenuHeader(props: {
             setMenuOpen(false);
           }}
         >
-          My preferencies
+          My preferences
         </button>
       </nav>
     </section>
