@@ -18,7 +18,11 @@ img {
   margin-top: 10px;
 }
 .temperaturemaxdbd {
+  margin-top: 10px;
   font-size: 20px;
+}
+.temperatureminbdb {
+  margin-top: 20px;
 }
 .small-rectangle {
   height: 200px;
@@ -34,16 +38,25 @@ img {
 }
 .datebdb {
   margin-top: 10px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 @media (max-height: 667px) {
   .rectangle {
     height: 350px;
     margin-top: 1px;
   }
+  .temperatureminbdb {
+    margin-bottom: 15px;
+  }
 }
 @media (max-height: 570px) {
   .rectangle {
     height: 300px;
     width: 30px;
+  }
+  .temperatureminbdb {
+    margin-bottom: 10px;
   }
 }

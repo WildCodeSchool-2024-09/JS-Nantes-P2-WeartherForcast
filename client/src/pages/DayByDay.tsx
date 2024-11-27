@@ -109,7 +109,7 @@ function DayByday() {
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturebdb">{temperature1}°</div>
+        <div className="temperaturemaxdbd">{temperature1}°</div>
         <div className="small-rectangle" />
         <div className="temperatureminbdb">{temperaturemin1}°</div>
       </div>
@@ -123,7 +123,7 @@ function DayByday() {
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturebdb">{temperature2}°</div>
+        <div className="temperaturemaxdbd">{temperature2}°</div>
         <div className="small-rectangle" />
         <div className="temperatureminbdb">{temperaturemin2}°</div>
       </div>
@@ -136,7 +136,7 @@ function DayByday() {
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturebdb">{temperature3}°</div>
+        <div className="temperaturemaxdbd">{temperature3}°</div>
         <div className="small-rectangle" />
         <div className="temperatureminbdb">{temperaturemin3}°</div>
       </div>
@@ -150,7 +150,7 @@ function DayByday() {
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturebdb">{temperature4}°</div>
+        <div className="temperaturemaxdbd">{temperature4}°</div>
         <div className="small-rectangle" />
         <div className="temperatureminbdb">{temperaturemin4}°</div>
       </div>
