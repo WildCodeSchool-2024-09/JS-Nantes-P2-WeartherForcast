@@ -18,10 +18,12 @@ img {
   margin-top: 10px;
 }
 .temperaturemaxdbd {
+  color: white;
   margin-top: 10px;
   font-size: 20px;
 }
 .temperatureminbdb {
+  color: white;
   margin-top: 20px;
 }
 .small-rectangle {
@@ -38,6 +40,7 @@ img {
 }
 .datebdb {
   margin-top: 10px;
+  color: white;
   /* display: flex;
   justify-content: center;
   align-items: center; */
