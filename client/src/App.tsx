@@ -12,8 +12,12 @@ export default function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   //GENERAL CITY STATE
   const [city, setCity] = useState("");
+  //ID OF THE GENERA CITY STATE
+  const [idCity, setIdCity] = useState("");
   //BACKGROUND STATE FOR GEOLOC
   const [background, setBackground] = useState("");
+  //COLOR CIRCLE METEO INFO STATE
+  const [colorCircle, setColorCircle] = useState("");
 
   //CLOTHING PREFERENCES
   // @ts-expect-error
@@ -26,7 +30,7 @@ export default function App() {
 
   //GEOLOCATION ON LOAD
   useEffect(() => {
-    geolocaliseMe(setCity, setBackground);
+    geolocaliseMe(setCity, setBackground, setColorCircle, setIdCity);
   }, []);
 
   return (
@@ -38,7 +42,9 @@ export default function App() {
         }}
       >
         {isMenuOpen ? (
-          <MenuHeader setters={{ setCity, setBackground }} />
+          <MenuHeader
+            setters={{ setCity, setBackground, setColorCircle, setIdCity }}
+          />
         ) : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
@@ -46,6 +52,12 @@ export default function App() {
             outletContext={{
               city,
               setCity,
+              setColorCircle,
+              colorCircle,
+              setBackground,
+              background,
+              setIdCity,
+              idCity,
               clothingPref,
               setClothingPref,
               wind,

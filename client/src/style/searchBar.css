@@ -5,7 +5,6 @@ form {
   height: 40px;
   display: flex;
   justify-content: space-between;
-  border: solid 0.5px var(--shadowColor);
   border-radius: 60px;
   box-shadow: 0 2px 6px var(--shadowColor);
   background: var(--mainColor);

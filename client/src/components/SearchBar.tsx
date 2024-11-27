@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import searchIcon from "/src/assets/icons/searchIcon.png";
 import "/src/style/SearchBar.css";
+import { useNavigate } from "react-router-dom";
 
 interface SearchBarProps {
   setCity: (value: string) => void;
@@ -9,6 +10,7 @@ interface SearchBarProps {
 export default function SearchBar({ setCity }: SearchBarProps) {
   const inputRef = useRef<null | HTMLInputElement>(null);
   /* 💡 useRef() hook instead of querySelector. 📖 DOC => https://react.dev/reference/react/useRef */
+  const navigate = useNavigate();
 
   return (
     <form
@@ -21,6 +23,7 @@ export default function SearchBar({ setCity }: SearchBarProps) {
             inputRef.current.value = "";
           }
         }
+        navigate("/today");
       }}
     >
       <input
