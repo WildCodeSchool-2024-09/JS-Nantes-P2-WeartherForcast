@@ -24,11 +24,11 @@ export default function FavoriteCityCard({
   };
 
   return (
-    <section className="city-favorite-card">
-      <div className="city-favorite-card-header">
-        <h2 className="city-favorite-card-title">{name}</h2>
-      </div>
-      <div className="city-favorite-card-footer">
+    <article className="city-favorite-card">
+      <section className="city-favorite-card-header">
+        <h2 className="city-favorite-card-title">Nantes</h2>
+      </section>
+      <section className="city-favorite-card-footer">
         <div className="visibility-container">
           <button type="button" onClick={handleClickVisibility}>
             <img className="visibility-icon" src={visibilityIcon} alt="" />
@@ -39,7 +39,7 @@ export default function FavoriteCityCard({
             <img className="rubbish-bin-icon" src={rubbishBin} alt="" />
           </button>
         </div>
-      </div>
-    </section>
+      </section>
+    </article>
   );
 }
