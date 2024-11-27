@@ -1,3 +1,17 @@
+import heartPurple from "../assets/icons/heart-purple.png";
+import FavoriteCityCard from "../components/FavoriteCityCard";
+import "/src/style/myCities.css";
+
 export default function MyCities() {
-  return <div>MyCities</div>;
+  return (
+    <section className="favorites-cities-container">
+      <div className="container-header">
+        <h2>My favorites cities</h2>
+        <img className="icon-favorites-on-title" src={heartPurple} alt="" />
+      </div>
+      <div className="container-body">
+        <FavoriteCityCard />
+      </div>
+    </section>
+  );
 }

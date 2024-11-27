@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import emptyHeart from "../assets/icons/emptyheart.png";
+import "../style/Today.css";
 import PrecipitationForecast from "../components/PrecipitationForcast";
 import WhatToWear from "../components/WhatToWear";
 import type CityOutletContextType from "../types/Outletcontext";
-import "../style/Today.css";
+import { getBackground } from "../utilitiesFunctions/getBackground";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
+  const [description, setDescription] = useState("");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> //TODO: find a better solution !
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
@@ -22,6 +25,9 @@ function Today() {
           setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
+          setDescription(data.weather[0].main);
+          if (description)
+            getBackground(description, outletContext.setBackground);
         })
         .catch((err) => console.error(err));
     }
@@ -29,6 +35,8 @@ function Today() {
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
+
+  const handleClick = () => {};
 
   return (
     <>
@@ -55,7 +63,12 @@ function Today() {
               fill="transparent"
             />
           </svg>
-          <div className="cadran-content">
+          <div
+            className="cadran-content"
+            style={{
+              backgroundColor: `${outletContext.colorCircle}`,
+            }}
+          >
             <h2 className="your-city">{outletContext.city}</h2>
             <div className="state-temp">
               <figcaption>
@@ -68,7 +81,7 @@ function Today() {
             </div>
             <div className="real-feel">Feel like : {realFeel}°</div>
             <div className="date">{dateOfToday}</div>
-            <button type="button" className="fav-button">
+            <button type="button" className="fav-button" onClick={handleClick}>
               <img className="fav-icon" src={emptyHeart} alt="<3" />
             </button>
           </div>
