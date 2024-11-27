@@ -12,12 +12,18 @@ export default function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   //GENERAL CITY STATE
   const [city, setCity] = useState("");
+  //ID OF THE GENERA CITY STATE
+  // const [idCity, setIdCity] = useState("");
   //BACKGROUND STATE FOR GEOLOC
   const [background, setBackground] = useState("");
+  //COLOR CIRCLE METEO INFO STATE
+  const [colorCircle, setColorCircle] = useState("");
+  //WEATHER ICONS STATE FOR WEATHER INFO
+  const [weatherIcon, setWeatherIcon] = useState("");
 
   //GEOLOCATION ON LOAD
   useEffect(() => {
-    geolocaliseMe(setCity, setBackground);
+    geolocaliseMe(setCity, setBackground); //setColorCircle, setIdCity);
   }, []);
 
   return (
@@ -33,7 +39,18 @@ export default function App() {
         ) : null}
         <SearchBar setCity={setCity} />
         <section className="page-content-section">
-          <PageContent outletContext={{ city, setCity }} />
+          <PageContent
+            outletContext={{
+              city,
+              setCity,
+              setColorCircle,
+              colorCircle,
+              setBackground,
+              background,
+              setWeatherIcon,
+              weatherIcon,
+            }}
+          />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
         </section>
       </main>

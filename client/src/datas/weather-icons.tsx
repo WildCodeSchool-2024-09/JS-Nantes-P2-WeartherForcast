@@ -1,4 +1,4 @@
-export const wheaterIconsData = [
+export const weatherIconsData = [
   {
     id: 1,
     url: "/src/assets/icons-weather/cloudy.svg",

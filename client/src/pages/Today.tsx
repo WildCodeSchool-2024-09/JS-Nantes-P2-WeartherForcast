@@ -5,10 +5,11 @@ import PrecipitationForecast from "../components/PrecipitationForcast";
 import WhatToWear from "../components/WhatToWear";
 import type CityOutletContextType from "../types/Outletcontext";
 import "../style/Today.css";
+import { getBackground } from "../utilitiesFunctions/getBackground";
+import { getWheatherIcons } from "../utilitiesFunctions/getWeatherIcons";
 
 function Today() {
   const outletContext = useOutletContext<CityOutletContextType>();
-  const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
 
@@ -19,9 +20,18 @@ function Today() {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
+          // outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
+          if (data.weather[0].main) {
+            // ℹ️ For the background dynamic
+            getBackground(data.weather[0].main, outletContext.setBackground);
+            // ℹ️ For the icon dynamic
+            getWheatherIcons(
+              data.weather[0].main,
+              outletContext.setWeatherIcon,
+            );
+          }
         })
         .catch((err) => console.error(err));
     }
@@ -59,10 +69,7 @@ function Today() {
             <h2 className="your-city">{outletContext.city}</h2>
             <div className="state-temp">
               <figcaption>
-                <img
-                  src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
-                  alt="symbole de l'état du ciel"
-                />
+                <img src={outletContext.weatherIcon} alt="" />
               </figcaption>
               <h3 className="temperature">{temperature}°</h3>
             </div>
