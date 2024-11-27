@@ -23,6 +23,7 @@ export default function SearchBar({ setCity }: SearchBarProps) {
             inputRef.current.value = "";
           }
         }
+        navigate("/today");
       }}
     >
       <input
@@ -31,11 +32,7 @@ export default function SearchBar({ setCity }: SearchBarProps) {
         id="city-input"
         placeholder="Search a city ..."
       />
-      <button
-        className="button-search"
-        type="submit"
-        onClick={() => navigate("/today")}
-      >
+      <button className="button-search" type="submit">
         <img className="search-icon" src={searchIcon} alt="" />
       </button>
     </form>
