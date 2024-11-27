@@ -53,40 +53,26 @@ function DayByday() {
         setSkyDate2(data.list[24].dt_txt);
         setSkyDate3(data.list[32].dt_txt);
         setSkyDate4(data.list[39].dt_txt);
-        // console.log(moredata);
-        // console.log(data.list[0].weather[0].icon);
-        // console.log(data.list[0].main.temp_min);
-        // console.log(data.list[0].main.temp_max);
       });
   }, []);
   const calculateDimensions = (temperature: number) => {
-    // Logique de calcul ici, par exemple :
-    // const width = temperature * 10;
     const height = temperature * 5;
 
     return { height };
   };
   const calculateDimensions1 = (temperature1: number) => {
-    // Logique de calcul ici, par exemple :
-    // const width = temperature * 10;
     const height = temperature1 * 5;
     return { height };
   };
   const calculateDimensions2 = (temperature2: number) => {
-    // Logique de calcul ici, par exemple :
-    // const width = temperature * 10;
     const height = temperature2 * 5;
     return { height };
   };
   const calculateDimensions3 = (temperature3: number) => {
-    // Logique de calcul ici, par exemple :
-    // const width = temperature * 10;
     const height = temperature3 * 5;
     return { height };
   };
   const calculateDimensions4 = (temperature4: number) => {
-    // Logique de calcul ici, par exemple :
-    // const width = temperature * 10;
     const height = temperature4 * 5;
     return { height };
   };
