@@ -25,13 +25,14 @@ const humidityRanges = [
     start: 76,
     end: 84,
     advice:
-      "Opt for lightweight, loose-fitting clothing made from breathable fabrics like cotton or linen. Avoid synthetic materials that can trap heat and moisture.",
+      "opt for lightweight, loose-fitting clothing made from breathable fabrics like cotton or linen. Avoid synthetic materials that can trap heat and moisture.",
   },
   {
     humidity: "Very difficult to cool down once moving",
     start: 85,
-    end: 100,
+    end: 150,
     advice:
-      "even with the best clothing choices, it can be challenging to regulate body temperature. Consider limiting outdoor activity during peak heat hours and staying hydrated.",
+      "even with the best clothing choices, it can be challenging to regulate body temperature. Consider limiting intense outdoor activity when wearing several, non-breathable layers and staying hydrated.",
   },
 ];
+export default humidityRanges;

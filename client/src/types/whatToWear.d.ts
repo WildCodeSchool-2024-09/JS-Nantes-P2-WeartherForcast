@@ -13,13 +13,19 @@ export interface OutletContextProps {
   warmthPref: number;
   setWarmthPref: (value: number) => void;
   clothingPref: {
-    warmthPref: 0;
+    warmthPref: "";
     humidPref: 0;
     bikePref: false;
     pubTransPref: false;
     drivePref: false;
     walkPref: false;
   };
+}
+export interface rangeDefinitionValues {
+  humidIn: string | number;
+  humidPref: string | number;
+  tempIn: string | number;
+  tempPref: string | number;
 }
 
 export interface useStateProps {
@@ -36,7 +42,7 @@ export interface clothingPrefProps {
   walkPref: false;
 }
 export interface wtwProps {
-  tempMax: number;
+  tempMax: string;
   conditID: number;
   conditions: string;
 }

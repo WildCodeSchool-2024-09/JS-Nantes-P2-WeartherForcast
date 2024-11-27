@@ -1,47 +1,129 @@
-// import { useOutletContext } from "react-router-dom";
-// import { NavLink } from "react-router-dom";
-// import { useState, useEffect } from "react";
-// import type WhatToWearInterfaces from "../types/whatToWear";
-
-// const clothingPref =
-//   useOutletContext<WhatToWearInterfaces.OutletContextProps>().clothingPref;
-// const [wind, setWind] = useState(0);
-// const [humidity, setHumidity] = useState("");
-// const [humidityRange, sethumidityRange] = useState("");
-// const url =
-//   "https://api.openweathermap.org/data/2.5/weather?q=Nantes&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import humidityRanges from "../assets/Humidity";
+import "../style/preferencesWear.css";
+import { windRanges } from "../assets/Wind";
+import { windDirectionRanges } from "../assets/Wind";
+import type cityOutletContextType from "../types/Outletcontext";
+import type { OutletContextProps } from "../types/preferencesWear";
+import type { humidityCounselProps } from "../types/preferencesWear";
+import type { windCounselProps } from "../types/preferencesWear";
 
 function WhatToWearMore() {
-  // FETCH API
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setHumidity(data.main.humidity);
-  //       setWind(data.wind.speed);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, [url]);
+  const { clothingPref } = useOutletContext<OutletContextProps>();
+  const city = useOutletContext<OutletContextProps>().city;
+  const { newHumidity } = useOutletContext<cityOutletContextType>();
+  const { windDirection } = useOutletContext<cityOutletContextType>();
+  const { wind } = useOutletContext<cityOutletContextType>();
+
+  const [humidityRange, setHumidityRange] = useState("");
+  const [windRange, setWindRange] = useState(0);
+  const [windDirectionStatement, setWindDirectionStatement] = useState("");
 
   //  FIND HUMIDITY RANGE (ie: warm, very warm, cool, etc.)
-  // useEffect(() => {
-  //   function findHumidityRange(humidIn: string, humidPref: string) {
-  //     const prefRealFeel =
-  //       Number.parseInt(humidIn) + Number.parseInt(humidPref);
-  //     for (const range of humidityRanges) {
-  //       if (prefRealFeel >= range.start && prefRealFeel <= range.end) {
-  //         sethumidityRange(range.humidity);
-  //         break;
-  //       }
-  //     }
-  //   }
-  //   findHumidityRange(humidity, clothingPref.humidityPref);
-  // }, [humidity, clothingPref.humidityPref]);
+  useEffect(() => {
+    function findHumidityRange(humidIn: string, humidPref: string) {
+      const prefHumidRealFeel =
+        Number.parseInt(humidIn) + Number.parseInt(humidPref);
+      console.warn("prefHumidRealFeel", prefHumidRealFeel);
+      for (const range of humidityRanges) {
+        if (
+          prefHumidRealFeel >= range.start &&
+          prefHumidRealFeel <= range.end
+        ) {
+          setHumidityRange(range.humidity);
+          break;
+        }
+      }
+    }
+    findHumidityRange(newHumidity, clothingPref.humidityPref);
+  }, [newHumidity, clothingPref.humidityPref]);
 
+  useEffect(() => {
+    function findWindRange(windIn: number) {
+      for (const range of windRanges) {
+        if (windIn + 40 >= range.start && windIn + 40 <= range.end) {
+          setWindRange(range.beaufort);
+          break;
+        }
+      }
+    }
+    findWindRange(wind);
+  }, [wind]);
+
+  useEffect(() => {
+    function findWindDirection(windDirectionIn: number) {
+      for (const range of windDirectionRanges) {
+        if (windDirectionIn >= range.start && windDirectionIn <= range.end) {
+          setWindDirectionStatement(range.Direction);
+          break;
+        }
+      }
+    }
+    findWindDirection(windDirection);
+  }, [windDirection]);
+
+  const bikeWindCounsel: windCounselProps = {};
+  const windCounsel: windCounselProps = {};
+  for (const condition of windRanges) {
+    windCounsel[condition.beaufort] = condition.effect;
+    bikeWindCounsel[condition.beaufort] = condition.bike;
+  }
+
+  const humidityCounsel: humidityCounselProps = {};
+  for (const condition of humidityRanges) {
+    humidityCounsel[condition.humidity] = condition.advice;
+  }
+
+  console.warn("humidity counsel:", humidityCounsel);
+  console.warn("humidityRange", humidityRange);
+  console.warn("humidityCounselRange", humidityCounsel[humidityRange]);
+  console.warn("windCounselRange", windCounsel[windRange]);
+  console.warn("windRange:", windRange);
   return (
     <>
-      <div>
-        <p>This is the page</p>
+      <div className="wtwm-mother-div">
+        <h3 className="wtwm-humidity-title">Humidity</h3>
+        <p>
+          With today's humidity in {city} {humidityCounsel[humidityRange]}
+        </p>
+        <h3 className="wtwm-wind-title">Wind</h3>
+        <p>
+          Wind speeds of {Math.round(wind)} km/h will result in a{" "}
+          {windDirectionStatement} {windCounsel[windRange]}
+        </p>
+        {clothingPref.bikePref || clothingPref.pubTransPref ? (
+          <h3 className="wtwm-trans-title">Transport</h3>
+        ) : (
+          ""
+        )}
+        {clothingPref.bikePref ? (
+          <p>Today's conditions are {bikeWindCounsel[windRange]}</p>
+        ) : (
+          ""
+        )}
+        {clothingPref.pubTransPref ? (
+          <p>
+            Public transport still remains an effective method of getting
+            around.{" "}
+            {Number.parseInt(newHumidity) > 80 ? (
+              <p>
+                {" "}
+                The high humidity might impact your comfort on overcrowded
+                transport especially during peak hours.{" "}
+                {clothingPref.drivePref ? (
+                  <p> It may be preferable to drive.</p>
+                ) : (
+                  ""
+                )}
+              </p>
+            ) : (
+              ""
+            )}
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

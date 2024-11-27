@@ -10,28 +10,10 @@ import type { WeatherTempImagesProps } from "../types/whatToWear";
 import type { weatherConditionItemProps } from "../types/whatToWear";
 import type { wtwProps } from "../types/whatToWear";
 
-// import type { clothingPrefProps } from "../types/whatToWear";
 function WhatToWear(props: wtwProps) {
-  // DECLARATION OF VARIABLES -- Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
-  // const [conditions, setConditions] = useState();
-  // const [tempMax, setTempMax] = useState<useStateProps>();
-  // const [conditID, setConditID] = useState(615);
-  // const city = useOutletContext<OutletContextProps>().city;
   const clothingPref = useOutletContext<OutletContextProps>().clothingPref;
   const [tempRange, setTempRange] = useState("cool");
-
-  // FETCH API
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       // est-ce que je peux utiliser un 'map' ou 'spread' pour automatiser ce genre de code?
-  //       setConditions(data.weather[0].description);
-  //       setTempMax(data.main.temp_max);
-  //       setConditID(data.weather[0].id);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, [url]);
+  const city = useOutletContext<OutletContextProps>().city;
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - WEATHER CONDITIONS
   const weatherConditionImages: WeatherConditionImagesProps = {};
@@ -43,8 +25,8 @@ function WhatToWear(props: wtwProps) {
   }
   //  FIND TEMERATURE RANGE (ie: warm, very warm, cool, etc.)
   useEffect(() => {
-    function findTemperatureRange(tempIn: number, tempPref: number) {
-      const prefRealFeel = tempIn + tempPref;
+    function findTemperatureRange(tempIn: string, tempPref: string) {
+      const prefRealFeel = Number.parseInt(tempIn) + Number.parseInt(tempPref);
       for (const range of tempRanges) {
         if (prefRealFeel >= range.start && prefRealFeel <= range.end) {
           setTempRange(range.temp);
@@ -82,13 +64,15 @@ function WhatToWear(props: wtwProps) {
       <h3 className="wtw-title">What to Wear</h3>
 
       <p className="wtw-text-description">
-        Today it will be {tempRange} with {props.conditions}. Don't forget your{" "}
-        {weatherItem}
+        Today in {city} it will be {tempRange} with {props.conditions}. Don't
+        forget your {weatherItem}
       </p>
       <nav>
         <p>
           {" "}
-          <NavLink to="/WhatToWearMore">more...</NavLink>
+          <NavLink to="/WhatToWearMore" className="wtw-more-button">
+            more...
+          </NavLink>
         </p>
       </nav>
 

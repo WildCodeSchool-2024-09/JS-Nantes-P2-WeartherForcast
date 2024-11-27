@@ -1,11 +1,12 @@
 import { useOutletContext } from "react-router-dom";
-import type PreferencesWearInterfaces from "../types/preferencesWear";
 import "../style/preferencesWear.css";
+import { useEffect } from "react";
+import type { OutletContextProps } from "../types/preferencesWear";
 
 function ClothingPreferences() {
   // OUTLET CONTEXT PARAMETERS
   const { clothingPref, setClothingPref } =
-    useOutletContext<PreferencesWearInterfaces.OutletContextProps>();
+    useOutletContext<OutletContextProps>();
 
   // CHANGE HANDLERS
 
@@ -16,7 +17,7 @@ function ClothingPreferences() {
       [name]: value,
     });
   };
-
+  console.warn(clothingPref);
   const handleInputChangeChkBox = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
@@ -27,34 +28,40 @@ function ClothingPreferences() {
     });
   };
 
+  useEffect(() => {
+    localStorage.setItem("clothingPref", JSON.stringify(clothingPref));
+  }, [clothingPref]);
+
   return (
     <div className="cp-main-div">
       <h2 className="cp-title">My Preferences</h2>
 
       {/*Sliders  */}
-      <h3 className="cp-slide-title">I have the tendancy to be:</h3>
-      <input
-        className="cp-slider"
-        type="range"
-        id="warmthPref"
-        name="warmthPref"
-        min={-10}
-        max={10}
-        step={1}
-        value={clothingPref.warmthPref}
-        onChange={handleInputChange}
-      />
-      <figcaption className="cp-slider-div">
-        <h4 className="cp-slide-label">Very Cold</h4>
-        <h4 className="cp-slide-label">Very Warm</h4>
-      </figcaption>
+      <section className="cp-sliders">
+        <h3 className="cp-slide-title">Warmth:</h3>
+        <input
+          className="cp-slider"
+          type="range"
+          id="warmthPref"
+          name="warmthPref"
+          min={-10}
+          max={10}
+          step={1}
+          value={clothingPref.warmthPref}
+          onChange={handleInputChange}
+        />
+        <figcaption className="cp-slider-div">
+          <h4 className="cp-slide-label">I'm often cold</h4>
+          <h4 className="cp-slide-label">I'm often warm</h4>
+        </figcaption>
+      </section>
 
-      <section>
+      <section className="cp-sliders">
         <h3 className="cp-slide-title">Humidity:</h3>
         <input
           className="cp-slider"
           type="range"
-          id="humidity-slider"
+          id="humidityPref"
           min={-10}
           max={10}
           step={1}

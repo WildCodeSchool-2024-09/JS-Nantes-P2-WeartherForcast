@@ -12,13 +12,14 @@ function Today() {
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
-  const { clothingPref, setClothingPref } =
-    useOutletContext<OutletContextProps>();
   const [conditions, setConditions] = useState<string>("descritpion");
-  const [tempMax, setTempMax] = useState(0);
+  const [tempMax, setTempMax] = useState("");
   const [conditID, setConditID] = useState(615);
-  // const [windT, setWind] = useState(0);
-  // const [humidityT, setHumidity] = useState(0);
+  const { wind, setWind } = useOutletContext<OutletContextProps>();
+  const { windDirection, setWindDirection } =
+    useOutletContext<OutletContextProps>();
+  const { newHumidity, setNewHumidity } =
+    useOutletContext<OutletContextProps>();
 
   useEffect(() => {
     if (outletContext.city) {
@@ -33,29 +34,18 @@ function Today() {
           setConditions(data.weather[0].description);
           setTempMax(data.main.temp_max);
           setConditID(data.weather[0].id);
-          // setWind(data.wind.speed);
-          setClothingPref(
-            {
-              ...clothingPref,
-              wind: data.wind.speed,
-            },
-            {
-              ...clothingPref,
-              humidity: data.main.humidity,
-            },
-          );
-          // setHumidity(data.main.humidity);
+          setWind(data.wind.speed);
+          setWindDirection(data.wind.deg);
+          setNewHumidity(data.main.humidity);
         })
         .catch((err) => console.error(err));
     }
-  }, [outletContext, setClothingPref, clothingPref]);
+  }, [outletContext, setNewHumidity, setWindDirection, setWind]);
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
-
-  // console.log("CPWind:", clothingPref.wind)
-  // console.log("CPHumidity", clothingPref.humidity)
-  // console.log ("wind:", windT)
-  // console.log ("humidity", humidityT)
+  console.warn("wind:", wind);
+  console.warn("windDirection:", windDirection);
+  console.warn("newHumidity", newHumidity);
 
   return (
     <>

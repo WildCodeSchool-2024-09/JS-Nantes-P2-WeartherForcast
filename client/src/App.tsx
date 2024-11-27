@@ -16,14 +16,13 @@ export default function App() {
   const [background, setBackground] = useState("");
 
   //CLOTHING PREFERENCES
-  const [clothingPref, setClothingPref] = useState({
-    warmthPref: 0,
-    humidPref: 0,
-    bikePref: false,
-    pubTransPref: false,
-    drivePref: false,
-    walkPref: false,
-  });
+  // @ts-expect-error
+  const storedItems = JSON.parse(localStorage.getItem("clothingPref"));
+  const [clothingPref, setClothingPref] = useState(storedItems);
+  //WEATHER DATA FOR MORE INFO PAGE
+  const [wind, setWind] = useState(0);
+  const [windDirection, setWindDirection] = useState(0);
+  const [newHumidity, setNewHumidity] = useState("");
 
   //GEOLOCATION ON LOAD
   useEffect(() => {
@@ -49,6 +48,12 @@ export default function App() {
               setCity,
               clothingPref,
               setClothingPref,
+              wind,
+              setWind,
+              windDirection,
+              setWindDirection,
+              newHumidity,
+              setNewHumidity,
             }}
           />
           {/* 💡 outletContext because it"s not possible to pass a standard context in an outlet, so react router have a specofoc context hook for that. 📖 DOC => https://reactrouter.com/en/main/hooks/use-outlet-context*/}
