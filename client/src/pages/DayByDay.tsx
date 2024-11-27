@@ -1,8 +1,11 @@
+import { useOutletContext } from "react-router-dom";
 import "/src/style/DayByDay.css";
-
 import { useEffect, useState } from "react";
+import type CityOutletContextType from "../types/Outletcontext";
 
 function DayByday() {
+  const outletContext = useOutletContext<CityOutletContextType>();
+
   // TODO : clean code with a object for exemple
   // const [moredata, setData] = useState("");
   const [skyState, setSkyState] = useState("");
@@ -28,7 +31,7 @@ function DayByday() {
 
   useEffect(() => {
     fetch(
-      "https://api.openweathermap.org/data/2.5/forecast?q=Nantes&cnt1=1&appid=db33a6aa09eb95eb5bae868283feca9e&units=metric",
+      `https://api.openweathermap.org/data/2.5/forecast?q=${outletContext.city}&cnt1=1&appid=db33a6aa09eb95eb5bae868283feca9e&units=metric`,
     )
       .then((response) => response.json())
       .then((data) => {
@@ -54,7 +57,7 @@ function DayByday() {
         setSkyDate3(data.list[32].dt_txt);
         setSkyDate4(data.list[39].dt_txt);
       });
-  }, []);
+  }, [outletContext.city]);
   const calculateDimensions = (temperature: number) => {
     const height = temperature * 5;
 
