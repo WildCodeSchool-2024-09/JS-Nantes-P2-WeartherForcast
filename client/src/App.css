@@ -83,3 +83,16 @@ main {
   background: var(--secondaryColor);
   border: solid 1px #61aeff;
 }
+
+.animated-section {
+  animation: fadeIn 2000ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

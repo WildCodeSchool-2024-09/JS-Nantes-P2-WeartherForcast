@@ -1,6 +1,6 @@
 function ClothingPreferences() {
   return (
-    <div>
+    <div className="animated-section">
       <h3>Warmth</h3>
 
       <input type="Range" className="temperature" />
