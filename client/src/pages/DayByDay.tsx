@@ -3,8 +3,6 @@ import "/src/style/DayByDay.css";
 import { useEffect, useState } from "react";
 
 function DayByday() {
-  //  https://codesandbox.io/p/sandbox/ftn8jn LIEN SANDBOX A NE PAS PERDE !!!!!!!!
-
   // TODO : clean code with a object for exemple
   // const [moredata, setData] = useState("");
   const [skyState, setSkyState] = useState("");
@@ -65,6 +63,7 @@ function DayByday() {
     // Logique de calcul ici, par exemple :
     // const width = temperature * 10;
     const height = temperature * 5;
+
     return { height };
   };
   const calculateDimensions1 = (temperature1: number) => {
@@ -125,7 +124,9 @@ function DayByday() {
               alt="symbole de l'état du ciel"
             />
           </figcaption>
+
           <div className="temperaturemaxdbd">{temperature}°</div>
+
           <section className="tempsminandrectangle">
             {temperature && (
               <div
@@ -137,8 +138,8 @@ function DayByday() {
                 }}
               />
             )}
-            <div className="temperatureminbdb">{temperaturemin}°</div>
           </section>
+          <div className="temperatureminbdb">{temperaturemin}°</div>
         </div>
       </div>
       <div className="rectangle">
@@ -161,8 +162,8 @@ function DayByday() {
               }}
             />
           )}
-          <div className="temperatureminbdb">{temperaturemin1}°</div>
         </section>
+        <div className="temperatureminbdb">{temperaturemin1}°</div>
       </div>
 
       <div className="rectangle">
@@ -185,8 +186,8 @@ function DayByday() {
               }}
             />
           )}
-          <div className="temperatureminbdb">{temperaturemin2}°</div>
         </section>
+        <div className="temperatureminbdb">{temperaturemin2}°</div>
       </div>
       <div className="rectangle">
         <div className="datebdb">{firstlettre3}</div>
@@ -208,8 +209,8 @@ function DayByday() {
               }}
             />
           )}
-          <div className="temperatureminbdb">{temperaturemin3}°</div>
         </section>
+        <div className="temperatureminbdb">{temperaturemin3}°</div>
       </div>
       <div className="rectangle">
         <div className="datebdb">{firstlettre4}</div>
@@ -232,8 +233,8 @@ function DayByday() {
               }}
             />
           )}
-          <div className="temperatureminbdb">{temperaturemin4}°</div>
         </section>
+        <div className="temperatureminbdb">{temperaturemin4}°</div>
       </div>
     </section>
   );
