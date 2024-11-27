@@ -34,7 +34,13 @@ export default function App() {
       >
         {isMenuOpen ? (
           <MenuHeader
-            setters={{ setCity, setBackground, setColorCircle, setIdCity }}
+            setters={{
+              setCity,
+              setBackground,
+              setColorCircle,
+              setIdCity,
+              setMenuOpen,
+            }}
           />
         ) : null}
         <SearchBar setCity={setCity} />
