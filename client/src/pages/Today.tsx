@@ -7,8 +7,8 @@ import "../style/Today.css";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
 import type { NewCity } from "../types/newFavoriteCity";
-import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
 import type OutletContextProps from "../types/preferencesWear";
+import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
 
 function Today() {
   // GETTER OUTLET CONTEXT
@@ -53,16 +53,12 @@ function Today() {
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
   const [description, setDescription] = useState("");
-  const [conditions, setConditions] = useState<string>("descritpion");
+  const [conditions, setConditions] = useState<string>("description");
   const [tempMax, setTempMax] = useState("");
   const [conditID, setConditID] = useState(615);
-  const { wind, setWind } = useOutletContext<OutletContextProps>();
-  const { windDirection, setWindDirection } =
-    useOutletContext<OutletContextProps>();
-  const { newHumidity, setNewHumidity } =
+  const { setWindDirection, setWind, setNewHumidity } =
     useOutletContext<OutletContextProps>();
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation> //TODO: find a better solution !
   useEffect(() => {
     if (outletContext.city) {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
@@ -75,9 +71,11 @@ function Today() {
           setRealFeel(Math.round(data.main.feels_like));
           setDescription(data.weather[0].main);
           outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
-          if (description)
-            // ℹ️ For the background dynamic
-            getBackground(description, outletContext.setBackground);
+
+          // ℹ️ For the background dynamic
+          description
+            ? getBackground(description, outletContext.setBackground)
+            : "";
           setConditions(data.weather[0].description);
           setTempMax(data.main.temp_max);
           setConditID(data.weather[0].id);
@@ -87,14 +85,19 @@ function Today() {
         })
         .catch((err) => console.error(err));
     }
-  }, [outletContext.city, setNewHumidity, setWindDirection, setWind]);
+  }, [
+    outletContext.city,
+    outletContext.setBackground,
+    outletContext.setIdCity,
+    setNewHumidity,
+    setWindDirection,
+    setWind,
+    description,
+  ]);
 
   //SET THE DATE
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
-  console.warn("wind:", wind);
-  console.warn("windDirection:", windDirection);
-  console.warn("newHumidity", newHumidity);
 
   return (
     <>

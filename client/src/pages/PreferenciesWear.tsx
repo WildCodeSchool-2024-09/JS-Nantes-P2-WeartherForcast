@@ -1,12 +1,12 @@
 import { useOutletContext } from "react-router-dom";
 import "../style/preferencesWear.css";
 import { useEffect } from "react";
-import type { OutletContextProps } from "../types/preferencesWear";
+import type { ClothingPrefTypes } from "../types/preferencesWear";
 
 function ClothingPreferences() {
   // OUTLET CONTEXT PARAMETERS
   const { clothingPref, setClothingPref } =
-    useOutletContext<OutletContextProps>();
+    useOutletContext<ClothingPrefTypes>();
 
   // CHANGE HANDLERS
 
@@ -84,32 +84,32 @@ function ClothingPreferences() {
             name="bikePref"
             checked={clothingPref.bikePref}
             onChange={handleInputChangeChkBox}
-          />{" "}
-          <label htmlFor="bike">go bike riding</label>
+          />
+          <p>go bike riding</p>
           <input
             type="checkbox"
             id="walkPref"
             name="walkPref"
             checked={clothingPref.walkPref}
             onChange={handleInputChangeChkBox}
-          />{" "}
-          <label htmlFor="walk">walk long distances</label>
+          />
+          <p>walk long distances</p>
           <input
             type="checkbox"
             id="drivePref"
             name="drivePref"
             checked={clothingPref.drivePref}
             onChange={handleInputChangeChkBox}
-          />{" "}
-          <label htmlFor="drive">drive a vehicle</label>
+          />
+          <p>drive a vehicle</p>
           <input
             type="checkbox"
             id="pubTransPref"
             name="pubTransPref"
             checked={clothingPref.pubTransPref}
             onChange={handleInputChangeChkBox}
-          />{" "}
-          <label htmlFor="pubTrans">use public transport</label>
+          />
+          <p>use public transport</p>
         </section>
       </div>
     </div>

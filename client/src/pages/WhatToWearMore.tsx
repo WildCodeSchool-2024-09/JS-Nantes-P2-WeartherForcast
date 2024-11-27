@@ -4,17 +4,15 @@ import humidityRanges from "../assets/Humidity";
 import "../style/preferencesWear.css";
 import { windRanges } from "../assets/Wind";
 import { windDirectionRanges } from "../assets/Wind";
-import type cityOutletContextType from "../types/Outletcontext";
-import type { OutletContextProps } from "../types/preferencesWear";
-import type { humidityCounselProps } from "../types/preferencesWear";
-import type { windCounselProps } from "../types/preferencesWear";
+import type CityOutletContextType from "../types/Outletcontext";
+import type {
+  humidityCounselProps,
+  windCounselProps,
+} from "../types/preferencesWear";
 
 function WhatToWearMore() {
-  const { clothingPref } = useOutletContext<OutletContextProps>();
-  const city = useOutletContext<OutletContextProps>().city;
-  const { newHumidity } = useOutletContext<cityOutletContextType>();
-  const { windDirection } = useOutletContext<cityOutletContextType>();
-  const { wind } = useOutletContext<cityOutletContextType>();
+  const { newHumidity, windDirection, wind, city, clothingPref } =
+    useOutletContext<CityOutletContextType>();
 
   const [humidityRange, setHumidityRange] = useState("");
   const [windRange, setWindRange] = useState(0);
@@ -25,7 +23,6 @@ function WhatToWearMore() {
     function findHumidityRange(humidIn: string, humidPref: string) {
       const prefHumidRealFeel =
         Number.parseInt(humidIn) + Number.parseInt(humidPref);
-      console.warn("prefHumidRealFeel", prefHumidRealFeel);
       for (const range of humidityRanges) {
         if (
           prefHumidRealFeel >= range.start &&
@@ -55,7 +52,7 @@ function WhatToWearMore() {
     function findWindDirection(windDirectionIn: number) {
       for (const range of windDirectionRanges) {
         if (windDirectionIn >= range.start && windDirectionIn <= range.end) {
-          setWindDirectionStatement(range.Direction);
+          setWindDirectionStatement(range.direction);
           break;
         }
       }
@@ -75,11 +72,6 @@ function WhatToWearMore() {
     humidityCounsel[condition.humidity] = condition.advice;
   }
 
-  console.warn("humidity counsel:", humidityCounsel);
-  console.warn("humidityRange", humidityRange);
-  console.warn("humidityCounselRange", humidityCounsel[humidityRange]);
-  console.warn("windCounselRange", windCounsel[windRange]);
-  console.warn("windRange:", windRange);
   return (
     <>
       <div className="wtwm-mother-div">
@@ -89,7 +81,7 @@ function WhatToWearMore() {
         </p>
         <h3 className="wtwm-wind-title">Wind</h3>
         <p>
-          Wind speeds of {Math.round(wind)} km/h will result in a{" "}
+          Wind speeds of {Math.round(wind)} km/h will result in a
           {windDirectionStatement} {windCounsel[windRange]}
         </p>
         {clothingPref.bikePref || clothingPref.pubTransPref ? (
@@ -97,20 +89,21 @@ function WhatToWearMore() {
         ) : (
           ""
         )}
+
         {clothingPref.bikePref ? (
           <p>Today's conditions are {bikeWindCounsel[windRange]}</p>
         ) : (
           ""
         )}
+
         {clothingPref.pubTransPref ? (
           <p>
             Public transport still remains an effective method of getting
             around.{" "}
             {Number.parseInt(newHumidity) > 80 ? (
               <p>
-                {" "}
                 The high humidity might impact your comfort on overcrowded
-                transport especially during peak hours.{" "}
+                transport especially during peak hours.
                 {clothingPref.drivePref ? (
                   <p> It may be preferable to drive.</p>
                 ) : (

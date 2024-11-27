@@ -58,6 +58,8 @@
 
 .cp-check-boxes > input {
   max-width: 18px;
+  padding: 8px;
+  margin: 8px;
 }
 
 .wtwm-mother-div {

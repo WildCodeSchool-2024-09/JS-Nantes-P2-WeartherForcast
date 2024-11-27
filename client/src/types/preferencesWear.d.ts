@@ -1,6 +1,4 @@
-export interface OutletContextProps {
-  city: string;
-  setCity: (value: string) => void;
+export interface ClothingPrefTypes {
   clothingPref: {
     warmthPref: "";
     humidityPref: "";

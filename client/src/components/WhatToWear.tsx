@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
+
 import "../WhatToWear.css";
 import weatherConditions from "../assets/APIWeatherConditions";
 import tempRanges from "../assets/Temps";
-import type { OutletContextProps } from "../types/whatToWear";
-import type { WeatherConditionImagesProps } from "../types/whatToWear";
-import type { WeatherTempImagesProps } from "../types/whatToWear";
-import type { weatherConditionItemProps } from "../types/whatToWear";
-import type { wtwProps } from "../types/whatToWear";
+import type CityOutletContextType from "../types/Outletcontext";
+import type {
+  WeatherTempImagesProps,
+  weatherConditionItemProps,
+  wtwProps,
+} from "../types/whatToWear";
 
 function WhatToWear(props: wtwProps) {
-  const clothingPref = useOutletContext<OutletContextProps>().clothingPref;
   const [tempRange, setTempRange] = useState("cool");
-  const city = useOutletContext<OutletContextProps>().city;
+  const { city, clothingPref } = useOutletContext<CityOutletContextType>();
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - WEATHER CONDITIONS
-  const weatherConditionImages: WeatherConditionImagesProps = {};
+  const weatherConditionImages: WeatherTempImagesProps = {};
 
   for (const condition of weatherConditions) {
     for (const id of condition.id) {
