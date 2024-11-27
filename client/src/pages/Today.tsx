@@ -40,7 +40,6 @@ function Today() {
         ...currentFavorites,
         { cityName: name, cityId: id },
       ]);
-      //currentFavorites pour lui dire de regarder d"abord le contenu courant de favorites et de le modifier avant de faire la suite. Ca garantie qu"on prenne bien la valeur telle auelle est au momemt ou on demande l"operation
       //📖 DOC : https://react.dev/reference/react/useState -> "I’ve updated the state, but the screen doesn’t update" AND "My initializer or updater function runs twice"
     } else {
       setFavorites((currentFavorites) =>
@@ -64,7 +63,6 @@ function Today() {
         .then((data) => {
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
-          // outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
           if (data.weather[0].main) {
             // ℹ️ For the background dynamic
             getBackground(data.weather[0].main, outletContext.setBackground);
