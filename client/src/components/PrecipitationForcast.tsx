@@ -9,7 +9,7 @@ function PrecipitationForecast() {
 
   useEffect(() => {
     if (outletContext.city) {
-      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${outletContext.city}&cnt=1&appid=4e41f328e6b4fcf670b66844921c47d8`;
+      const url = `https://api.openweathermap.org/data/2.5/forecast?q=${outletContext.city}&cnt=1&appid=${import.meta.env.OPENWEATHER_API_KEY}`;
 
       fetch(url)
         .then((response) => {
@@ -34,12 +34,12 @@ function PrecipitationForecast() {
     <div className="precip-forecast-windows">
       {forecast && forecast > 0 ? (
         <p className="precip-forecast-txt">
-          Précipitations attendues dans les trois prochaines heures à{" "}
-          {outletContext.city} !
+          Precipitation expected in the next three hours in {outletContext.city}
+          !
         </p>
       ) : (
         <p className="precip-forecast-txt">
-          Pas de précipitations prévues dans les trois prochaines heures à{" "}
+          No precipitation expected in the next three hours in{" "}
           {outletContext.city}.
         </p>
       )}

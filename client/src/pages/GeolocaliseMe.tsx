@@ -3,6 +3,7 @@ import "/src/style/geolocaliseMe.css";
 import { useEffect, useState } from "react";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import type CityOutletContextType from "../types/Outletcontext";
+import { getBackground } from "../utilitiesFunctions/getBackground";
 
 export default function GeolocaliseMe() {
   const outletContext = useOutletContext<CityOutletContextType>();
@@ -18,14 +19,14 @@ export default function GeolocaliseMe() {
     currentTemp: undefined,
     tempDescription: undefined,
     realFeel: undefined,
-  }); //undefind parce qu"il est nul au depart
+  }); //undefined parce qu"il est nul au depart
 
   const today = new Date();
   const dateOfToday = today.toLocaleDateString("fr-FR");
 
   useEffect(() => {
     if (outletContext.city) {
-      const urlforCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=075e3c803b57e9d25a7e50c00e33a2ff&units=metric`;
+      const urlforCity: string = `https://api.openweathermap.org/data/2.5/weather?q=${outletContext.city}&appid=${import.meta.env.OPENWEATHER_API_KEY}&units=metric`;
       recoverCityInfoMeteo(urlforCity);
     }
   }, [outletContext]);
@@ -37,19 +38,24 @@ export default function GeolocaliseMe() {
         const datas = await request.json();
         setCityInfoMeteo((currentState) => ({
           ...currentState,
-          city: `${datas.name}`,
+          city: `${outletContext.city || datas.name}`,
           cityId: `${datas.id}`,
-          currentTemp: `${datas.main.temp}`,
+          currentTemp: `${Math.round(datas.main.temp)}`,
           tempDescription: `${datas.weather[0].main}`,
-          realFeel: `${datas.main.feels_like}`,
+          realFeel: `${Math.round(datas.main.feels_like)}`,
         })); //currentState au cas ou on oublie de passer une valeur ou si la donnee est caduque, il y aura toujours l,ancienne valeur qui s'affichera
+        if (cityInfoMeteo.tempDescription)
+          getBackground(
+            cityInfoMeteo.tempDescription,
+            outletContext.setBackground,
+          );
       } catch (error) {
         alert("Sorry, we met a problem. Please, come back later.");
       }
     }
   }
   return (
-    <section className="today-comp">
+    <section className="today-comp animated-section">
       <div className="circle-container">
         <svg className="circle-1" height="30rem" width="30rem">
           <title>animationCircles</title>
@@ -72,7 +78,12 @@ export default function GeolocaliseMe() {
             fill="transparent"
           />
         </svg>
-        <div className="cadran-content">
+        <div
+          className="cadran-content"
+          style={{
+            backgroundColor: `${outletContext.colorCircle}`,
+          }}
+        >
           <h2 className="your-city">{cityInfoMeteo.city}</h2>
           <div className="state-temp">
             <h3 className="temperature">{cityInfoMeteo.currentTemp}°</h3>

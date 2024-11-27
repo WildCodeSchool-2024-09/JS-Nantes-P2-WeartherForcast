@@ -1,0 +1,48 @@
+.city-favorite-card {
+  background-color: var(--mainColor);
+  border: solid 1px var(--shadowColor);
+  border-radius: 20px;
+  width: 145px;
+  height: 88px;
+}
+
+.city-favorite-card-header {
+  height: 44px;
+  border-bottom: solid 1px var(--shadowColor);
+}
+
+.city-favorite-card-title {
+  color: var(--font-highlight-color);
+  font-size: 16px;
+  text-align: center;
+  line-height: 44px;
+}
+
+.city-favorite-card-footer {
+  display: flex;
+}
+
+.visibility-container {
+  width: 72.5px;
+  height: 44px;
+  border-right: solid 1px var(--shadowColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rubbish-bin-container {
+  width: 72.5px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.visibility-icon {
+  width: 22px;
+}
+
+.rubbish-bin-icon {
+  width: 16px;
+}

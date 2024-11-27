@@ -10,7 +10,7 @@ function WhatToWear() {
   const [tempMax, setTempMax] = useState(20);
   const [conditID, setConditID] = useState(615);
   const city = "nantes";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=07310a0f69c5739447b27cfd4c17e3dd&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.OPENWEATHER_API_KEY}&units=metric`;
   const [tempRange, setTempRange] = useState("cool");
 
   // FETCH API
@@ -70,7 +70,7 @@ function WhatToWear() {
 
   // DISPLAY ELEMENTS
   return (
-    <div className="wtw-mother-div">
+    <div className="wtw-mother-div animated-section">
       {/* Title */}
       <h3 className="wtw-title">What to Wear</h3>
 
@@ -87,7 +87,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="weather conditions icon"
-              className="active"
+              className="wear-icon"
             />
           ))}
         </section>
@@ -97,7 +97,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="temperature conditions icon"
-              className="active"
+              className="wear-icon"
             />
           ))}
         </section>
