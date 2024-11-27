@@ -26,7 +26,7 @@ export default function FavoriteCityCard({
   return (
     <article className="city-favorite-card">
       <section className="city-favorite-card-header">
-        <h2 className="city-favorite-card-title">Nantes</h2>
+        <h2 className="city-favorite-card-title">{name}</h2>
       </section>
       <section className="city-favorite-card-footer">
         <div className="visibility-container">
