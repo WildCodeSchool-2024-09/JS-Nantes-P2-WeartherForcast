@@ -43,6 +43,7 @@ export default function App() {
             outletContext={{
               city,
               setCity,
+              setColorCircle,
               colorCircle,
               setBackground,
               background,
