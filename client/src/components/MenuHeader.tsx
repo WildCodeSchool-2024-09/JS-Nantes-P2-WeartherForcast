@@ -20,7 +20,7 @@ export default function MenuHeader(props: {
           onClick={() => {
             geolocaliseMe(setCity, setBackground, setColorCircle, setIdCity);
             navigate("/today"); //👉FIXE ME LATER? WARNING geolocaliseMe is not async so maybe a problem with the promise API who could arrive after the navigation
-          }}
+          }} //SOLUTION for later => use LOADER of react-router
         >
           Geolocalise me
         </button>
