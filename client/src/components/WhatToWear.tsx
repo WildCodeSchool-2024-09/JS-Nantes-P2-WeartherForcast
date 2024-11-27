@@ -1,34 +1,22 @@
 import { useEffect, useState } from "react";
-import weatherConditions from "../assets/APIWeatherConditions";
+import { NavLink, useOutletContext } from "react-router-dom";
+
 import "../WhatToWear.css";
+import weatherConditions from "../assets/APIWeatherConditions";
 import tempRanges from "../assets/Temps";
-import type WhatToWearInterfaces from "../types/whatToWear";
+import type CityOutletContextType from "../types/Outletcontext";
+import type {
+  WeatherTempImagesProps,
+  weatherConditionItemProps,
+  wtwProps,
+} from "../types/whatToWear";
 
-function WhatToWear() {
-  // DECLARATION OF VARIABLES -- Est-ce qu'on devrait stocker ces variables dans un context pour qu'ils soient dispo pour tout les componenets ?
-  const [conditions, setConditions] = useState();
-  const [tempMax, setTempMax] = useState(20);
-  const [conditID, setConditID] = useState(615);
-  const city = "nantes";
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`;
+function WhatToWear(props: wtwProps) {
   const [tempRange, setTempRange] = useState("cool");
-
-  // FETCH API
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        // est-ce que je peux utiliser un 'map' ou 'spread' pour automatiser ce genre de code?
-        setConditions(data.weather[0].description);
-        setTempMax(data.main.temp_max);
-        setConditID(data.weather[0].id);
-      })
-      .catch((err) => console.error(err));
-  }, [url]);
+  const { city, clothingPref } = useOutletContext<CityOutletContextType>();
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - WEATHER CONDITIONS
-  const weatherConditionImages: WhatToWearInterfaces.WeatherConditionImagesProps =
-    {};
+  const weatherConditionImages: WeatherTempImagesProps = {};
 
   for (const condition of weatherConditions) {
     for (const id of condition.id) {
@@ -37,26 +25,27 @@ function WhatToWear() {
   }
   //  FIND TEMERATURE RANGE (ie: warm, very warm, cool, etc.)
   useEffect(() => {
-    function findTemperatureRange(tempIn: number) {
+    function findTemperatureRange(tempIn: string, tempPref: string) {
+      const prefRealFeel = Number.parseInt(tempIn) + Number.parseInt(tempPref);
       for (const range of tempRanges) {
-        if (tempIn >= range.start && tempIn <= range.end) {
+        if (prefRealFeel >= range.start && prefRealFeel <= range.end) {
           setTempRange(range.temp);
+          break;
         }
       }
     }
-    findTemperatureRange(tempMax);
-  }, [tempMax]);
+    findTemperatureRange(props.tempMax, clothingPref.warmthPref);
+  }, [props.tempMax, clothingPref.warmthPref]);
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - TEMPERATURE RANGE
 
-  const weatherTempImages: WhatToWearInterfaces.WeatherTempImagesProps = {};
+  const weatherTempImages: WeatherTempImagesProps = {};
   for (const condition of tempRanges) {
     weatherTempImages[condition.temp] = condition.imgSrc;
   }
 
   // SET WEATHER ITEM
-  const weatherConditionItems: WhatToWearInterfaces.weatherConditionItemProps =
-    {};
+  const weatherConditionItems: weatherConditionItemProps = {};
   for (const condition of weatherConditions) {
     for (const id of condition.id) {
       weatherConditionItems[id] = condition.item;
@@ -64,9 +53,9 @@ function WhatToWear() {
   }
 
   // SET URLS TO VARIABLES
-  const imageUrls = weatherConditionImages[conditID];
+  const imageUrls = weatherConditionImages[props.conditID];
   const tempUrls = weatherTempImages[tempRange];
-  const weatherItem = weatherConditionItems[conditID];
+  const weatherItem = weatherConditionItems[props.conditID];
 
   // DISPLAY ELEMENTS
   return (
@@ -75,9 +64,17 @@ function WhatToWear() {
       <h3 className="wtw-title">What to Wear</h3>
 
       <p className="wtw-text-description">
-        Today it will be {tempRange} with {conditions}. Don't forget your{" "}
-        {weatherItem}
+        Today in {city} it will be {tempRange} with {props.conditions}. Don't
+        forget your {weatherItem}
       </p>
+      <nav>
+        <p>
+          {" "}
+          <NavLink to="/WhatToWearMore" className="wtw-more-button">
+            more...
+          </NavLink>
+        </p>
+      </nav>
 
       {/* DISPLAY OF CLOTHING RECOMMENDATIONS DEPENDING ON WEATHER CONDITIONS - need to use map*/}
       <figure className="wtw-images">
@@ -87,7 +84,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="weather conditions icon"
-              className="wear-icon"
+              className="wtw-icons"
             />
           ))}
         </section>
@@ -97,7 +94,7 @@ function WhatToWear() {
               key={el}
               src={el}
               alt="temperature conditions icon"
-              className="wear-icon"
+              className="wtw-icons"
             />
           ))}
         </section>

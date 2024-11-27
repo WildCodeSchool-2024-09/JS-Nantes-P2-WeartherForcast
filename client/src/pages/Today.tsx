@@ -7,6 +7,7 @@ import "../style/Today.css";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
 import type { NewCity } from "../types/newFavoriteCity";
+import type OutletContextProps from "../types/preferencesWear";
 import {
   getBackground,
   getColorCircle,
@@ -60,6 +61,11 @@ function Today() {
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
+  const [conditions, setConditions] = useState<string>("description");
+  const [tempMax, setTempMax] = useState("");
+  const [conditID, setConditID] = useState(615);
+  const { setWindDirection, setWind, setNewHumidity } =
+    useOutletContext<OutletContextProps>();
 
   useEffect(() => {
     if (outletContext.city) {
@@ -77,10 +83,24 @@ function Today() {
             getBackground(data.weather[0].main, outletContext.setBackground);
             getColorCircle(data.weather[0].main, outletContext.setColorCircle);
           }
+          setConditions(data.weather[0].description);
+          setTempMax(data.main.temp_max);
+          setConditID(data.weather[0].id);
+          setWind(data.wind.speed);
+          setWindDirection(data.wind.deg);
+          setNewHumidity(data.main.humidity);
         })
         .catch((err) => console.error(err));
     }
-  }, [outletContext]);
+  }, [
+    outletContext.city,
+    outletContext.setBackground,
+    outletContext.setIdCity,
+    setNewHumidity,
+    setWindDirection,
+    setWind,
+    outletContext.setColorCircle,
+  ]);
 
   //SET THE DATE
   const today = new Date();
@@ -153,7 +173,11 @@ function Today() {
         </div>
       </section>
       <PrecipitationForecast />
-      <WhatToWear />
+      <WhatToWear
+        conditID={conditID}
+        conditions={conditions}
+        tempMax={tempMax}
+      />
     </>
   );
 }
