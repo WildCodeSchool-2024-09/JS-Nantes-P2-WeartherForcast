@@ -45,12 +45,26 @@ header {
   letter-spacing: 1px;
 }
 
-.geoloc-button:hover {
+.nav-button {
+  height: 40px;
+  width: 170px;
+  border: solid 1px #bdbdbd;
+  text-decoration: none;
+  font-family: var(--general-font);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-bold);
+  color: var(--font-highlight-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 100ms ease-in;
+}
+
+.nav-button:hover {
   background: var(--secondaryColor);
   border: solid 1px #61aeff;
 }
 
-.geoloc-button:active {
+.nav-button:active {
   background: var(--secondaryColor);
   border: solid 1px #61aeff;
 }
