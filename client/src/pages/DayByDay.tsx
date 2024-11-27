@@ -87,62 +87,62 @@ function DayByday() {
     <section className="day">
       <div className="container-rectangle">
         <div className="rectangle">
-          <div className="date">{firstlettre}</div>
-          <div className="date">{secondnumber}</div>
+          <div className="datebdb">{firstlettre}</div>
+          <div className="datebdb">{secondnumber}</div>
           <figcaption>
             <img
               src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
               alt="symbole de l'état du ciel"
             />
           </figcaption>
-          <div className="temperature">{temperature}°</div>
+          <div className="temperaturemaxdbd">{temperature}°</div>
           <div className="small-rectangle" />
-          <div className="temperaturemin">{temperaturemin}°</div>
+          <div className="temperatureminbdb">{temperaturemin}°</div>
         </div>
       </div>
       <div className="rectangle">
-        <div className="date">{firstlettre1}</div>
-        <div className="date">{secondnumber1}</div>
+        <div className="datebdb">{firstlettre1}</div>
+        <div className="datebdb">{secondnumber1}</div>
         <figcaption>
           <img
             src={`http://openweathermap.org/img/wn/${skyState1}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperature">{temperature1}°</div>
+        <div className="temperaturebdb">{temperature1}°</div>
         <div className="small-rectangle" />
-        <div className="temperaturemin">{temperaturemin1}°</div>
+        <div className="temperatureminbdb">{temperaturemin1}°</div>
       </div>
 
       <div className="rectangle">
-        <div className="date">{firstlettre2}</div>
-        <div className="date">{secondnumber2}</div>
+        <div className="datebdb">{firstlettre2}</div>
+        <div className="datebdb">{secondnumber2}</div>
         <figcaption>
           <img
             src={`http://openweathermap.org/img/wn/${skyState2}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperature">{temperature2}°</div>
+        <div className="temperaturebdb">{temperature2}°</div>
         <div className="small-rectangle" />
-        <div className="temperaturemin">{temperaturemin2}°</div>
+        <div className="temperatureminbdb">{temperaturemin2}°</div>
       </div>
       <div className="rectangle">
-        <div className="date">{firstlettre3}</div>
-        <div className="date">{secondnumber3}</div>
+        <div className="datebdb">{firstlettre3}</div>
+        <div className="datebdb">{secondnumber3}</div>
         <figcaption>
           <img
             src={`http://openweathermap.org/img/wn/${skyState3}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperature">{temperature3}°</div>
+        <div className="temperaturebdb">{temperature3}°</div>
         <div className="small-rectangle" />
-        <div className="temperaturemin">{temperaturemin3}°</div>
+        <div className="temperatureminbdb">{temperaturemin3}°</div>
       </div>
       <div className="rectangle">
-        <div className="date">{firstlettre4}</div>
-        <div className="date">{secondnumber4}</div>
+        <div className="datebdb">{firstlettre4}</div>
+        <div className="datebdb">{secondnumber4}</div>
 
         <figcaption>
           <img
@@ -150,9 +150,9 @@ function DayByday() {
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperature">{temperature4}°</div>
+        <div className="temperaturebdb">{temperature4}°</div>
         <div className="small-rectangle" />
-        <div className="temperaturemin">{temperaturemin4}°</div>
+        <div className="temperatureminbdb">{temperaturemin4}°</div>
       </div>
     </section>
   );

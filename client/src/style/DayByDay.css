@@ -10,10 +10,15 @@
   flex-direction: column;
   align-items: center;
 }
-
+img {
+  height: 50px;
+}
 .day {
   display: flex;
   margin-top: 10px;
+}
+.temperaturemaxdbd {
+  font-size: 20px;
 }
 .small-rectangle {
   height: 200px;
@@ -27,25 +32,9 @@
   justify-content: center;
   align-items: center;
 }
-
-.dbd-text {
-  text-align: center;
-  color: white;
-  font-size: 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+.datebdb {
+  margin-top: 10px;
 }
-
-.day-friday {
-  height: 25px;
-}
-
-.dbd-temperature {
-  color: white;
-  font-size: 15px;
-  padding: 10px;
-}
-
 @media (max-height: 667px) {
   .rectangle {
     height: 350px;
