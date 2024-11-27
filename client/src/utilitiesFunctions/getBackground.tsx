@@ -2,15 +2,15 @@ import { backgroundData } from "../datas/background";
 
 export const getBackground = (
   descriptionData: string,
-  callback: (value: string) => void,
+  callbackBackground: (value: string) => void,
 ) => {
   const backGroundToFind = backgroundData.find((background) => {
     return background.description === `${descriptionData}`;
   });
   if (backGroundToFind) {
-    callback(backGroundToFind.url);
+    callbackBackground(backGroundToFind.url);
   } else {
-    callback("/src/assets/images/clouds.jpg");
+    callbackBackground("/src/assets/images/clouds.jpg");
   }
 };
 
@@ -23,7 +23,5 @@ export const getColorCircle = (
   });
   if (colorCircleToFind) {
     callbackCircleBackground(colorCircleToFind.circleBackground);
-  } else {
-    callbackCircleBackground("/src/assets/images/clouds.jpg");
   }
 };

@@ -8,7 +8,10 @@ import emptyHeart from "../assets/icons/emptyheart.png";
 import whiteHeart from "../assets/icons/white-heart.png";
 import type { NewCity } from "../types/newFavoriteCity";
 import type OutletContextProps from "../types/preferencesWear";
-import { getBackground } from "../utilitiesFunctions/getBackground.tsx";
+import {
+  getBackground,
+  getColorCircle,
+} from "../utilitiesFunctions/getBackground.tsx";
 
 function Today() {
   // GETTER OUTLET CONTEXT
@@ -28,22 +31,28 @@ function Today() {
   }, [favorites]);
 
   const handleClick = (id: string, name: string) => {
+    //Quans on clique sur le coeur
     if (
       !favorites.some((city) => {
-        return city.cityId === id;
+        //.some  est une methode JS si un element du tableau repond a une condition, some return tru or false. Ici,  le ! permet de verifier si une ville est absente des favoris, donc non liked.
+        return city.cityId === id; //En gros on verifie que lq ville n'est pqs dejq dqns les fqvoris
       })
     ) {
       setFavorites((currentFavorites) => [
-        ...currentFavorites,
+        //Si la ville n'est pas dans les favoris, si l"utilisateur clique sur le coeur c"est parce qu"il veut l"ajouter a ses favoris. Donc on met a jour les fav en creant un nouveau tableau, ...currentFavorites pour copier les elements deja present et on ajoute la nouvelle ville au fav.
+        ...currentFavorites, //le spread ici -> notion d"immutabilite en React, c'est a dire qu'il est plus sur de cree des nouvelles copies avec les nouvelles modifiees plutot que de modifier direct les donnees d"un state.
         { cityName: name, cityId: id },
       ]);
       //currentFavorites pour lui dire de regarder d"abord le contenu courant de favorites et de le modifier avant de faire la suite. Ca garantie qu"on prenne bien la valeur telle auelle est au momemt ou on demande l"operation
       //📖 DOC : https://react.dev/reference/react/useState -> "I’ve updated the state, but the screen doesn’t update" AND "My initializer or updater function runs twice"
     } else {
-      setFavorites((currentFavorites) =>
-        currentFavorites.filter((city) => {
-          return city.cityId !== id;
-        }),
+      setFavorites(
+        (
+          currentFavorites, //Si la ville est deja dans les fav donc liked, si l'utilisateur clique dessus c'est parce qu'il souhaite l"enlever de ses favoris. Donc on recopie la liste des fav mais sans cette derniere , et ca la supprime.
+        ) =>
+          currentFavorites.filter((city) => {
+            return city.cityId !== id;
+          }),
       );
     }
   };
@@ -52,7 +61,6 @@ function Today() {
   const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
-  const [description, setDescription] = useState("");
   const [conditions, setConditions] = useState<string>("description");
   const [tempMax, setTempMax] = useState("");
   const [conditID, setConditID] = useState(615);
@@ -69,8 +77,12 @@ function Today() {
           setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
-          setDescription(data.weather[0].main);
           outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
+          if (data.weather[0].main) {
+            // ℹ️ For the background dynamic
+            getBackground(data.weather[0].main, outletContext.setBackground);
+            getColorCircle(data.weather[0].main, outletContext.setColorCircle);
+          }
 
           // ℹ️ For the background dynamic
           description
@@ -103,7 +115,7 @@ function Today() {
     <>
       <section className="today-comp animated-section">
         <div className="circle-container">
-          <svg className="circle-1" height="30rem" width="30rem">
+          <svg className="circle-1" height="20rem" width="30rem">
             <title>animationCircles</title>
             <defs>
               <linearGradient id="my-gradient">
@@ -127,7 +139,7 @@ function Today() {
           <div
             className="cadran-content"
             style={{
-              backgroundColor: `${outletContext.colorCircle}`,
+              background: outletContext.colorCircle,
             }}
           >
             <h2 className="your-city">{outletContext.city}</h2>
@@ -154,7 +166,7 @@ function Today() {
                 src={
                   favorites.some((cities) => {
                     // 💡 SOME = is there one ? true : false
-                    return cities.cityId === outletContext.idCity;
+                    return cities.cityId === outletContext.idCity; //Donc on verifie si la city courrante est dans les favoris, si c'est vrai, on affiche le coeur rempli, si non, le coeur vide.
                   })
                     ? whiteHeart
                     : emptyHeart
