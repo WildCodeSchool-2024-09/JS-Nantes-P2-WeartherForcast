@@ -14,14 +14,16 @@ export const getBackground = (
   }
 };
 
-// export const getColorCircle = (
-//   descriptionData: string,
-//   callbackCircleBackground: (value: string) => void,
-// ) => {
-//   const colorCircleToFind = backgroundData.find((background) => {
-//     return background.description === `${descriptionData}`;
-//   });
-//   if (colorCircleToFind) {
-//     callbackCircleBackground(colorCircleToFind.circleBackground);
-//   }
-// };
+export const getColorCircle = (
+  descriptionData: string,
+  callbackCircleBackground: (value: string) => void,
+) => {
+  const colorCircleToFind = backgroundData.find((background) => {
+    return background.description === `${descriptionData}`;
+  });
+  if (colorCircleToFind) {
+    callbackCircleBackground(colorCircleToFind.circleBackground);
+  } else {
+    callbackCircleBackground("/src/assets/images/clouds.jpg");
+  }
+};

@@ -1,12 +1,14 @@
 interface CityOutletContextType {
   city: string;
   setCity: (city: string) => void;
-  colorCircle: string;
   setBackground: (value: string) => void;
   background: string;
-  setColorCircle: (value: string) => void;
   weatherIcon: string;
+  colorCircle: string;
+  setColorCircle: (string) => void;
   setWeatherIcon: (value: string) => void;
+  setIdCity: (id: string) => void;
+  idCity: string;
 }
 
 export default CityOutletContextType;
