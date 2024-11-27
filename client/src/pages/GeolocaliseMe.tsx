@@ -3,6 +3,7 @@ import "/src/style/geolocaliseMe.css";
 import { useEffect, useState } from "react";
 import emptyHeart from "../assets/icons/emptyheart.png";
 import type CityOutletContextType from "../types/Outletcontext";
+import { getBackground } from "../utilitiesFunctions/getBackground";
 
 export default function GeolocaliseMe() {
   const outletContext = useOutletContext<CityOutletContextType>();
@@ -43,11 +44,11 @@ export default function GeolocaliseMe() {
           tempDescription: `${datas.weather[0].main}`,
           realFeel: `${Math.round(datas.main.feels_like)}`,
         })); //currentState au cas ou on oublie de passer une valeur ou si la donnee est caduque, il y aura toujours l,ancienne valeur qui s'affichera
-        // if (cityInfoMeteo.tempDescription)
-        //   getBackground(
-        //     cityInfoMeteo.tempDescription,
-        //     outletContext.setBackground,
-        //   );
+        if (cityInfoMeteo.tempDescription)
+          getBackground(
+            cityInfoMeteo.tempDescription,
+            outletContext.setBackground,
+          );
       } catch (error) {
         alert("Sorry, we met a problem. Please, come back later.");
       }

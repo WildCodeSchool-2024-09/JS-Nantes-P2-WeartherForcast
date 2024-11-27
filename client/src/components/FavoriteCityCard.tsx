@@ -4,19 +4,24 @@ import rubbishBin from "../assets/icons/rubbish-bin.png";
 import visibilityIcon from "../assets/icons/visibility-icon.png";
 import type CityOutletContextType from "../types/Outletcontext";
 
-export default function FavoriteCityCard() {
+interface FavoriteCityCardProps {
+  name: string;
+  id: string;
+  onClickGarbage: (id: string) => void;
+}
+
+export default function FavoriteCityCard({
+  name,
+  id,
+  onClickGarbage,
+}: FavoriteCityCardProps) {
   const outletContext = useOutletContext<CityOutletContextType>();
   const navigate = useNavigate();
 
-  const handleClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => {
-    outletContext.setCity(`${event.currentTarget.dataset.id}`);
+  const handleClickVisibility = () => {
+    outletContext.setCity(name);
     navigate("/today");
   };
-
-  // TODO: function for remove city of localStorage
-  //TODO: map on cities in localStorage
 
   return (
     <article className="city-favorite-card">
@@ -25,18 +30,12 @@ export default function FavoriteCityCard() {
       </section>
       <section className="city-favorite-card-footer">
         <div className="visibility-container">
-          <button
-            type="button"
-            data-id="Nantes"
-            onClick={(event) => {
-              handleClick(event);
-            }}
-          >
+          <button type="button" onClick={handleClickVisibility}>
             <img className="visibility-icon" src={visibilityIcon} alt="" />
           </button>
         </div>
         <div className="rubbish-bin-container">
-          <button type="button">
+          <button type="button" onClick={() => onClickGarbage(id)}>
             <img className="rubbish-bin-icon" src={rubbishBin} alt="" />
           </button>
         </div>

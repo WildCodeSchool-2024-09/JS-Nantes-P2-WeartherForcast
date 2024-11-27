@@ -6,6 +6,7 @@ export const geolocaliseMe = (
   calbackCity: (value: string) => void,
   callbackBackground: (value: string) => void,
   callbackCircleBackground: (value: string) => void,
+  callBackIdCity: (value: string) => void,
 ) => {
   if ("geolocation" in navigator) {
     const watch = navigator.geolocation.watchPosition(async (position) => {
@@ -16,6 +17,7 @@ export const geolocaliseMe = (
         calbackCity,
         callbackBackground,
         callbackCircleBackground,
+        callBackIdCity,
       );
     }, error);
     //if user don't accept geolocation
@@ -37,6 +39,7 @@ async function recoverCityDatas(
   callbackCity: (value: string) => void,
   callbackBackground: (value: string) => void,
   callbackCircleBackground: (value: string) => void,
+  callBackIdCity: (id: string) => void,
 ) {
   try {
     const request = await fetch(url);
@@ -45,6 +48,7 @@ async function recoverCityDatas(
     const currentDescriptionData = `${datas.weather[0].main}`;
     getBackground(currentDescriptionData, callbackBackground);
     getColorCircle(currentDescriptionData, callbackCircleBackground);
+    callBackIdCity(datas.id);
   } catch (error) {
     alert("Sorry, we met a problem. Please, come back later.");
   }
