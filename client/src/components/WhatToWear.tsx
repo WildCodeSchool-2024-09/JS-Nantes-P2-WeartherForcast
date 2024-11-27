@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink, useOutletContext } from "react-router-dom";
-
 import "../WhatToWear.css";
 import weatherConditions from "../assets/APIWeatherConditions";
 import tempRanges from "../assets/Temps";
 import type CityOutletContextType from "../types/Outletcontext";
+import type { ClothingPrefTypes } from "../types/preferencesWear";
 import type {
   WeatherTempImagesProps,
   weatherConditionItemProps,
@@ -13,7 +13,8 @@ import type {
 
 function WhatToWear(props: wtwProps) {
   const [tempRange, setTempRange] = useState("cool");
-  const { city, clothingPref } = useOutletContext<CityOutletContextType>();
+  const { city } = useOutletContext<CityOutletContextType>();
+  const context = useOutletContext<ClothingPrefTypes | null>();
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - WEATHER CONDITIONS
   const weatherConditionImages: WeatherTempImagesProps = {};
@@ -34,8 +35,12 @@ function WhatToWear(props: wtwProps) {
         }
       }
     }
-    findTemperatureRange(props.tempMax, clothingPref.warmthPref);
-  }, [props.tempMax, clothingPref.warmthPref]);
+    if (context) {
+      if (context.clothingPref) {
+        findTemperatureRange(props.tempMax, context.clothingPref.warmthPref);
+      }
+    }
+  }, [props.tempMax, context]);
 
   // REORDER EXTERNAL ARRAY AND DEFINE IMAGE URLS TO DISPLAY - TEMPERATURE RANGE
 
