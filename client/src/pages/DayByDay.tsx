@@ -6,8 +6,6 @@ import type CityOutletContextType from "../types/Outletcontext";
 function DayByday() {
   const outletContext = useOutletContext<CityOutletContextType>();
 
-  // TODO : clean code with a object for exemple
-  // const [moredata, setData] = useState("");
   const [skyState, setSkyState] = useState("");
   const [skyState1, setSkyState1] = useState("");
   const [skyState2, setSkyState2] = useState("");
@@ -35,7 +33,6 @@ function DayByday() {
     )
       .then((response) => response.json())
       .then((data) => {
-        // setData(data);
         setSkyState(data.list[0].weather[0].icon);
         setSkyState1(data.list[16].weather[0].icon);
         setSkyState2(data.list[24].weather[0].icon);
@@ -58,35 +55,19 @@ function DayByday() {
         setSkyDate4(data.list[39].dt_txt);
       });
   }, [outletContext.city]);
-  const calculateDimensions = (temperature: number) => {
-    const height = temperature * 5;
 
+  const calculateDimensions = (temperature: number, multiplier: number) => {
+    const height = temperature * multiplier;
     return { height };
   };
-  const calculateDimensions1 = (temperature1: number) => {
-    const height = temperature1 * 5;
-    return { height };
-  };
-  const calculateDimensions2 = (temperature2: number) => {
-    const height = temperature2 * 5;
-    return { height };
-  };
-  const calculateDimensions3 = (temperature3: number) => {
-    const height = temperature3 * 5;
-    return { height };
-  };
-  const calculateDimensions4 = (temperature4: number) => {
-    const height = temperature4 * 5;
-    return { height };
-  };
-
   function getDayName(dateStr: string, locale: string) {
     const date = new Date(dateStr);
     return date.toLocaleDateString(locale, { weekday: "long" });
   }
+
   getDayName(skyDate, "en-US");
   const dayname = getDayName(skyDate, "en-US");
-  const firstlettre = Array.from(dayname)[0];
+  const firstletter = Array.from(dayname)[0];
   const secondnumber = Array.from(skyDate)[8] + Array.from(skyDate)[9];
   const dayname1 = getDayName(skyDate1, "en-US");
   const firstlettre1 = Array.from(dayname1)[0];
@@ -105,125 +86,169 @@ function DayByday() {
     <section className="day">
       <div className="container-rectangle">
         <div className="rectangle">
-          <div className="datebdb">{firstlettre}</div>
-          <div className="datebdb">{secondnumber}</div>
+          <div className="day-and-label">
+            <p>{firstletter}</p>
+          </div>
+          <div className="day-and-label">
+            <p>{secondnumber}</p>
+          </div>
           <figcaption>
             <img
+              className="icon-weather-day-by-day"
               src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
               alt="symbole de l'état du ciel"
             />
           </figcaption>
 
-          <div className="temperaturemaxdbd">{temperature}°</div>
+          <div className="temperature-max-dbd">
+            <p>{temperature}°</p>
+          </div>
 
-          <section className="tempsminandrectangle">
+          <section className="temps-min-and-rectangle">
             {temperature && (
               <div
                 className="small-rectangle"
                 style={{
-                  // width: calculateDimensions(temperature).width,
-                  height: calculateDimensions(temperature).height,
+                  height: calculateDimensions(temperature, 5).height,
                   backgroundColor: "white",
                 }}
               />
             )}
           </section>
-          <div className="temperatureminbdb">{temperaturemin}°</div>
+          <div className="temperature-min-dbd">
+            <p>{temperaturemin}°</p>
+          </div>
         </div>
       </div>
       <div className="rectangle">
-        <div className="datebdb">{firstlettre1}</div>
-        <div className="datebdb">{secondnumber1}</div>
+        <div className="day-and-label">
+          <p>{firstlettre1}</p>
+        </div>
+        <div className="day-and-label">
+          <p>{secondnumber1}</p>
+        </div>
         <figcaption>
           <img
+            className="icon-weather-day-by-day"
             src={`http://openweathermap.org/img/wn/${skyState1}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturemaxdbd">{temperature1}°</div>
-        <section className="tempsminandrectangle">
+        <div className="temperature-max-dbd">
+          <p>{temperature1}°</p>
+        </div>
+        <section className="temps-min-and-rectangle">
           {temperature1 && (
             <div
               className="small-rectangle"
               style={{
-                height: calculateDimensions1(temperature1).height,
+                height: calculateDimensions(temperature1, 5).height,
                 backgroundColor: "white",
               }}
             />
           )}
         </section>
-        <div className="temperatureminbdb">{temperaturemin1}°</div>
+        <div className="temperature-min-dbd">
+          <p>{temperaturemin1}°</p>
+        </div>
       </div>
 
       <div className="rectangle">
-        <div className="datebdb">{firstlettre2}</div>
-        <div className="datebdb">{secondnumber2}</div>
+        <div className="day-and-label">
+          <p>{firstlettre2}</p>
+        </div>
+        <div className="day-and-label">
+          <p>{secondnumber2}</p>
+        </div>
         <figcaption>
           <img
+            className="icon-weather-day-by-day"
             src={`http://openweathermap.org/img/wn/${skyState2}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturemaxdbd">{temperature2}°</div>
-        <section className="tempsminandrectangle">
+        <div className="temperature-max-dbd">
+          <p>{temperature2}°</p>
+        </div>
+        <section className="temps-min-and-rectangle">
           {temperature2 && (
             <div
               className="small-rectangle"
               style={{
-                height: calculateDimensions2(temperature2).height,
+                height: calculateDimensions(temperature2, 5).height,
                 backgroundColor: "white",
               }}
             />
           )}
         </section>
-        <div className="temperatureminbdb">{temperaturemin2}°</div>
+        <div className="temperature-min-dbd">
+          <p>{temperaturemin2}°</p>
+        </div>
       </div>
       <div className="rectangle">
-        <div className="datebdb">{firstlettre3}</div>
-        <div className="datebdb">{secondnumber3}</div>
+        <div className="day-and-label">
+          <p>{firstlettre3}</p>
+        </div>
+        <div className="day-and-label">
+          <p>{secondnumber3}</p>
+        </div>
         <figcaption>
           <img
+            className="icon-weather-day-by-day"
             src={`http://openweathermap.org/img/wn/${skyState3}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturemaxdbd">{temperature3}°</div>
-        <section className="tempsminandrectangle">
+        <div className="temperature-max-dbd">
+          <p>{temperature3}°</p>
+        </div>
+        <section className="temps-min-and-rectangle">
           {temperature3 && (
             <div
               className="small-rectangle"
               style={{
-                height: calculateDimensions3(temperature3).height,
+                height: calculateDimensions(temperature3, 5).height,
                 backgroundColor: "white",
               }}
             />
           )}
         </section>
-        <div className="temperatureminbdb">{temperaturemin3}°</div>
+        <div className="temperature-min-dbd">
+          <p>{temperaturemin3}°</p>
+        </div>
       </div>
       <div className="rectangle">
-        <div className="datebdb">{firstlettre4}</div>
-        <div className="datebdb">{secondnumber4}</div>
+        <div className="day-and-label">
+          <p>{firstlettre4}</p>
+        </div>
+        <div className="day-and-label">
+          <p>{secondnumber4}</p>
+        </div>
 
         <figcaption>
           <img
+            className="icon-weather-day-by-day"
             src={`http://openweathermap.org/img/wn/${skyState4}@2x.png`}
             alt="symbole de l'état du ciel"
           />
         </figcaption>
-        <div className="temperaturemaxdbd">{temperature4}°</div>
-        <section className="tempsminandrectangle">
+        <div className="temperature-max-dbd">
+          <p>{temperature4}°</p>
+        </div>
+        <section className="temps-min-and-rectangle">
           {temperature4 && (
             <div
               className="small-rectangle"
               style={{
-                height: calculateDimensions4(temperature4).height,
+                height: calculateDimensions(temperature4, 5).height,
                 backgroundColor: "white",
               }}
             />
           )}
         </section>
-        <div className="temperatureminbdb">{temperaturemin4}°</div>
+        <div className="temperature-min-dbd">
+          <p>{temperaturemin4}°</p>
+        </div>
       </div>
     </section>
   );
