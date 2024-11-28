@@ -1,0 +1,74 @@
+.rectangle {
+  box-shadow: 0 2px 6px var(--shadowColor);
+  height: 420px;
+  width: 40px;
+  background-color: #61aeff;
+  display: flex;
+  border-radius: 20px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon-weather-day-by-day {
+  height: 50px;
+}
+.day {
+  display: flex;
+  margin-top: 10px;
+}
+
+.temperature-max-dbd {
+  color: white;
+  margin-top: 10px;
+  font-size: 20px;
+}
+.temperature-min-dbd {
+  color: white;
+
+  margin-bottom: 10px;
+}
+.temps-min-and-rectangle {
+  display: grid;
+  flex-direction: column;
+
+  height: 380px;
+
+  justify-content: center;
+  align-items: center;
+}
+.small-rectangle {
+  height: 200px;
+  width: 15px;
+  background-color: white;
+  display: flex;
+
+  border-radius: 20px;
+
+  margin-right: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day-and-label {
+  margin-top: 10px;
+  color: white;
+}
+@media (max-height: 667px) {
+  .rectangle {
+    height: 350px;
+    margin-top: 1px;
+  }
+  .temperatureminbdb {
+    margin-bottom: 15px;
+  }
+}
+@media (max-height: 570px) {
+  .rectangle {
+    height: 300px;
+    width: 30px;
+  }
+  .temperatureminbdb {
+    margin-bottom: 10px;
+  }
+}
