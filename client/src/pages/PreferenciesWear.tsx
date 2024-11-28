@@ -33,7 +33,7 @@ function ClothingPreferences() {
   }, [clothingPref]);
 
   return (
-    <div className="cp-main-div">
+    <div className="cp-main-div animated-section">
       <h2 className="cp-title">My Preferences</h2>
 
       {/*Sliders  */}

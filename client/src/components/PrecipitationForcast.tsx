@@ -31,7 +31,7 @@ function PrecipitationForecast() {
   }, [outletContext.city]);
 
   return (
-    <div className="precip-forecast-windows">
+    <div className="precip-forecast-windows animated-section">
       {forecast && forecast > 0 ? (
         <p className="precip-forecast-txt">
           Precipitation expected in the next three hours in {outletContext.city}

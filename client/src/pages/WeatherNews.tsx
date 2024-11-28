@@ -13,7 +13,7 @@ function WeatherNews() {
   };
 
   return (
-    <section className="element">
+    <section className="animated-section element">
       <div className="carousel-container">
         {cityIndex > 0 ? (
           <button className="arrow" type="button" onClick={handleClickDec}>

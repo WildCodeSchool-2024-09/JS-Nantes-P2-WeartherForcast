@@ -74,7 +74,7 @@ function WhatToWearMore() {
 
   return (
     <>
-      <div className="wtwm-mother-div">
+      <div className="wtwm-mother-div animated-section">
         <h3 className="wtwm-humidity-title">Humidity</h3>
         <p>
           With today's humidity in {city} {humidityCounsel[humidityRange]}
