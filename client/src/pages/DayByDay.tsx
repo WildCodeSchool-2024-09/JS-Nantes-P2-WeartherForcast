@@ -83,7 +83,7 @@ function DayByday() {
   const secondNumber4 = Array.from(skyDate4)[8] + Array.from(skyDate4)[9];
 
   return (
-    <section className="day">
+    <section className="animated-section day">
       <div className="container-rectangle">
         <div className="rectangle">
           <div className="day-and-label">
