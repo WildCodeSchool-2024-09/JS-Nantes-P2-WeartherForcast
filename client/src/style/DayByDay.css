@@ -54,6 +54,15 @@
   margin-top: 10px;
   color: white;
 }
+.day-and-label > p {
+  font-size: 15px;
+}
+.temperature-max-dbd > p {
+  font-size: 15px;
+}
+.temperature-min-dbd > p {
+  font-size: 15px;
+}
 @media (max-height: 667px) {
   .rectangle {
     height: 350px;
