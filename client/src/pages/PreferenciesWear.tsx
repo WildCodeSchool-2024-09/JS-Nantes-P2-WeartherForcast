@@ -47,7 +47,7 @@ function ClothingPreferences() {
           min={-10}
           max={10}
           step={1}
-          value={clothingPref.warmthPref}
+          defaultValue={clothingPref?.warmthPref}
           onChange={handleInputChange}
         />
         <figcaption className="cp-slider-div">
@@ -66,7 +66,7 @@ function ClothingPreferences() {
           max={10}
           step={1}
           name="humidityPref"
-          value={clothingPref.humidityPref}
+          defaultValue={clothingPref?.humidityPref}
           onChange={handleInputChange}
         />
         <figcaption className="cp-slider-div">
@@ -82,7 +82,7 @@ function ClothingPreferences() {
             type="checkbox"
             id="bikePref"
             name="bikePref"
-            checked={clothingPref.bikePref}
+            defaultChecked={clothingPref?.bikePref}
             onChange={handleInputChangeChkBox}
           />
           <p>go bike riding</p>
@@ -90,7 +90,7 @@ function ClothingPreferences() {
             type="checkbox"
             id="walkPref"
             name="walkPref"
-            checked={clothingPref.walkPref}
+            defaultChecked={clothingPref?.walkPref}
             onChange={handleInputChangeChkBox}
           />
           <p>walk long distances</p>
@@ -98,7 +98,7 @@ function ClothingPreferences() {
             type="checkbox"
             id="drivePref"
             name="drivePref"
-            checked={clothingPref.drivePref}
+            defaultChecked={clothingPref?.drivePref}
             onChange={handleInputChangeChkBox}
           />
           <p>drive a vehicle</p>
@@ -106,7 +106,7 @@ function ClothingPreferences() {
             type="checkbox"
             id="pubTransPref"
             name="pubTransPref"
-            checked={clothingPref.pubTransPref}
+            defaultChecked={clothingPref?.pubTransPref}
             onChange={handleInputChangeChkBox}
           />
           <p>use public transport</p>
