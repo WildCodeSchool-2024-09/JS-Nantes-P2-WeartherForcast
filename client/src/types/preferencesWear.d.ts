@@ -1,7 +1,7 @@
 export interface ClothingPrefTypes {
   clothingPref: {
-    warmthPref: "";
-    humidityPref: "";
+    warmthPref: string;
+    humidityPref: string;
     bikePref: false;
     pubTransPref: false;
     drivePref: false;
