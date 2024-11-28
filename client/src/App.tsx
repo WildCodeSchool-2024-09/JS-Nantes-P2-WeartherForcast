@@ -18,6 +18,8 @@ export default function App() {
   const [background, setBackground] = useState("");
   //COLOR CIRCLE METEO INFO STATE
   const [colorCircle, setColorCircle] = useState("");
+  //WEATHER ICONS STATE FOR WEATHER INFO
+  const [weatherIcon, setWeatherIcon] = useState("");
 
   //CLOTHING PREFERENCES
   // @ts-expect-error
@@ -62,6 +64,8 @@ export default function App() {
               colorCircle,
               setBackground,
               background,
+              setWeatherIcon,
+              weatherIcon,
               setIdCity,
               idCity,
               clothingPref,

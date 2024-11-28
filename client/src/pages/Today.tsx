@@ -12,6 +12,7 @@ import {
   getBackground,
   getColorCircle,
 } from "../utilitiesFunctions/getBackground.tsx";
+import { getWheatherIcons } from "../utilitiesFunctions/getWeatherIcons.tsx";
 
 function Today() {
   // GETTER OUTLET CONTEXT
@@ -31,34 +32,26 @@ function Today() {
   }, [favorites]);
 
   const handleClick = (id: string, name: string) => {
-    //Quans on clique sur le coeur
     if (
       !favorites.some((city) => {
-        //.some  est une methode JS si un element du tableau repond a une condition, some return tru or false. Ici,  le ! permet de verifier si une ville est absente des favoris, donc non liked.
-        return city.cityId === id; //En gros on verifie que lq ville n'est pqs dejq dqns les fqvoris
+        return city.cityId === id;
       })
     ) {
       setFavorites((currentFavorites) => [
-        //Si la ville n'est pas dans les favoris, si l"utilisateur clique sur le coeur c"est parce qu"il veut l"ajouter a ses favoris. Donc on met a jour les fav en creant un nouveau tableau, ...currentFavorites pour copier les elements deja present et on ajoute la nouvelle ville au fav.
-        ...currentFavorites, //le spread ici -> notion d"immutabilite en React, c'est a dire qu'il est plus sur de cree des nouvelles copies avec les nouvelles modifiees plutot que de modifier direct les donnees d"un state.
+        ...currentFavorites,
         { cityName: name, cityId: id },
       ]);
-      //currentFavorites pour lui dire de regarder d"abord le contenu courant de favorites et de le modifier avant de faire la suite. Ca garantie qu"on prenne bien la valeur telle auelle est au momemt ou on demande l"operation
       //📖 DOC : https://react.dev/reference/react/useState -> "I’ve updated the state, but the screen doesn’t update" AND "My initializer or updater function runs twice"
     } else {
-      setFavorites(
-        (
-          currentFavorites, //Si la ville est deja dans les fav donc liked, si l'utilisateur clique dessus c'est parce qu'il souhaite l"enlever de ses favoris. Donc on recopie la liste des fav mais sans cette derniere , et ca la supprime.
-        ) =>
-          currentFavorites.filter((city) => {
-            return city.cityId !== id;
-          }),
+      setFavorites((currentFavorites) =>
+        currentFavorites.filter((city) => {
+          return city.cityId !== id;
+        }),
       );
     }
   };
 
   // CALL API AND DATA STATES
-  const [skyState, setSkyState] = useState("");
   const [temperature, setTemperature] = useState<number>();
   const [realFeel, setRealFeel] = useState<number>();
   const [conditions, setConditions] = useState<string>("description");
@@ -74,7 +67,6 @@ function Today() {
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
-          setSkyState(data.weather[0].icon);
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
           outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
@@ -82,6 +74,10 @@ function Today() {
             // ℹ️ For the background dynamic
             getBackground(data.weather[0].main, outletContext.setBackground);
             getColorCircle(data.weather[0].main, outletContext.setColorCircle);
+            getWheatherIcons(
+              data.weather[0].main,
+              outletContext.setWeatherIcon,
+            );
           }
           setConditions(data.weather[0].description);
           setTempMax(data.main.temp_max);
@@ -100,6 +96,7 @@ function Today() {
     setWindDirection,
     setWind,
     outletContext.setColorCircle,
+    outletContext.setWeatherIcon,
   ]);
 
   //SET THE DATE
@@ -140,10 +137,7 @@ function Today() {
             <h2 className="your-city">{outletContext.city}</h2>
             <div className="state-temp">
               <figcaption>
-                <img
-                  src={`http://openweathermap.org/img/wn/${skyState}@2x.png`}
-                  alt="symbole de l'état du ciel"
-                />
+                <img src={outletContext.weatherIcon} alt="" />
               </figcaption>
               <h3 className="temperature">{temperature}°</h3>
             </div>
@@ -161,7 +155,7 @@ function Today() {
                 src={
                   favorites.some((cities) => {
                     // 💡 SOME = is there one ? true : false
-                    return cities.cityId === outletContext.idCity; //Donc on verifie si la city courrante est dans les favoris, si c'est vrai, on affiche le coeur rempli, si non, le coeur vide.
+                    return cities.cityId === outletContext.idCity;
                   })
                     ? whiteHeart
                     : emptyHeart
