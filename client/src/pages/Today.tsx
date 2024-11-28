@@ -69,11 +69,11 @@ function Today() {
         .then((data) => {
           setTemperature(Math.round(data.main.temp));
           setRealFeel(Math.round(data.main.feels_like));
+          outletContext.setIdCity(data.id); // ℹ️ For the favorites gestion
           if (data.weather[0].main) {
             // ℹ️ For the background dynamic
             getBackground(data.weather[0].main, outletContext.setBackground);
             getColorCircle(data.weather[0].main, outletContext.setColorCircle);
-            // ℹ️ For the icon dynamic
             getWheatherIcons(
               data.weather[0].main,
               outletContext.setWeatherIcon,
@@ -86,7 +86,6 @@ function Today() {
           setWindDirection(data.wind.deg);
           setNewHumidity(data.main.humidity);
         })
-
         .catch((err) => console.error(err));
     }
   }, [
@@ -97,6 +96,7 @@ function Today() {
     setWindDirection,
     setWind,
     outletContext.setColorCircle,
+    outletContext.setWeatherIcon,
   ]);
 
   //SET THE DATE
