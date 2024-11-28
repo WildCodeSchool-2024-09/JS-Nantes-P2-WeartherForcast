@@ -107,7 +107,7 @@ function Today() {
     <>
       <section className="today-comp animated-section">
         <div className="circle-container">
-          <svg className="circle-1" height="30rem" width="30rem">
+          <svg className="circle-1" height="20rem" width="30rem">
             <title>animationCircles</title>
             <defs>
               <linearGradient id="my-gradient">
@@ -131,7 +131,7 @@ function Today() {
           <div
             className="cadran-content"
             style={{
-              backgroundColor: `${outletContext.colorCircle}`,
+              background: outletContext.colorCircle,
             }}
           >
             <h2 className="your-city">{outletContext.city}</h2>
