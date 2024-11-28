@@ -66,31 +66,31 @@ function DayByday() {
   }
 
   getDayName(skyDate, "en-US");
-  const dayname = getDayName(skyDate, "en-US");
-  const firstletter = Array.from(dayname)[0];
-  const secondnumber = Array.from(skyDate)[8] + Array.from(skyDate)[9];
-  const dayname1 = getDayName(skyDate1, "en-US");
-  const firstlettre1 = Array.from(dayname1)[0];
-  const secondnumber1 = Array.from(skyDate1)[8] + Array.from(skyDate1)[9];
-  const dayname2 = getDayName(skyDate2, "en-US");
-  const firstlettre2 = Array.from(dayname2)[0];
-  const secondnumber2 = Array.from(skyDate2)[8] + Array.from(skyDate2)[9];
-  const dayname3 = getDayName(skyDate3, "en-US");
-  const firstlettre3 = Array.from(dayname3)[0];
-  const secondnumber3 = Array.from(skyDate3)[8] + Array.from(skyDate3)[9];
-  const dayname4 = getDayName(skyDate4, "en-US");
-  const firstlettre4 = Array.from(dayname4)[0];
-  const secondnumber4 = Array.from(skyDate4)[8] + Array.from(skyDate4)[9];
+  const dayName = getDayName(skyDate, "en-US");
+  const firstLetter = Array.from(dayName)[0];
+  const secondNumber = Array.from(skyDate)[8] + Array.from(skyDate)[9];
+  const dayName1 = getDayName(skyDate1, "en-US");
+  const firstLettre1 = Array.from(dayName1)[0];
+  const secondNumber1 = Array.from(skyDate1)[8] + Array.from(skyDate1)[9];
+  const dayName2 = getDayName(skyDate2, "en-US");
+  const firstLettre2 = Array.from(dayName2)[0];
+  const secondNumber2 = Array.from(skyDate2)[8] + Array.from(skyDate2)[9];
+  const dayName3 = getDayName(skyDate3, "en-US");
+  const firstLettre3 = Array.from(dayName3)[0];
+  const secondNumber3 = Array.from(skyDate3)[8] + Array.from(skyDate3)[9];
+  const dayName4 = getDayName(skyDate4, "en-US");
+  const firstLettre4 = Array.from(dayName4)[0];
+  const secondNumber4 = Array.from(skyDate4)[8] + Array.from(skyDate4)[9];
 
   return (
     <section className="day">
       <div className="container-rectangle">
         <div className="rectangle">
           <div className="day-and-label">
-            <p>{firstletter}</p>
+            <p>{firstLetter}</p>
           </div>
           <div className="day-and-label">
-            <p>{secondnumber}</p>
+            <p>{secondNumber}</p>
           </div>
           <figcaption>
             <img
@@ -122,10 +122,10 @@ function DayByday() {
       </div>
       <div className="rectangle">
         <div className="day-and-label">
-          <p>{firstlettre1}</p>
+          <p>{firstLettre1}</p>
         </div>
         <div className="day-and-label">
-          <p>{secondnumber1}</p>
+          <p>{secondNumber1}</p>
         </div>
         <figcaption>
           <img
@@ -155,10 +155,10 @@ function DayByday() {
 
       <div className="rectangle">
         <div className="day-and-label">
-          <p>{firstlettre2}</p>
+          <p>{firstLettre2}</p>
         </div>
         <div className="day-and-label">
-          <p>{secondnumber2}</p>
+          <p>{secondNumber2}</p>
         </div>
         <figcaption>
           <img
@@ -187,10 +187,10 @@ function DayByday() {
       </div>
       <div className="rectangle">
         <div className="day-and-label">
-          <p>{firstlettre3}</p>
+          <p>{firstLettre3}</p>
         </div>
         <div className="day-and-label">
-          <p>{secondnumber3}</p>
+          <p>{secondNumber3}</p>
         </div>
         <figcaption>
           <img
@@ -219,10 +219,10 @@ function DayByday() {
       </div>
       <div className="rectangle">
         <div className="day-and-label">
-          <p>{firstlettre4}</p>
+          <p>{firstLettre4}</p>
         </div>
         <div className="day-and-label">
-          <p>{secondnumber4}</p>
+          <p>{secondNumber4}</p>
         </div>
 
         <figcaption>
