@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: aliceblue;
+  background-color: var(--mainColor);
   border: #303030 1 px;
   border-radius: 40px;
   box-shadow: 0 2px 6px var(--shadowColor);
@@ -16,11 +16,12 @@
 }
 
 .cp-title {
-  padding: 8px 0px 8px 0px;
+  padding: 30px 0px 30px 0px;
   font-family: "Inter", sans-serif;
-  color: #73bae1;
-  border-bottom: solid 1px #303030;
+  color: var(--font-highlight-color);
+  border-bottom: solid 1px var(--shadowColor);
   width: 100%;
+  font-size: 2em;
 }
 
 .cp-slide-title {
@@ -34,7 +35,7 @@
 .cp-slider-div {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
 }
 
 .cp-slider {
@@ -65,7 +66,7 @@
 .wtwm-mother-div {
   margin: 16px 0 0 0;
   width: 322px;
-  background-color: aliceblue;
+  background-color: var(--mainColor);
   border: #303030 1 px;
   border-radius: 40px;
   box-shadow: 0 2px 6px var(--shadowColor);
